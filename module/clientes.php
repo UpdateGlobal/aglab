@@ -7,7 +7,7 @@
 
                 <div class="flat-divider d20px"></div>
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
 
                 <div class="clients-image clearfix">
                     <div class="item-three-column">
@@ -91,6 +91,23 @@
  <h3 class="flat-title-section style style1">loren <span>Ipsun</span></h3>
 
 
+            <div class="widget widget_text">
+                <div class="textwidget">
+                    <div class="content-text">
+                        
+                        <ul>
+                            <li class="box_cont"><b>loren ipsum</b></li>
+                            <li class="box_more">Telefono: +51 123456789</li>
+                            <li class="box_more">Fax: +51 123456789</li>
+                            <li class="box_more">Mail: info@aglab.com.pe</li>
+                        </ul>
+                            <a class="button white box_buttun" href="partners.html#">Contactanos<i class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div><!-- /.textwidget -->
+            </div>
+
+
+            
             <div class="widget widget_text">
                 <div class="textwidget">
                     <div class="content-text">

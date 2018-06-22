@@ -11,6 +11,22 @@ email:     	info@themepunch.com
 website:   	http://www.themepunch.com
 -----------------------------------------------------------------------------*/
 
+@font-face {
+    font-family: "aglabtitle";
+    src: url('CircularStd-Black.ttf') format("opentype");
+}
+
+
+@font-face {
+    font-family: "aglasub";
+    src: url('ProximaNova-Semibold.ttf') format("opentype");
+}
+
+
+@font-face {
+    font-family: "aglabtext";
+    src: url('ProximaNova-Regular.ttf') format("opentype");
+}
 
 
 /*************************
@@ -2468,11 +2484,15 @@ zoom: 1;
 
 .tp-rightarrow.square:before {
 	content: "\f105";
+	transform: rotate(-5deg);
+	border-radius: 25%;
 }
 
 .tp-leftarrow.square:hover,
 .tp-rightarrow.square:hover {
 	opacity: 0.7;
+	transform: rotate(45deg);
+	border-radius: 25%;
 }
 
 .tp-leftarrow.square:hover:before,
@@ -2480,12 +2500,14 @@ zoom: 1;
 	color: #21242b;
 	opacity: 1;
 	font-size: 32px;
+	transform: rotate(-45deg);
+	border-radius: 25%;
 }
 
 /* Text slider */
 .tp-caption .title-slide,
 .tp-caption.title-slide {
-	font-family: "Poppins", sans-serif;
+	font-family: aglabtitle;
 	font-size: 60px;
     color: rgb(255, 255, 255);
     text-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 3px;
@@ -2496,10 +2518,11 @@ zoom: 1;
     padding: 0px;
     letter-spacing: 0px;
     font-weight: 600;
+    letter-spacing: -2px;
 }
 
 .tp-caption.desc-slide {
-	font-family: "Poppins", sans-serif;
+	font-family: aglasub;
 	font-size: 18px;
     color: rgb(255, 255, 255);
     text-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 3px;
@@ -2510,26 +2533,28 @@ zoom: 1;
     padding: 0px;
     letter-spacing: 0px;
     font-weight: 500;
+    letter-spacing: -2px;
 }
 
 /* Button slider */
 .flat-button-slider {
-	display: inline-block;
-    font-family: "Source Sans Pro", sans-serif;
+display: inline-block;
+    font-family: aglabtext;
     font-size: 15px;
+    top: 300px !important;
     color: #fff;
     text-transform: uppercase;
     background-color: #21242b;
     font-weight: 700;
-    letter-spacing: 0px;
+    letter-spacing: -2px;
     padding-left: 35px;
     z-index: 1;
     padding: 15px 35px;
     -webkit-transition-duration: 0.3s;
-       -moz-transition-duration: 0.3s;
-        -ms-transition-duration: 0.3s;
-         -o-transition-duration: 0.3s;
-            transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -ms-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .flat-button-slider.bg-button-slider-32bfc0 {

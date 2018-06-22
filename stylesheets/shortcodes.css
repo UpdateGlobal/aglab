@@ -28,6 +28,37 @@
   * Flat shop
 */
 
+
+@font-face {
+    font-family: "aglabtitle";
+    src: url('CircularStd-Black.ttf') format("opentype");
+}
+
+
+@font-face {
+    font-family: "aglasub";
+    src: url('ProximaNova-Semibold.ttf') format("opentype");
+}
+
+
+@font-face {
+    font-family: "aglabtext";
+    src: url('ProximaNova-Regular.ttf') format("opentype");
+}
+
+.aglabtitle{
+    font-family: aglabtitle;
+}
+.aglasub{
+    font-family: aglasub;
+}
+
+.aglabtext{
+    font-family: aglabtext;
+}
+
+
+
 /* Item
 -------------------------------------------------------------- */
 .item-two-column {
@@ -344,6 +375,7 @@
     position: relative;
     padding: 2px 0;
     margin: 30px 0 40px 0;
+    letter-spacing: -2px;
 }
 
 
@@ -857,7 +889,7 @@
 
 /* Promobox style1 */
 .promobox.style1 {
-    padding: 17px 10px 18px 0;
+    padding: 60px 10px 60px 0;
 }
 
 .promobox.style1 .promobox-title {
@@ -878,6 +910,8 @@
 
 .promobox.style2 .promobox-title {
     color: #fff;
+    font-size: 28px;
+    font-family: "aglabtitle";
 }
 
 .promobox.style2 .button {
@@ -1293,6 +1327,7 @@ ul.flat-list li {
 
 .flat-iconbox .box-header .box-title {
     margin: 0;
+    font-family: "aglasub";
 }
 
 .flat-iconbox .box-header .box-title a {
@@ -2001,6 +2036,7 @@ label.error {
 
 .iconbox.style1 .box-content {
     overflow: hidden;
+        font-family: aglabtext;
 }
 
 .iconbox.style1:hover .box-header .box-icon i:after {
@@ -2013,6 +2049,8 @@ label.error {
 .iconbox.style1 .box-header .box-title {
     margin-top: 0;
     margin-bottom: 0;
+    font-family: aglabtitle;
+    letter-spacing: -1px;
 }
 
 /* Progress Bar
@@ -2268,6 +2306,7 @@ label.error {
 
 .widget.widget_products ul li {
     display: inline-block;
+    letter-spacing: -1px;
     width: 100%;
     padding: 20px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);

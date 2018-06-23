@@ -4,7 +4,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <img src="images/colores.svg" class="img-responsive abt_img2 ">
-                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt"  style="margin: 0px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                    <p class="grey-text text-lighten-4 text_foot img_foo foo_bt"  style="margin: 0px;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente.</p>
                       <div class="row img_foo2">
                         <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
@@ -19,7 +19,7 @@
                 <div class="container" style="font-size: 10px;">
                     <div class="row" align="center">
                         <div class="col-md-12" >
-                             <p class="foo_bt">Update Global Marketing © | info@update.pe </p>   
+                             <p class="foo_bt">Aglab Perú 2018 © | Desarrollo web <a href="#">Update Global Marketing</a> </p>   
                         </div>
                     </div>
                 </div>

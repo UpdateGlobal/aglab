@@ -6,25 +6,25 @@
                 <div class="row" style="margin-bottom: 80px;">
                     <div class="col-md-6 col-xs-12">
                         <div class="col-md-12">
-                            <h2 class="flat-title-section style mag-bottom0px">Nuevas  <span class="scheme">Noticias.</span></h2>
-                            <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum text</p>
-                            <a class="button lg" href="">make a quote <i class="fa fa-chevron-right"></i></a>
+                            <h2 class="flat-title-section style mag-bottom0px">Quienes  <span class="scheme">Somos.</span></h2>
+                            <p style="text-align: justify;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente. <br><br>Gracias al esfuerzo y profesionalidad de un equipo sólido, AGLAB PERU actual­mente esta posicionada como una empresa competitiva en su sector, que trabaja por dar un servicio de valor añadido. Mediante un alto grado de especialización y una filo­sofía de mejora continua, AGLAB PERU ha conseguido trabajar para las empresas más destacadas de diversas industrias. </p>
+                            <a class="button lg" href="">Ver Productos <i class="fa fa-chevron-right"></i></a>
                         </div><!-- /.col-md-12 -->
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="col-md-12">
-                           <h2 class="flat-title-section style mag-bottom0px">Latest <span class="scheme">news.</span></h2>
+                           <h2 class="flat-title-section style mag-bottom0px">Últimas <span class="scheme">Noticias.</span></h2>
 
                                 <!--item-->
                                 <div class="flat-iconbox ">
                                     <div class="box-header">
                                         <div class="box-icon"><img src="images/services/2.jpg" alt="images"></div>
-                                        <h5 class="box-title">Multimodal transport</h5>
+                                        <h5 class="box-title">Aglab Participa en jornada de Responsabilidad Social en Lurín</h5>
                                     </div>
                                     <div class="box-content">
-                                        When it comes to multimodal transport services, Canava Transport has connections you can trust.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam blanditiis libero aliquam...
                                         <p class="box-readmore">
-                                            <a href="services-detail-v2.html">Read more</a>
+                                            <a href="services-detail-v2.html">Continuar Leyendo</a>
                                         </p>
                                     </div>
                                 </div>
@@ -33,12 +33,12 @@
                                 <div class="flat-iconbox ">
                                     <div class="box-header">
                                         <div class="box-icon"><img src="images/services/2.jpg" alt="images"></div>
-                                        <h5 class="box-title">Multimodal transport</h5>
+                                        <h5 class="box-title">Nueva Línea de Lavado para vehículos pesados</h5>
                                     </div>
                                     <div class="box-content">
-                                        When it comes to multimodal transport services, Canava Transport has connections you can trust.
+                                        WLorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam blanditiis libero aliquam...
                                         <p class="box-readmore">
-                                            <a href="services-detail-v2.html">Read more</a>
+                                            <a href="services-detail-v2.html">Continuar Leyendo</a>
                                         </p>
                                     </div>
                                 </div>

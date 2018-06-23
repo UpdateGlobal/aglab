@@ -1,132 +1,59 @@
-<div class="container">
-    <div class="row" style="margin-top: 50px;">
-        <div class="col-md-8 col-xs 12">
-            
-            <div class="general">
-                <h3 class="flat-title-section style style1">loren <span>Ipsun</span></h3>
+<div class="flat-row bg-scheme pad-top20px pad-bottom20px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c1.png" alt="images">
+                            </div>
+                            <p class="tooltip">Laurentides</p>
+                        </div>
+                    </div><!-- /.col-md-2 -->
 
-                <div class="flat-divider d20px"></div>
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c2.png" alt="images">
+                            </div>
+                            <p class="tooltip">Veolia</p>
+                        </div>
+                    </div><!-- /.col-md-2 -->
 
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c3.png" alt="images">
+                            </div>
+                            <p class="tooltip">Plane Business</p>
+                        </div>
+                    </div><!-- /.col-md-2 -->
 
-                <div class="clients-image clearfix">
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c4.png" alt="images">
+                            </div>
+                            <p class="tooltip">Arrow GLS</p>
                         </div>
-                        <p class="tooltip">Logistics</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/2.png" alt="images">
-                        </div>
-                        <p class="tooltip">Royal Resort</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/3.png" alt="images">
-                        </div>
-                        <p class="tooltip">Hexagon</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/4.png" alt="images">
-                        </div>
-                        <p class="tooltip">Plusinfinit</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/5.png" alt="images">
-                        </div>
-                        <p class="tooltip">Overseas Transport</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/6.png" alt="images">
-                        </div>
-                        <p class="tooltip">Contruction Solutions</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
-                        </div>
-                        <p class="tooltip">Logistics</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/2.png" alt="images">
-                        </div>
-                        <p class="tooltip">Royal Resort</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/3.png" alt="images">
-                        </div>
-                        <p class="tooltip">Hexagon</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/4.png" alt="images">
-                        </div>
-                        <p class="tooltip">Plusinfinit</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/5.png" alt="images">
-                        </div>
-                        <p class="tooltip">Overseas Transport</p>
-                    </div>
-                    <div class="item-three-column">
-                        <div class="item-img">
-                            <img src="images/client/6.png" alt="images">
-                        </div>
-                        <p class="tooltip">Contruction Solutions</p>
-                    </div>
-                </div><!-- /.flat-clients-image -->
-            </div>
+                    </div><!-- /.col-md-2 -->
 
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c5.png" alt="images">
+                            </div>
+                            <p class="tooltip">MWR Transport</p>
+                        </div>
+                    </div><!-- /.col-md-2 -->
+
+                    <div class="col-md-2">
+                        <div class="clients-image style">
+                            <div class="item-img">
+                                <img src="images/client/c6.png" alt="images">
+                            </div>
+                            <p class="tooltip">Bradbell</p>
+                        </div>
+                    </div><!-- /.col-md-2 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
         </div>
-        <div class="col-md-4 col-xs-12">
-
- <h3 class="flat-title-section style style1">loren <span>Ipsun</span></h3>
-
-
-            <div class="widget widget_text">
-                <div class="textwidget">
-                    <div class="content-text">
-                        
-                        <ul>
-                            <li class="box_cont"><b>loren ipsum</b></li>
-                            <li class="box_more">Telefono: +51 123456789</li>
-                            <li class="box_more">Fax: +51 123456789</li>
-                            <li class="box_more">Mail: info@aglab.com.pe</li>
-                        </ul>
-                            <a class="button white box_buttun" href="partners.html#">Contactanos<i class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div><!-- /.textwidget -->
-            </div>
-
-
-            
-            <div class="widget widget_text">
-                <div class="textwidget">
-                    <div class="content-text">
-                        
-                        <ul>
-                            <li class="box_cont"><b>loren ipsum</b></li>
-                            <li class="box_more">Telefono: +51 123456789</li>
-                            <li class="box_more">Fax: +51 123456789</li>
-                            <li class="box_more">Mail: info@aglab.com.pe</li>
-                        </ul>
-                            <a class="button white box_buttun" href="partners.html#">Contactanos<i class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div><!-- /.textwidget -->
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-
-                    

@@ -13,12 +13,12 @@
 
 <?php   include ('module/menus.php'); 
         include ('module/slides.php'); 
-        include ('module/flat.php'); 
+        include ('module/clientes.php'); 
         include ('module/seccion_1.php'); 
         include ('module/seccion_2.php'); 
         include ('module/productos.php'); 
-        include ('cintillo_contacto.php'); 
-        include ('module/clientes.php'); 
+        include ('module/cintillo_contacto.php'); 
+        include ('module/sectores.php'); 
         include ('module/footer.php');
 ?>
 

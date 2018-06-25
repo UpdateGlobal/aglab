@@ -7,21 +7,21 @@
                 <ul class="product_list_widget">
                     <li>
                         <a href="#">
-                            <img src="images/products/1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images">
                             <h5 class="box-title">Ácido Peracético</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/products/1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images">
                            <h5 class="box-title">Detergente para Camiones</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/products/1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images">
                            <h5 class="box-title">Solventes residuales </h5>
                         </a>
                         <span class="amount">s/ 85.49</span>

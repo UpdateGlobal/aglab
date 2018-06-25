@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="flat-wrapper">
                                 <div id="logo" class="logo">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="images/colores.svg" alt="images">
                                     </a>
                                 </div>
@@ -19,37 +19,14 @@
                                 <div class="nav-wrap">                                
                                     <nav id="mainnav" class="mainnav">
                                         <ul class="menu"> 
-                                            <li class="home">
-                                                <a href="index.html">Aglab</a>
-                                                <ul class="submenu"> 
-                                                    <li><a href="#">Item1</a></li>
-                                                </ul><!-- /.submenu -->
+                                            <li><a href="nosotros.php">Empresas</a></li>
+                                            <li><a href="tienda.php">Productos</a></li>
+                                            <li><a href="maquila.php">Maquila</a></li>
+                                            <li><a href="servicio.php">Servicios</a></li>                                              
+                                            <li><a href="blog.php">Blog</a>
                                             </li>
-                                            <li><a href="about.html">Productos</a>
-                                                <ul class="submenu">
-                                                    <li><a href="#">Item2</a></li>
-                                                </ul><!-- /.submenu -->
-                                            </li>
-                                            <li><a href="services.html">Maquila</a>
-                                                <ul class="submenu"> 
-                                                    <li><a href="#">Item3</a></li>
-                                                </ul><!-- /.submenu -->
-                                            </li>
-                                            <li><a href="portfolio.html">Servicios</a>
-                                                <ul class="submenu">
-                                                    <li><a href="#">Item4</a></li>
-                                                </ul><!-- /.submenu -->
-                                            </li>                                              
-                                            <li><a href="blog.html">Noticias</a>
-                                                <ul class="submenu">
-                                                    <li><a href="#">Item5</a></li>
-                                                </ul><!-- /.submenu -->
-                                            </li>
-                                            <li><a href="home-header-classic.html#">FAQ</a>
-                                                <ul class="submenu">
-                                                    <li><a href="#">Item6</a></li>
-                                                </ul><!-- /.submenu -->
-                                            </li>
+                                            <li><a href="faq.php">FAQ</a></li>
+                                            <li><a href="contacto.php">Contacto</a></li>
                                         </ul><!-- /.menu -->                                        
                                     </nav><!-- /.mainnav -->  
                                 </div><!-- /.nav-wrap -->

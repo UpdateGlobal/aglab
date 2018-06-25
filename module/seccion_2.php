@@ -1,8 +1,16 @@
+<style type="text/css">
+
+@media screen and (max-width: 1147px){}
+.alto_bg{
+    height: 437px;
+}
+}
+</style>
 <div class="container-fluid bg_seccion2">
 	<div class="row">
-		<div class="col-md-6 col-xs-12" style="padding: 0;">
+		<div class="col-md-6 col-xs-12 alto_bg" style="padding: 0; background:url(images/p7.jpg); background-size: cover; ">
 
-			<img src="images/p7.jpg" class="bg_contac" style="">
+			<!-- <img src="images/p7.jpg" class="bg_contac" style=""> --> 
 			
 		</div>
 		<div class="col-md-6 col-xs-12" style="background-color: #68aee3;padding: 0px;">

@@ -583,10 +583,10 @@
 }
 
 .blog-shortcode .blog-post .entry-header .entry-time {
-    margin: 0 20px 0 0;
+    margin: 0px 21px 0px 10px;
     float: left;
     width: 50px;
-    background-color: #ffc952;
+    background-color: #275496;
     text-align: center;
     font-size: 16px;
     color: #fff;
@@ -594,10 +594,13 @@
     height: 50px;
     padding-top: 8px;
     position: relative;
+    border-radius: 25%;
+    transform: rotate(-45deg);
 }
 
 .blog-shortcode .blog-post .entry-header .entry-time span {
     display: block;
+    transform: rotate(45deg);
 }
 
 .blog-shortcode .blog-post .entry-header .entry-title {
@@ -2040,7 +2043,7 @@ label.error {
 }
 
 .iconbox.style1:hover .box-header .box-icon i:after {
-    background-color: #ffc952;
+    background-color: #275496;
     -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
@@ -2171,7 +2174,7 @@ label.error {
     display: block;
     margin: 0 0 15px 0;
     font-weight: bold;
-    color: #ffc952;
+    color: #68aee3;
 }
 
 .woocommerce .products li .product-info .product-info-wrap .button {

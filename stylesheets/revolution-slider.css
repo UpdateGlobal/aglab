@@ -2508,7 +2508,7 @@ zoom: 1;
 .tp-caption .title-slide,
 .tp-caption.title-slide {
 	font-family: aglabtitle;
-	font-size: 60px;
+	font-size: 48px !important;
     color: rgb(255, 255, 255);
     text-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 3px;
     transition: none;

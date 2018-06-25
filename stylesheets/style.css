@@ -1667,7 +1667,7 @@ a.scheme:hover {
 
 .breadcrumbs:before {
     content: "\e096";
-    color: #ffc952;
+    color: #68aee3;
     font-family: "simple-line-icons";
     font-size: 24px;
     display: inline-block;
@@ -3439,26 +3439,84 @@ CLIENTES
 
 
 
+/*
+
+NOSOTROS
+
+*/
+.flat-title-section_nosotros {
+    overflow: hidden;
+    position: relative;
+    padding: 2px 0;
+    margin: 7px 0 40px 0;
+    letter-spacing: -2px;
+}
+.flat-title-section_nosotros.style:after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    background: url("../images/icon/bg-heading.svg");
+    width: 200%;
+    height: 16px;
+    margin: 0 -200% 0 25px;
+}
+
+
+.bg_nosotros{
+	background-color: #f9f9f9;
+}
+
+
+
+.scheme2 {
+    color: #68aee3;
+	font-size: 36px;
+    font-family: "aglabtitle";
+    font-weight: 900;
+    font-style: normal;
+ }
+   
 
 
 
 
+/*
+
+FAQ
+
+*/
+
+.style12 {
+    margin-top: 40px;
+    padding-bottom: 40px;
+    /*border-bottom: 1px solid #0000115c;*/
+}
+
+.widgetx.widget_textx .textwidgetx .content-textx {
+    padding: 30px;
+    background-color: #68aee3;
+    margin-top: 40px;
+}
+
+.entry-meta, span {
+    font-size: 15px;
+    font-family: "aglasub";
+}
 
 
 
+.flat-title-section2 {
+    overflow: hidden;
+    position: relative;
+    padding: 2px 0;
+    margin: 20px 0 10px 0;
+    letter-spacing: -2px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.flat-title-section3 {
+    overflow: hidden;
+    position: relative;
+    padding: 2px 0;
+    margin: 10px 0 10px 0;
+    letter-spacing: -2px;
+}

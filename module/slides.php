@@ -3,7 +3,7 @@
             <div class="tp-banner" >
                 <ul>
                     <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                        <img src="images/slides/2.jpg" alt="slider-image" />
+                        <img src="images/slides/3.jpg" alt="slider-image" />
                         <div class="tp-caption sfl title-slide center" data-x="40" data-y="100" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">                            
                             Soluciones Qúimicas Integrales<br>de Limpieza y Desinfección
                         </div>    
@@ -14,7 +14,7 @@
                     
 
                     <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                        <img src="images/slides/3.jpg" alt="slider-image" />
+                        <img src="images/slides/1.jpg" alt="slider-image" />
                         <div class="tp-caption sfl title-slide center" data-x="40" data-y="100" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">                            
                             Soluciones Qúimicas Integrales<br>de Limpieza y Desinfección
                         </div>   

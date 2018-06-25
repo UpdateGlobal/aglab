@@ -7,21 +7,21 @@
                 <ul class="product_list_widget">
                     <li>
                         <a href="#">
-                            <img src="images/products/f1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images" class="product_img">
                             <h5 class="box-title">Ácido Peracético</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/products/f1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images" class="product_img">
                            <h5 class="box-title">Detergente para Camiones</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="images/products/f1.jpg" alt="images" class="product_img">
+                            <img src="images/products/1.jpg" alt="images" class="product_img">
                            <h5 class="box-title">Solventes residuales </h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
@@ -41,7 +41,7 @@
                             <div class="flat-item">
                                 <div class="iconbox style1">
                                     <div class="box-header">
-                                        <div class="box-icon"><i class="fa fa-truck"></i></div>
+                                        <div class="box-icon"><i class="fas fa-american-sign-language-interpreting"></i></div>
                                         <h5 class="box-title">SERVICIO DE MAQUILA</h5>
                                     </div>
                                     <div class="box-content">
@@ -58,7 +58,7 @@
                             <div class="flat-item">
                                 <div class="iconbox style1">
                                     <div class="box-header">
-                                        <div class="box-icon"><i class="fa fa-truck"></i></div>
+                                        <div class="box-icon"><i class="fab fa-pagelines"></i></div>
                                         <h5 class="box-title">ASESORÍA ECOAMIGABLE</h5>
                                     </div>
                                     <div class="box-content">

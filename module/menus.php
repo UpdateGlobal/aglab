@@ -30,12 +30,12 @@
                                                     <li><a href="#">Item2</a></li>
                                                 </ul><!-- /.submenu -->
                                             </li>
-                                            <li><a href="services.html">Services</a>
+                                            <li><a href="services.html">Maquila</a>
                                                 <ul class="submenu"> 
                                                     <li><a href="#">Item3</a></li>
                                                 </ul><!-- /.submenu -->
                                             </li>
-                                            <li><a href="portfolio.html">Maquilado</a>
+                                            <li><a href="portfolio.html">Servicios</a>
                                                 <ul class="submenu">
                                                     <li><a href="#">Item4</a></li>
                                                 </ul><!-- /.submenu -->

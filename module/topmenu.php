@@ -14,9 +14,9 @@
                                 </a>
                             </div>
                             <div class="custom-info">
-                                <span class="item_top"><i class="far fa-envelope"></i>themesflat@gmail.com</span> 
-                                <span class="item_top"><i class="fas fa-map-marker-alt"></i>66 Nicholson St Buffalo New York US</span> 
-                                <span class="item_top"><i class="fas fa-phone"></i>+ 012 222 989899</span>
+                                <span class="item_top"><i class="far fa-envelope"></i>ventas@glabperu.com</span> 
+                                <span class="item_top"><i class="fas fa-map-marker-alt"></i>AV. Los Eucaliptos Parcela 3-4 Nave 2C - Lurín</span> 
+                                <span class="item_top"><i class="fas fa-phone"></i>(+511) 492 2371</span>
                             </div>
                         </div><!-- /.flat-wrapper -->
                     </div><!-- /.row -->

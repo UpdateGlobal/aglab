@@ -18,7 +18,7 @@
                                 <!--item-->
                                 <div class="flat-iconbox ">
                                     <div class="box-header">
-                                        <div class="box-icon"><img src="images/services/2.jpg" alt="images"></div>
+                                        <div class="box-icon"><img src="images/services/5.jpg" alt="images"></div>
                                         <h5 class="box-title">Aglab Participa en jornada de Responsabilidad Social en Lurín</h5>
                                     </div>
                                     <div class="box-content">
@@ -32,7 +32,7 @@
                                 <!--item-->
                                 <div class="flat-iconbox ">
                                     <div class="box-header">
-                                        <div class="box-icon"><img src="images/services/2.jpg" alt="images"></div>
+                                        <div class="box-icon"><img src="images/services/4.jpg" alt="images"></div>
                                         <h5 class="box-title">Nueva Línea de Lavado para vehículos pesados</h5>
                                     </div>
                                     <div class="box-content">

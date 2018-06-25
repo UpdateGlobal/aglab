@@ -4,14 +4,15 @@
                         <div class="flat-wrapper">
                              <div class="social-links">
                                 <a href="home-header-classic.html#">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>                               
+                                <a href="home-header-classic.html#">
                                     <i class="fab fa-youtube-square"></i>
                                 </a>
                                 <a href="home-header-classic.html#">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="home-header-classic.html#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
+
                             </div>
                             <div class="custom-info">
                                 <span class="item_top"><i class="far fa-envelope"></i>ventas@glabperu.com</span> 

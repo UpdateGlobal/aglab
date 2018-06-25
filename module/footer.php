@@ -6,10 +6,9 @@
                     <img src="images/colores.svg" class="img-responsive abt_img2 ">
                     <p class="grey-text text-lighten-4 text_foot img_foo foo_bt"  style="margin: 0px;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente.</p>
                       <div class="row img_foo2">
-                        <a href="https://www.behance.net/ventas326d" target="_blank"><span class="social"> <i class="fab fa-behance"></i></span></a>
                         <a href="https://www.linkedin.com/company/update-global-marketing" target="_blank"><span class="social"> <i class="fab fa-linkedin-in"></i></span></a>
                         <a href="https://www.facebook.com/updatemarketing/" target="_blank"><span class="social"> <i class="fab fa-facebook-f"></i></span></a>
-                        <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-instagram"></i></span></a>
+                        <a href="https://www.instagram.com/update.pe/" target="_blank"><span class="social"> <i class="fab fa-youtube"></i></span></a>
                          
                       </div>
                   </div>

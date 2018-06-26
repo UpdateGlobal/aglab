@@ -53,7 +53,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/1.jpg" alt="images">
 	                                    </a>
 	                                </div>
@@ -69,7 +69,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/2.jpg" alt="images">
 	                                    </a>
 	                                </div>
@@ -85,7 +85,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/3.jpg" alt="images">
 	                                    </a>
 	                                </div>
@@ -101,7 +101,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/4.jpg" alt="images">
 	                                    </a>
 	                                </div>
@@ -117,7 +117,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/5.jpg" alt="images">
 	                                    </a>
 	                                </div>
@@ -133,7 +133,7 @@
 	                        <li>
 	                            <div class="product-inner">
 	                                <div class="product-thumbnail">
-	                                    <a href="shop-detail.html">
+	                                    <a href="articulo.php">
 	                                        <img src="images/products/6.jpg" alt="images">
 	                                    </a>
 	                                </div>

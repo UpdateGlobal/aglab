@@ -77,6 +77,8 @@
                                                 <p>UK-registered goods vehicles’ share of the international road freight market has fallen to a fresh low of just 13% (2014: 15%, new figures from the DfT have shown. In the year to the end of June, there were 2.3 million journeys recorded from the UK to mainland Europe by powered goods vehicles – up 10% on the previous 12 months. Of these, UK-registered vehicles accounted for just 304,000 trips – down 4% – while foreign registered vehicles’ share surged 12%.</p>
                                                 <p><strong>OPERATOR NEWS&nbsp;</strong></p>
                                                 <p>DHL Supply Chain has won a two year extension to its NHS Supply Chain contract on the understanding it will deliver another £150m of savings over the period and operate in a more transparent manner. The NHS awarded the two year extension to DHL after an NHS review panel rejected the option of extending the contract by five years.</p>
+                                                <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+                                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b0c6c7a037ab05f"></script>
 
                                             <div class="entry-footer">
                                                 <div class="entry-tags">

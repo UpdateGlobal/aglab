@@ -55,8 +55,8 @@
                             
                             <div class="flat-accordion style12">
                                 <div class="flat-toggle">
-                                    <h6 class="toggle-title"> <i class="fas fa-angle-right"></i> Loren Ipsum</h6>
-                                    <div class="toggle-content" style="display: none;">
+                                    <h6 class="toggle-title active"> <i class="fas fa-angle-right"></i> Loren Ipsum</h6>
+                                    <div class="toggle-content active" style="display: none;">
                                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
                                     </div>
                                 </div>

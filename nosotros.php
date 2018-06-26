@@ -25,6 +25,21 @@
 	        </div><!-- /.row -->  
 	    </div><!-- /.container -->                      
 	</div>
+		<div class="page-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="flat-wrapper">
+                    <div class="breadcrumbs">
+                        <h2 class="trail-browse">Usted esta Aqui:</h2>
+                        <ul class="trail-items">
+                            <li class="trail-item"><a href="http://themesflat.com/html/canava/index-v2.html">Inicio</a></li>
+                            <li>Nosotros</li>
+                        </ul>
+                    </div><!-- /.breadcrumbs -->
+                </div><!-- /.flat-wrapper -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div>
 
 	<div class="container pad-top60px pad-bottom60px">
 		<div class="row" align="center">

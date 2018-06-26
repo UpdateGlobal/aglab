@@ -61,7 +61,7 @@
 			</div>
 		</div>
 	</div>
-
+<hr>
 	<div class="container-fluid bg_nosotros">
 		<div class="container pad-top60px pad-bottom60px ">
 		<div class="row">

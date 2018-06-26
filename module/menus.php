@@ -19,7 +19,7 @@
                                 <div class="nav-wrap">                                
                                     <nav id="mainnav" class="mainnav">
                                         <ul class="menu"> 
-                                            <li><a href="nosotros.php">Empresas</a></li>
+                                            <li><a href="nosotros.php">Empresa</a></li>
                                             <li><a href="tienda.php">Productos</a></li>
                                             <li><a href="maquila.php">Maquila</a></li>
                                             <li><a href="servicio.php">Servicios</a></li>                                              

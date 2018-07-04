@@ -12,73 +12,73 @@
                 <div class="clients-image clearfix">
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/agroindustria.png" alt="images">
                         </div>
                         <p class="tooltip">Agroindustria</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/alimentario.png" alt="images">
                         </div>
                         <p class="tooltip">Alimentos y Bebidas</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/automotriz.png" alt="images">
                         </div>
                         <p class="tooltip">Automotriz</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/hoteles.png" alt="images">
                         </div>
                         <p class="tooltip">Hoteles y Restaurantes</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/lavanderia.png" alt="images">
                         </div>
                         <p class="tooltip">Lavandería</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/metal-mecanica.png" alt="images">
                         </div>
                         <p class="tooltip">Metalmecánica</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/pequero.png" alt="images">
                         </div>
                         <p class="tooltip">Pesquero</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/hospitales.png" alt="images">
                         </div>
                         <p class="tooltip">Salud</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/mineria.png" alt="images">
                         </div>
                         <p class="tooltip">Minería</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/textil.png" alt="images">
                         </div>
                         <p class="tooltip">Textiles</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/retail.png" alt="images">
                         </div>
                         <p class="tooltip">Retail</p>
                     </div>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="images/client/1.png" alt="images">
+                            <img src="images/sectores/maquila.png" alt="images">
                         </div>
                         <p class="tooltip">Productos Especiales</p>
                     </div>

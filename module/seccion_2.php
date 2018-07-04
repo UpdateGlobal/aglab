@@ -13,7 +13,7 @@
 			<!-- <img src="images/p7.jpg" class="bg_contac" style=""> --> 
 			
 		</div>
-		<div class="col-md-6 col-xs-12" style="background-color: #68aee3;padding: 0px;">
+		<div class="col-md-6 col-xs-12" style="background-color: #2dafe6;padding: 0px;">
 			<div class="img_seccion2">
 				<h3 class="title_seccion2 aglabtitle">¿Porqué elegirnos?</h3>
 				<ul class="list_seccion2">

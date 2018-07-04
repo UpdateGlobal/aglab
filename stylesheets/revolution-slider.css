@@ -2509,7 +2509,7 @@ zoom: 1;
 .tp-caption.title-slide {
 	font-family: aglabtitle;
 	font-size: 48px !important;
-    color: rgb(255, 255, 255);
+    color: rgb(7, 85, 152);
     text-shadow: rgba(0, 0, 0, 0.247059) 0px 2px 3px;
     transition: none;
     line-height: 66px;
@@ -2558,7 +2558,7 @@ display: inline-block;
 }
 
 .flat-button-slider.bg-button-slider-32bfc0 {
-	background-color: #68aee3;
+	background-color: #075598;
 }
 
 .flat-button-slider.bg-button-slider-32bfc0:hover {

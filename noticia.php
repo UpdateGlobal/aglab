@@ -82,9 +82,9 @@
 
                                             <div class="entry-footer">
                                                 <div class="entry-tags">
-                                                    <a href="blog-single.html#">Grow</a>
-                                                    <a href="blog-single.html#">Manager</a>
-                                                    <a href="blog-single.html#">Transport</a>
+                                                    <a href="#">Grow</a>
+                                                    <a href="#">Manager</a>
+                                                    <a href="#">Transport</a>
                                                 </div>
                                             </div>
                                         </div><!-- /.entry-wrapper -->
@@ -99,12 +99,12 @@
 	                                <div class="widget widget_product_categories">
 						                <h4 class="widget-title">Categories</h4>
 						                    <ul class="product-categories">
-						                        <li><a href="shop.html#">Accessories</a></li>
-						                        <li><a href="shop.html#">Electric Horns</a></li>
-						                        <li><a href="shop.html#">Radar Detectors</a></li>
-						                        <li><a href="shop.html#">Recovery Gear</a></li>
-						                        <li><a href="shop.html#">Safety &amp; Security</a></li>
-						                        <li><a href="shop.html#">Truck Vacuums</a></li>
+						                        <li><a href="#">Accessories</a></li>
+						                        <li><a href="#">Electric Horns</a></li>
+						                        <li><a href="#">Radar Detectors</a></li>
+						                        <li><a href="#">Recovery Gear</a></li>
+						                        <li><a href="#">Safety &amp; Security</a></li>
+						                        <li><a href="#">Truck Vacuums</a></li>
 						                    </ul>
 						            </div>
 

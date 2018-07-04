@@ -52,9 +52,9 @@
 
 						<div class="products-detail">
                             <div class="products-images">
-                                <a class="popup-gallery" href="images/products/1.jpg">
+                
                                     <img src="images/products/1.jpg" alt="images">
-                                </a>
+                              
                             </div>
                             <div class="summary">
                                 <div>
@@ -74,29 +74,11 @@
                             <div class="flat-tabs" style="clear: left;">
                                 <ul class="menu-tabs">
                                     <li class="active"><a href="#">Descripcion</a></li>
-                                    <li class=""><a href="#">Comentario (1)</a></li>
                                 </ul>
                                 <div class="content-tab">
                                     <div class="content-inner active" style="display: block;">
                                         <p>Experience the High Definition difference with the Escort PASSPORT Max Radar Detector. Using advanced Digital Signal Processing (DSP) Technology developed by the military, it hunts down threats across all radar and laser bands up to 50x faster than conventional detectors for near instantaneous warnings. That way, you can respond in time and avoid hefty fines, higher insurance costs and tedious traffic school.</p>
                                         <p>False alarms from security cameras, automatic doors and other background radio frequency signals are a thing of the past with the Escort PASSPORT Max. With onboard GPS and AutoLearn Technology, it remembers the location of harmless signals and doesn’t speak up unless the threat it real. Plus, it comes preloaded with Escort’s DEFENDER Database of red-light cameras and speed traps, so you always have a heads up on what’s around the bend.</p>
-                                    </div><!-- /.content-inner -->
-
-                                    <div class="content-inner" style="display: none;">
-                                        <div class="woocommerce-reviews">
-                                            <div id="review_form_wrapper">
-                                                <div id="review_form">
-                                                    <div class="comment-respond">
-
-                                                    	<div class="content-inner active" style="display: block;">
-					                                        <p>Experience the High Definition difference with the Escort PASSPORT Max Radar Detector. Using advanced Digital Signal Processing (DSP) Technology developed by the military, it hunts down threats across all radar and laser bands up to 50x faster than conventional detectors for near instantaneous warnings. That way, you can respond in time and avoid hefty fines, higher insurance costs and tedious traffic school.</p>
-					                                        <p>False alarms from security cameras, automatic doors and other background radio frequency signals are a thing of the past with the Escort PASSPORT Max. With onboard GPS and AutoLearn Technology, it remembers the location of harmless signals and doesn’t speak up unless the threat it real. Plus, it comes preloaded with Escort’s DEFENDER Database of red-light cameras and speed traps, so you always have a heads up on what’s around the bend.</p>
-					                                    </div><!-- /.content-inner -->
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div><!-- /#review_form_wrapper -->
-                                        </div>
                                     </div><!-- /.content-inner -->                                    
                                 </div><!-- /.content-tab -->
                             </div><!-- /.flat-tabs -->

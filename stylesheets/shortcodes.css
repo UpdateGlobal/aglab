@@ -375,7 +375,7 @@
     position: relative;
     padding: 2px 0;
     margin: 30px 0 40px 0;
-    letter-spacing: -2px;
+    letter-spacing: 0px;
 }
 
 
@@ -622,7 +622,7 @@
 }
 
 .flat-tabs ul.menu-tabs {
-    background-color: #21242b;
+    background-color: #005499;
     margin: 0;
     overflow: inherit;
     padding: 0 5px;
@@ -942,7 +942,7 @@
     border-radius: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid #EBEBEB;
+    border: 1px solid #2eafe7;
     text-align: center;
     padding: 6px;
 }
@@ -2030,11 +2030,11 @@ label.error {
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
-    -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-         -o-border-radius: 3px;
-            border-radius: 3px;
+    -webkit-border-radius: 25%;
+       -moz-border-radius: 25%;
+        -ms-border-radius: 25%;
+         -o-border-radius: 25%;
+            border-radius: 25%;
 }
 
 .iconbox.style1 .box-content {
@@ -2047,6 +2047,7 @@ label.error {
     -webkit-transform: rotate(-45deg);
         -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
+         
 }
 
 .iconbox.style1 .box-header .box-title {
@@ -2158,7 +2159,7 @@ label.error {
 }
 
 .woocommerce .products li .product-thumbnail img {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(46, 175, 231);
 }
 
 .woocommerce .products li .product-info {
@@ -2196,6 +2197,7 @@ label.error {
     width: 50%;
     padding-right: 25px;
     position: relative;
+    border: 1px solid #2eafe7;
 }
 
 .products-detail .products-images a {
@@ -2206,7 +2208,7 @@ label.error {
 }
 
 .products-detail .products-images a img {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(47, 175, 232);
 }
 
 .products-detail .summary {
@@ -2222,7 +2224,7 @@ label.error {
 }
 
 .products-detail .summary p.price .amount {
-    color: #ffc952;
+    color: #2eafe7;
     display: inline-block;
 }
 
@@ -2325,7 +2327,7 @@ label.error {
     max-width: 20%;
     height: auto;
     margin-left: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(46, 175, 231);
 }
 
 .widget.widget_products ul li span.amount {

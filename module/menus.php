@@ -20,7 +20,80 @@
                                     <nav id="mainnav" class="mainnav">
                                         <ul class="menu"> 
                                             <li><a href="nosotros.php">Empresa</a></li>
-                                            <li><a href="tienda.php">Productos</a></li>
+                                            <li class="has-mega-menu">
+                                                <a class="has-mega active" href="#">Productos</a>
+                                                <div class="submenu mega-menu">
+                                                    <div class="row">
+                                                        <div class="container">
+                                                            <div class="col-md-3">
+                                                                <div class="mega-title">
+                                                                    <h5 class="btn-mega">Pages</h5>
+                                                                </div>
+                                                                <ul class="mega-menu-sub"> 
+                                                                    <li><a href="index.html">Home – Header Modern</a></li>
+                                                                    <li><a href="home-header-classic.html">Home – Header Classic</a></li>                                        
+                                                                    <li><a href="home-header-transparent.html">Home – Header Transparent</a></li>
+                                                                    <li><a href="home-header-widget.html">Home – Header Widgetized</a></li>
+                                                                    <li><a href="mega-menu.html">Home – Mega Menu</a></li>
+                                                                    <li><a href="one-page.html">Home – One Page</a></li>
+                                                                    <li><a href="about.html">Company</a></li>
+                                                                    <li><a href="services.html">Services</a></li>
+                                                                </ul>
+                                                            </div><!-- /.col-md-3 -->
+
+                                                            <div class="col-md-3">
+                                                                <div class="mega-title">
+                                                                    <h5 class="btn-mega">Pages</h5>
+                                                                </div>
+                                                                <ul class="mega-menu-sub"> 
+                                                                    <li><a href="index.html">Home – Header Modern</a></li>
+                                                                    <li><a href="home-header-classic.html">Home – Header Classic</a></li>                                        
+                                                                    <li><a href="home-header-transparent.html">Home – Header Transparent</a></li>
+                                                                    <li><a href="home-header-widget.html">Home – Header Widgetized</a></li>
+                                                                    <li><a href="mega-menu.html">Home – Mega Menu</a></li>
+                                                                    <li><a href="one-page.html">Home – One Page</a></li>
+                                                                    <li><a href="about.html">Company</a></li>
+                                                                    <li><a href="services.html">Services</a></li>
+                                                                </ul>
+                                                                
+                                                            </div><!-- /.col-md-3 -->
+
+                                                            <div class="col-md-3">
+                                                                <div class="mega-title">
+                                                                    <h5 class="btn-mega">Pages</h5>
+                                                                </div>
+                                                                <ul class="mega-menu-sub"> 
+                                                                    <li><a href="index.html">Home – Header Modern</a></li>
+                                                                    <li><a href="home-header-classic.html">Home – Header Classic</a></li>                                        
+                                                                    <li><a href="home-header-transparent.html">Home – Header Transparent</a></li>
+                                                                    <li><a href="home-header-widget.html">Home – Header Widgetized</a></li>
+                                                                    <li><a href="mega-menu.html">Home – Mega Menu</a></li>
+                                                                    <li><a href="one-page.html">Home – One Page</a></li>
+                                                                    <li><a href="about.html">Company</a></li>
+                                                                    <li><a href="services.html">Services</a></li>
+                                                                </ul>
+                                                                
+                                                            </div><!-- /.col-md-3 -->
+                                                             <div class="col-md-3">
+                                                                <div class="mega-title">
+                                                                    <h5 class="btn-mega">Pages</h5>
+                                                                </div>
+                                                                <ul class="mega-menu-sub"> 
+                                                                    <li><a href="index.html">Home – Header Modern</a></li>
+                                                                    <li><a href="home-header-classic.html">Home – Header Classic</a></li>                                        
+                                                                    <li><a href="home-header-transparent.html">Home – Header Transparent</a></li>
+                                                                    <li><a href="home-header-widget.html">Home – Header Widgetized</a></li>
+                                                                    <li><a href="mega-menu.html">Home – Mega Menu</a></li>
+                                                                    <li><a href="one-page.html">Home – One Page</a></li>
+                                                                    <li><a href="about.html">Company</a></li>
+                                                                    <li><a href="services.html">Services</a></li>
+                                                                </ul>
+                                                                
+                                                            </div><!-- /.col-md-3 -->
+                                                        </div><!-- /.container -->
+                                                    </div><!-- /.row -->
+                                                </div><!-- /.submenu -->
+                                            </li>
                                             <li><a href="maquila.php">Maquila</a></li>
                                             <li><a href="servicio.php">Servicios</a></li>                                              
                                             <li><a href="blog.php">Blog</a>

@@ -43,7 +43,7 @@
 
     <div class="container pad-top20px pad-bottom60px pad-left20px pad-right20px">
         <div class="row">
-            <h3 class="flat-title-section style">Preguntas <span class="scheme2">Frecuente</span></h3>
+            <h3 class="flat-title-section style">Preguntas <span class="scheme2">Frecuentes</span></h3>
                 <div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
@@ -110,7 +110,6 @@
                         <h5 class="desc">We will take care of your cargo or your passenger and deliver them safe and on time.</h5>
                             <div class="group-btn">
                                 <a class="button lg" href="index.html#">make a quote <i class="fa fa-chevron-right"></i></a>
-                                <a class="button lg outline style1" href="contact.html">contact us <i class="fa fa-chevron-right"></i></a>
                             </div>
                     </div><!-- /.make-quote -->
                 </div><!-- /.col-md-12 -->

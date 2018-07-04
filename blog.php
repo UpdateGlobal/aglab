@@ -49,7 +49,7 @@
                             <div class="main-content-wrap">
                                 <div class="content-inner clearfix">
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="blog-single.html">
                                                     <img src="images/blog/b1.jpg" alt="images">
@@ -73,7 +73,7 @@
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="noticia.php">
                                                     <img src="images/blog/b1.jpg" alt="images">
@@ -97,7 +97,7 @@
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="noticia.php">
                                                     <img src="images/blog/b1.jpg" alt="images">
@@ -121,7 +121,7 @@
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="noticia.php">
                                                     <img src="images/blog/b1.jpg" alt="images">
@@ -145,7 +145,7 @@
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="noticia.php">
                                                     <img src="images/blog/b1.jpg" alt="images">
@@ -169,7 +169,7 @@
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                     <article class="flat-item item-three-column blog-post">
-                                        <div class="entry-wrapper" style="border: 1px solid #93938f24;padding: 10px;">
+                                        <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
                                                 <a href="noticia.php">
                                                     <img src="images/blog/b1.jpg" alt="images">

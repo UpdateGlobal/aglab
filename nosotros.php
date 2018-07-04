@@ -102,7 +102,6 @@
                         <h5 class="desc">We will take care of your cargo or your passenger and deliver them safe and on time.</h5>
                             <div class="group-btn">
                                 <a class="button lg" href="index.html#">make a quote <i class="fa fa-chevron-right"></i></a>
-                                <a class="button lg outline style1" href="contact.html">contact us <i class="fa fa-chevron-right"></i></a>
                             </div>
                     </div><!-- /.make-quote -->
                 </div><!-- /.col-md-12 -->

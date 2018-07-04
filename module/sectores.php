@@ -110,10 +110,10 @@
             
             <div class="widget widget_text">
                 <div class="textwidget">
-                    <div class="content-text"style= "text-align: center;">
+                    <div class="content-text"style= "text-align: left;">
                         
                         <ul>
-                            <li class="box_cont" style= "text-align: center;"><b>Aglab contribuye con el cuidado del medio ambiente</b></li>
+                            <li class="box_cont" style= "text-align: left;"><b>Aglab contribuye con el cuidado del medio ambiente</b></li>
                             
                         </ul>
                             <a class="button white box_buttun" href="partners.html#">Saber más<i class="fa fa-chevron-right"></i></a>

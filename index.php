@@ -50,7 +50,7 @@
     <script type="text/javascript" src="javascript/jquery.themepunch.revolution.min.js"></script>
     <script type="text/javascript" src="javascript/slider.js"></script>
     <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
+    $('.owl-carousel').owlCarousel({
                 loop:true,
                 margin:10,
                 nav:false,

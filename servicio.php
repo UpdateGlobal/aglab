@@ -66,7 +66,7 @@
             <div class="col-md-6 col-xs-12">
                 <h2 class="flat-title-section  mag-bottom0px">Desarrollo a medida</h2> 
                 <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur. </p>
-                <a class="button lg" href="..contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
+                <a class="button lg" href="contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
             </div>
         </div>
 <hr>

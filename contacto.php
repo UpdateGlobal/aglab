@@ -48,27 +48,29 @@
     	<div class="row">
     		<div class="col-md-12 col-xs-12">
           
-                <div class="flat-row pad-bottom40px">
+                <div class="flat-row ">
                     <div class="container">
+                         <h2 class="flat-title-section_nosotros style mag-bottom0px">Contactanos</h2>
+                                <p>Bríndanos tus datos y te contactaremos a la brevedad.</p>
                         <div class="row">
                             <div class="col-md-8">
-                                <p>Please fill out the following form and a representative will contact you.</p>
+
                                 <div class="flat-divider d10px"></div>
                                 <form id="contactform" method="post" action="./contact/contact-process.php" novalidate="novalidate">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><input id="name" name="name" type="text" value="" placeholder="Name" required="required"></p>
+                                            <p><input id="name" name="name" type="text" value="" placeholder="Nombres y Apellidos" required="required"></p>
 
                                             <p><input id="email" name="email" type="email" value="" placeholder="Email" required="required"></p>
 
-                                            <p><select class="wpcf7-form-control wpcf7-select"><option value="Transport">Transport</option><option value="Logistics">Logistics</option></select></p>
+                                            <p><input id="name" name="name" type="text" value="" placeholder="Nombre de tu Empresa" required="required"></p>
 
-                                            <p><input id="phone" name="phone" type="text" value="" placeholder="Phone Number" required="required"></p>                                
+                                            <p><input id="phone" name="phone" type="text" value="" placeholder="Celular" required="required"></p>                                
                                         </div><!-- /.col-md-6 -->
 
                                         <div class="col-md-6">
-                                            <p><textarea name="message" placeholder="Comment" required="required"></textarea></p>
-                                            <span class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Sent Mail">
+                                            <p><textarea name="message" placeholder="Indícanos tu consulta" required="required"></textarea></p>
+                                            <span class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Contactarme">
                                             </span>
                                         </div><!-- /.col-md-6 -->
                                     </div><!-- /.row -->
@@ -77,17 +79,16 @@
 
                             <div class="col-md-4">
                                 <div class="flat-contact-us">
-                                    <h4 class="flat-title-section2 mag-top0px">Opening <span>hours</span></h4>
-                                    <p>Find out opening hours and information for Canava Transport. Thank you !</p>
+                                    <h4 class="flat-title-section3 mag-top0px">Horario <span>de Atención</span></h4>
+                                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet!</p>
                                 </div>
                                 <div class="flat-divider d20px"></div>
                                 <ul class="iconlist">
-                                    <li><i class="fa fa-clock-o"></i> <strong>Monday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Tuesday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Wednesday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Thursday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Friday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Saturday – Sunday:</strong> Closed</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Lunes:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Martes:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Miércoles:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Jueves:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Viernes:</strong> 08:00 a.m – 06:00 p.m</li>
                                 </ul>
 
                                 <div class="flat-divider d20px"></div>

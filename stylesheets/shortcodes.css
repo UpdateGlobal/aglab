@@ -836,11 +836,11 @@
 
 .history li:last-child .year:after,
 .history li:last-child .year {
-    background-color: #ffc952;
+    background-color: #2dafe7;
 }
 
 .history li:last-child:after {
-    background-color: #2dafe6;
+    /* background-color: #2dafe6; */
 }
 
 /* History style1 */

@@ -19,7 +19,7 @@
 	        <div class="row">
 	            <div class="col-md-12">                    
 	                <div class="page-title-heading">
-	                    <h2>Tienda</h2>
+	                    <h2>Encuentra los que necesitas</h2>
 	                </div><!-- /.page-title-heading -->                        
 	            </div><!-- /.col-md-12 -->  
 	        </div><!-- /.row -->  
@@ -61,7 +61,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -77,7 +77,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -93,7 +93,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -109,7 +109,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -125,7 +125,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -141,7 +141,7 @@
 	                                    <div class="product-info-wrap">
 	                                        <h3>Nombre del Producto</h3>
 	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Carrito</a>
+	                                        <a class="button" href="articulo.php">Ver Detalle</a>
 	                                    </div>
 	                                </div>
 	                            </div><!-- /.product-inner -->
@@ -161,14 +161,14 @@
 			<div class="col-md-4 col-xs-12">
 				
 				<div class="widget widget_product_categories">
-	                <h4 class="widget-title">Categories</h4>
+	                <h4 class="widget-title">Categorías</h4>
 	                    <ul class="product-categories">
-	                        <li><a href="articulo.php">Accessories</a></li>
-	                        <li><a href="articulo.php">Electric Horns</a></li>
-	                        <li><a href="articulo.php">Radar Detectors</a></li>
-	                        <li><a href="articulo.php">Recovery Gear</a></li>
-	                        <li><a href="articulo.php">Safety &amp; Security</a></li>
-	                        <li><a href="articulo.php">Truck Vacuums</a></li>
+	                        <li><a href="articulo.php">Solventes</a></li>
+	                        <li><a href="articulo.php">Disolventes</a></li>
+	                        <li><a href="articulo.php">Desinfectantes</a></li>
+	                        <li><a href="articulo.php">Detergente ácido</a></li>
+	                        <li><a href="articulo.php">Limpia Pisos</a></li>
+	                        <li><a href="articulo.php">Solventes Dieléctricos</a></li>
 	                    </ul>
 	            </div>
 

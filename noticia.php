@@ -65,28 +65,28 @@
                                                 <div class="entry-header-content">
                                                     <div class="entry-meta">
                                                         <i class="fa fa-user"></i>
-                                                        <span class="entry-author"><a href="blog-single.html#">admin</a></span>
+                                                        <span class="entry-author"><a href="blog-single.html#">Juan Carlos Gil de Montes | Fernando del Olmo</a></span>
                                                     </div>
                                                 </div><!-- /.entry-header-content -->
                                             </div><!-- /.entry-header -->
 
                                             <div class="entry-content">
-                                                <p>Welcome to the Logistics Job Shop Newsletter; your need-to-know digest and analysis of the events of the past fortnight in the road transport industry.</p>
-                                                <p><strong>INDUSTRY NEWS</strong></p>
-                                                <p>Around 34% of transport managers intend to quit within five years, a new survey from the FTA has found. The figure, based on data collected from 328 transport managers, is a significant increase compared with last year’s response to the same question, when 23% of the participants stated their intention to leave within the time period.</p>
-                                                <p>UK-registered goods vehicles’ share of the international road freight market has fallen to a fresh low of just 13% (2014: 15%, new figures from the DfT have shown. In the year to the end of June, there were 2.3 million journeys recorded from the UK to mainland Europe by powered goods vehicles – up 10% on the previous 12 months. Of these, UK-registered vehicles accounted for just 304,000 trips – down 4% – while foreign registered vehicles’ share surged 12%.</p>
-                                                <p><strong>OPERATOR NEWS&nbsp;</strong></p>
-                                                <p>DHL Supply Chain has won a two year extension to its NHS Supply Chain contract on the understanding it will deliver another £150m of savings over the period and operate in a more transparent manner. The NHS awarded the two year extension to DHL after an NHS review panel rejected the option of extending the contract by five years.</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. </p>
+                                                <p><strong>LOREM IPSUM</strong></p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur.</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur.</p>
+                                                <p><strong>LOREM IPSUM DOLOT&nbsp;</strong></p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur.</p>
                                                 <!-- Go to www.addthis.com/dashboard to customize your tools --> 
                                                 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b0c6c7a037ab05f"></script>
 
-                                            <div class="entry-footer">
+                                            <!-- <div class="entry-footer">
                                                 <div class="entry-tags">
                                                     <a href="#">Grow</a>
                                                     <a href="#">Manager</a>
                                                     <a href="#">Transport</a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                 </div><!-- /.content-inner -->  
@@ -97,23 +97,23 @@
                             <div class="sidebars-wrap">
                                 <div class="sidebar">
 	                                <div class="widget widget_product_categories">
-						                <h4 class="widget-title">Categories</h4>
+						                <h4 class="widget-title">Categorías</h4>
 						                    <ul class="product-categories">
-						                        <li><a href="#">Accessories</a></li>
-						                        <li><a href="#">Electric Horns</a></li>
-						                        <li><a href="#">Radar Detectors</a></li>
-						                        <li><a href="#">Recovery Gear</a></li>
-						                        <li><a href="#">Safety &amp; Security</a></li>
-						                        <li><a href="#">Truck Vacuums</a></li>
+						                        <li><a href="#">Accesorios</a></li>
+						                        <li><a href="#">Industria</a></li>
+						                        <li><a href="#">Limpieza</a></li>
+						                        <li><a href="#">Tendencias</a></li>
+						                        <li><a href="#">Segiuridad</a></li>
+						                        <li><a href="#">Transporte</a></li>
 						                    </ul>
 						            </div>
 
                                     <div class="widget widget_text">
                                         <div class="textwidget">
                                             <div class="content-text">
-                                                <h4 class="title">How can we help you?</h4>
-                                                <p>Our customer service standards provide information on how we will handle your enquiry. There is also compliments and complaints information to help you when you lodge feedback with us.</p>
-                                                <a class="button white" href="blog-single.html#">Contact Us<i class="fa fa-chevron-right"></i></a>
+                                                <h4 class="title">Lorem Ipsum Dolot?</h4>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus.</p>
+                                                <a class="button white" href="blog-single.html#">Contáctanos<i class="fa fa-chevron-right"></i></a>
                                             </div>
                                         </div><!-- /.textwidget -->
                                     </div><!-- /.widget_text -->

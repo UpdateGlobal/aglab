@@ -48,13 +48,13 @@
             <div class="row">
                 <div class="col-md-6 col-xs-12" align="right">
 
-                    <img src="images/products/4.jpg" class="img-responsive">
+                    <img src="images/products/1.jpg" class="img-responsive">
 
                 </div>
                 <div class="col-md-6 col-xs-12">
-                    <h2 class="flat-title-section style mag-bottom0px">Servicios Item</h2> 
-                    <p style="text-align: justify;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente. <br><br>Gracias al esfuerzo y profesionalidad de un equipo sólido, AGLAB PERU actual­mente esta posicionada como una empresa competitiva en su sector, que trabaja por dar un servicio de valor añadido. Mediante un alto grado de especialización y una filo­sofía de mejora continua, AGLAB PERU ha conseguido trabajar para las empresas más destacadas de diversas industrias. </p>
-                    <a class="button lg" href="contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
+                    <h2 class="flat-title-section style mag-bottom0px">Servicios de Maquila</h2> 
+                    <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur. Quisque ut placerat ipsum, quis pulvinar massa. In congue quis sapien eu rhoncus. Nam elit enim, sollicitudin vel convallis nec, tempus ac justo. Maecenas id ligula libero. Pellentesque eleifend placerat rhoncus. Nunc facilisis mauris urna, et ullamcorper libero lacinia et. Etiam quis tempus erat. </p>
+                    <!-- <a class="button lg" href="contacto.php">Servicio <i class="fa fa-chevron-right"></i></a> -->
                   
                 </div>
             </div>   
@@ -68,7 +68,7 @@
                 <div class="flat-row ">
                     <div class="container">
                          <h2 class="flat-title-section_nosotros style mag-bottom0px">Contactanos</h2>
-                                <p>Please fill out the following form and a representative will contact you.</p>
+                                <p>Bríndanos tus datos y te contactaremos a la brevedad.</p>
                         <div class="row">
                             <div class="col-md-8">
 
@@ -76,18 +76,18 @@
                                 <form id="contactform" method="post" action="./contact/contact-process.php" novalidate="novalidate">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><input id="name" name="name" type="text" value="" placeholder="Name" required="required"></p>
+                                            <p><input id="name" name="name" type="text" value="" placeholder="Nombres y Apellidos" required="required"></p>
 
                                             <p><input id="email" name="email" type="email" value="" placeholder="Email" required="required"></p>
 
-                                            <p><select class="wpcf7-form-control wpcf7-select"><option value="Transport">Transport</option><option value="Logistics">Logistics</option></select></p>
+                                            <p><input id="name" name="name" type="text" value="" placeholder="Nombre de tu Empresa" required="required"></p>
 
-                                            <p><input id="phone" name="phone" type="text" value="" placeholder="Phone Number" required="required"></p>                                
+                                            <p><input id="phone" name="phone" type="text" value="" placeholder="Celular" required="required"></p>                                
                                         </div><!-- /.col-md-6 -->
 
                                         <div class="col-md-6">
-                                            <p><textarea name="message" placeholder="Comment" required="required"></textarea></p>
-                                            <span class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Sent Mail">
+                                            <p><textarea name="message" placeholder="Indícanos tu consulta" required="required"></textarea></p>
+                                            <span class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Contactarme">
                                             </span>
                                         </div><!-- /.col-md-6 -->
                                     </div><!-- /.row -->
@@ -96,17 +96,16 @@
 
                             <div class="col-md-4">
                                 <div class="flat-contact-us">
-                                    <h4 class="flat-title-section3 mag-top0px">Opening <span>hours</span></h4>
-                                    <p>Find out opening hours and information for Canava Transport. Thank you !</p>
+                                    <h4 class="flat-title-section3 mag-top0px">Horario <span>de Atención</span></h4>
+                                    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet!</p>
                                 </div>
                                 <div class="flat-divider d20px"></div>
                                 <ul class="iconlist">
-                                    <li><i class="fa fa-clock-o"></i> <strong>Monday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Tuesday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Wednesday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Thursday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Friday:</strong> 08:00 a.m – 06:00 p.m</li>
-                                    <li><i class="fa fa-clock-o"></i> <strong>Saturday – Sunday:</strong> Closed</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Lunes:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Martes:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Miércoles:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Jueves:</strong> 08:00 a.m – 06:00 p.m</li>
+                                    <li><i class="fa fa-clock-o"></i> <strong>Viernes:</strong> 08:00 a.m – 06:00 p.m</li>
                                 </ul>
 
                                 <div class="flat-divider d20px"></div>

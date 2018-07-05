@@ -58,16 +58,17 @@
                             </div>
                             <div class="summary">
                                 <div>
-                                    <p class="price"><span class="amount">s/ 549.95</span></p>
+                                    <p class="price"><span class="amount">NOMBRE DEL PRODUCTO</span></p>
+                                    
                                 </div>
                                 <div class="description">
-                                    <p>Experience the High Definition difference with the Escort PASSPORT Max Radar Detector. Using advanced Digital Signal Processing (DSP) Technology developed by the military, it hunts down threats across all radar and laser bands up to 50x faster than conventional detectors for near instantaneous warnings.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus.Lorem ipsum dolor sit amet.</p>
                                 </div>
                                 <div class="row pad-top20px pad-bottom20px" align="center">
-                                	<a class="button" href="shop-detail.html#">Agregar a Carrito</a>
+                                	<a class="button" href="shop-detail.html#">Solicitar</a>
                                 </div>
                                 <div class="product_meta">
-                                    <span class="posted_in">Categorias: <a href="shop-detail.html#">Accesorios</a>, <a href="#">Radar Detectors</a></span>
+                                    <span class="posted_in">Categorias: <a href="shop-detail.html#">Industrial</a></span>
                                 </div>
                             </div><!-- /.summary -->
 
@@ -77,11 +78,13 @@
                                 </ul>
                                 <div class="content-tab">
                                     <div class="content-inner active" style="display: block;">
-                                        <p>Experience the High Definition difference with the Escort PASSPORT Max Radar Detector. Using advanced Digital Signal Processing (DSP) Technology developed by the military, it hunts down threats across all radar and laser bands up to 50x faster than conventional detectors for near instantaneous warnings. That way, you can respond in time and avoid hefty fines, higher insurance costs and tedious traffic school.</p>
-                                        <p>False alarms from security cameras, automatic doors and other background radio frequency signals are a thing of the past with the Escort PASSPORT Max. With onboard GPS and AutoLearn Technology, it remembers the location of harmless signals and doesn’t speak up unless the threat it real. Plus, it comes preloaded with Escort’s DEFENDER Database of red-light cameras and speed traps, so you always have a heads up on what’s around the bend.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus. Cras posuere ullamcorper placerat. Ut vitae ligula id magna sollicitudin luctus pellentesque id mi. Curabitur aliquet felis ut dignissim efficitur. </p>
+                                       
                                     </div><!-- /.content-inner -->                                    
                                 </div><!-- /.content-tab -->
                             </div><!-- /.flat-tabs -->
+                            <br>
+                            <hr>
                             <div class="related_products woocommerce">
                                 <h4 class="flat-title-section style">Productos relacionados</h4>
                                 <ul class="products">
@@ -132,6 +135,7 @@
                                             </div>
                                         </div><!-- /.product-inner -->
                                     </li>
+
                                 </ul><!-- /.products -->
                             </div><!-- /.related_products -->
                         </div>
@@ -148,29 +152,29 @@
 		</div>
 		<div class="col-md-4 col-xs-12">
 			<div class="widget widget_product_categories">
-                <h4 class="widget-title">Categorias</h4>
+                <h4 class="widget-title">Categorías</h4>
                     <ul class="product-categories">
-                        <li><a href="shop-detail.html#">Accesorios</a></li>
-                        <li><a href="shop-detail.html#">Electrinicos</a></li>
-                        <li><a href="shop-detail.html#">Radar Detector</a></li>
-                        <li><a href="shop-detail.html#">Restauracion</a></li>
-                        <li><a href="shop-detail.html#">Salud &amp; Securidad</a></li>
-                        <li><a href="shop-detail.html#">Camion de Carga</a></li>
+                            <li><a href="articulo.php">Industrial/a></li>
+                            <li><a href="articulo.php">Disolventes</a></li>
+                            <li><a href="articulo.php">Desinfectantes</a></li>
+                            <li><a href="articulo.php">Detergente ácido</a></li>
+                            <li><a href="articulo.php">Limpia Pisos</a></li>
+                            <li><a href="articulo.php">Solventes Dieléctricos</a></li>
                     </ul>
             </div>
 
-            <div class="widget widget_product_categories">
+<!--             <div class="widget widget_product_categories">
                 <h4 class="widget-title">Categorias</h4>
                     <ul class="product-categories">
-                        <li><a href="shop-detail.html#">Accesorios</a></li>
-                        <li><a href="shop-detail.html#">Electrinicos</a></li>
-                        <li><a href="shop-detail.html#">Radar Detector</a></li>
-                        <li><a href="shop-detail.html#">Restauracion</a></li>
-                        <li><a href="shop-detail.html#">Salud &amp; Securidad</a></li>
-                        <li><a href="shop-detail.html#">Camion de Carga</a></li>
+                            <li><a href="articulo.php">Solventes</a></li>
+                            <li><a href="articulo.php">Disolventes</a></li>
+                            <li><a href="articulo.php">Desinfectantes</a></li>
+                            <li><a href="articulo.php">Detergente ácido</a></li>
+                            <li><a href="articulo.php">Limpia Pisos</a></li>
+                            <li><a href="articulo.php">Solventes Dieléctricos</a></li>
                     </ul>
             </div>
-
+ -->
 		</div>
 	</div>
 </div>

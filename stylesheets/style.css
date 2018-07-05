@@ -3200,6 +3200,10 @@ TOPMENU
 	font-size: 12px;
 }
 
+.viewt:hover{
+	background: Linear-gradient(to right, #005499 , #2eafe7);
+}
+
 /*
 
 SESSION 1

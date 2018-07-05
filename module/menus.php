@@ -30,18 +30,18 @@
                                                                     <h5 class="btn-mega">Sectores</h5>
                                                                 </div>
                                                                 <ul class="mega-menu-sub" style="column-count: 2;text-align: center;"> 
-                                                                    <li><a href="tienda.php">Agroindustria</a></li>
-                                                                    <li><a href="tienda.php">Alimentos y Bebidas</a></li>
-                                                                    <li><a href="tienda.php">Automotriz</a></li>
-                                                                    <li><a href="tienda.php">Hoteles y Restaurantes</a></li>
-                                                                    <li><a href="tienda.php">Lavandería</a></li>
-                                                                    <li><a href="tienda.php">Metalmecánica</a></li>
-                                                                    <li><a href="tienda.php">Pesquero</a></li>
-                                                                    <li><a href="tienda.php">Salud</a></li>
-                                                                    <li><a href="tienda.php">Minería</a></li>
-                                                                    <li><a href="tienda.php">Textiles</a></li>
-                                                                    <li><a href="tienda.php">Retail</a></li>
-                                                                    <li><a href="tienda.php">Productos Especiales</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Agroindustria</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Alimentos y Bebidas</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Automotriz</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Hoteles y Restaurantes</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Lavandería</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Metalmecánica</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Pesquero</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Salud</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Minería</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Textiles</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Retail</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Productos Especiales</a></li>
                                                                 </ul>
                                                             </div><!-- /.col-md-6 -->
                                                             <div class="col-md-6" style="border-left: 1px solid #fff;">
@@ -49,19 +49,19 @@
                                                                     <h5 class="btn-mega">Categorias</h5>
                                                                 </div>
                                                                 <ul class="mega-menu-sub" style="column-count: 2;text-align: center;"> 
-                                                                    <li><a href="tienda.php">Clorados</a></li>
-                                                                    <li><a href="tienda.php">Detergentes Ácidos</a></li>
-                                                                    <li><a href="tienda.php">Detergentes Alcalinos</a></li>
-                                                                    <li><a href="tienda.php">Desinfectante</a></li>
-                                                                    <li><a href="tienda.php">Detergentes Líquidos</a></li>
-                                                                    <li><a href="tienda.php">Detergentes Neutros</a></li>
-                                                                    <li><a href="tienda.php">Domésticos</a></li>
-                                                                    <li><a href="tienda.php">Industriales Ácidos</a></li>
-                                                                    <li><a href="tienda.php">Industriales Alcalinos</a></li>
-                                                                    <li><a href="tienda.php">Industriales</a></li>
-                                                                    <li><a href="tienda.php">Limpis Pisos</a></li>
-                                                                    <li><a href="tienda.php">Solventes Dieléctricos</a></li>
-                                                                    <li><a href="tienda.php">Solventes</li>
+                                                                    <li><a class="viewt" href="tienda.php">Clorados</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Detergentes Ácidos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Detergentes Alcalinos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Desinfectante</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Detergentes Líquidos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Detergentes Neutros</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Domésticos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Industriales Ácidos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Industriales Alcalinos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Industriales</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Limpis Pisos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Solventes Dieléctricos</a></li>
+                                                                    <li><a class="viewt" href="tienda.php">Solventes</li>
                                                             </div><!-- /.col-md-6 -->
                                                         </div><!-- /.container -->
                                                     </div><!-- /.row -->

@@ -113,7 +113,7 @@
                                             <div class="content-text">
                                                 <h4 class="title">Lorem Ipsum Dolot?</h4>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus.</p>
-                                                <a class="button white" href="blog-single.html#">Contáctanos<i class="fa fa-chevron-right"></i></a>
+                                                <a class="button white" href="contacto.php">Contáctanos<i class="fa fa-chevron-right"></i></a>
                                             </div>
                                         </div><!-- /.textwidget -->
                                     </div><!-- /.widget_text -->

@@ -101,7 +101,7 @@
                         <h1 class="title">¿Necesitas Asesoría en tu proyecto?<br>Te asesoramos.</h1>
                         <h5 class="desc">Bríndanos tus datos y un asesor especializado se contactará a la brevedad.</h5>
                             <div class="group-btn">
-                                <a class="button lg" href="index.html#">Contactarme <i class="fa fa-chevron-right"></i></a>
+                                <a class="button lg" href="contacto.php">Contactarme <i class="fa fa-chevron-right"></i></a>
                             </div>
                     </div><!-- /.make-quote -->
                 </div><!-- /.col-md-12 -->

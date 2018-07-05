@@ -101,7 +101,7 @@
                             <li class="box_more">Telefono: (+511) 492 2371</li>
                             <li class="box_more">Email: ventas@aglabperu.com</li>
                         </ul>
-                            <a class="button white box_buttun" href="partners.html#">Contactanos<i class="fa fa-chevron-right"></i></a>
+                            <a class="button white box_buttun" href="contacto.php">Contactanos<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div><!-- /.textwidget -->
             </div>
@@ -116,7 +116,7 @@
                             <li class="box_cont" style= "text-align: left;"><b>Aglab contribuye con el cuidado del medio ambiente</b></li>
                             
                         </ul>
-                            <a class="button white box_buttun" href="partners.html#">Saber más<i class="fa fa-chevron-right"></i></a>
+                            <a class="button white box_buttun" href="#">Saber más<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div><!-- /.textwidget -->
             </div>

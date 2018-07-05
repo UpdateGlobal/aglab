@@ -6,21 +6,21 @@
                 <h2 class="flat-title-section style mag-bottom0px">Productos  <span class="scheme">más vendidos.</span></h2>
                 <ul class="product_list_widget">
                     <li>
-                        <a href="#">
+                        <a href="productos.php">
                             <img src="images/products/1.jpg" alt="images">
                             <h5 class="box-title">Ácido Peracético</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="productos.php">
                             <img src="images/products/1.jpg" alt="images">
                            <h5 class="box-title">Detergente para Camiones</h5>
                         </a>
                         <span class="amount">s/ 85.49</span>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="productos.php">
                             <img src="images/products/1.jpg" alt="images">
                            <h5 class="box-title">Solventes residuales </h5>
                         </a>
@@ -47,7 +47,7 @@
                                     <div class="box-content">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.
                                         <br><br>
-                                        <a class="button lg" href="">Ver más info <i class="fa fa-chevron-right"></i></a>                                     
+                                        <a class="button lg" href="maquila.php">Ver más info <i class="fa fa-chevron-right"></i></a>                                     
                                     </div>
                                     
                                 </div>
@@ -59,12 +59,12 @@
                                 <div class="iconbox style1">
                                     <div class="box-header">
                                         <div class="box-icon"><i class="fab fa-pagelines"></i></div>
-                                        <h5 class="box-title">ASESORÍA ECOAMIGABLE</h5>
+                                        <h5 class="box-title">DESARROLLO A MEDIDA</h5>
                                     </div>
                                     <div class="box-content">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.   
                                         <br><br>
-                                        <a class="button lg" href="">Ver más info <i class="fa fa-chevron-right"></i></a>                                      
+                                        <a class="button lg" href="servicio.php">Ver más info <i class="fa fa-chevron-right"></i></a>                                      
                                     </div>
                                 </div>
                             </div>

@@ -943,13 +943,14 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     border: 1px solid #2eafe7;
+    border-radius: 10px;
     text-align: center;
     padding: 6px;
 }
 
 .clients-image .tooltip {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background: #03A9F4;
+    border: 1px solid #03A9F4;
     padding: 7px 10px;
     position: absolute;
     bottom: 100%;
@@ -968,19 +969,19 @@
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
     filter: alpha(opacity=0);
     -webkit-transition: all 0.3s ease-in-out;
-       -moz-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-         -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-         -o-border-radius: 3px;
-            border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .clients-image .tooltip:after {
-    border-top: 6px solid rgba(0, 0, 0, 0.8);
+    border-top: 6px solid #03A9F4;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     content: "";
@@ -2243,8 +2244,12 @@ label.error {
     text-align: center;
 }
 
+.posted_in {
+    margin-top: 50px;
+}
+
 .products-detail .summary .product_meta .posted_in {
-    margin-right: 20px;
+    margin-right: 0px;
 }
 
 .products-detail .summary .product_meta .posted_in a {

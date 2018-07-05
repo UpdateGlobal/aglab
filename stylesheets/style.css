@@ -1055,26 +1055,26 @@ a.scheme:hover {
 
 /* Mega Menu */
 #mainnav .has-mega-menu .submenu.mega-menu {
-	padding: 20px 15px 15px 15px;
+	/* padding: 20px 15px 15px 15px; */
 }
 
 #mainnav .mega-menu {
     position: absolute;
-    top: 150%;  
-    left: -464px;
+    top: 150%;
+    left: -580px;
     padding: 15px 0;
-    text-align: left;    
+    text-align: left;
     z-index: 9999;
     background-color: #2dafe6;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-   	  filter: alpha(opacity=0);
-     opacity: 0;  
+    filter: alpha(opacity=0);
+    opacity: 0;
     visibility: hidden;
-   -webkit-transition: all 0.3s ease-in-out;
-	   -moz-transition: all 0.3s ease-in-out;
-	    -ms-transition: all 0.3s ease-in-out;
-	     -o-transition: all 0.3s ease-in-out;
-	        transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .mega-menu .mega-title h5 {

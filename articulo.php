@@ -57,20 +57,21 @@
                               
                             </div>
                             <div class="summary">
-                                <div>
+                                <div style="line-height: 30px;">
                                     <p class="price"><span class="amount">NOMBRE DEL PRODUCTO</span></p>
+                                     <span class="posted_in">Categorias: <a href="shop-detail.html#">Industrial</a></span>
                                     
                                 </div>
                                 <div class="description">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus.Lorem ipsum dolor sit amet.</p>
                                 </div>
                                 <div class="row pad-top20px pad-bottom20px" align="center">
-                                	<a class="button" href="shop-detail.html#">Solicitar</a>
+                                	<a class="button" href="#">Solicitar</a>
                                 </div>
-                                <div class="product_meta">
+                               <!--  <div class="product_meta">
                                     <span class="posted_in">Categorias: <a href="shop-detail.html#">Industrial</a></span>
                                 </div>
-                            </div><!-- /.summary -->
+ -->                            </div><!-- /.summary -->
 
                             <div class="flat-tabs" style="clear: left;">
                                 <ul class="menu-tabs">
@@ -91,7 +92,7 @@
                                     <li>
                                         <div class="product-inner">
                                             <div class="product-thumbnail">
-                                                <a href="shop-detail.html">
+                                                <a href="#">
                                                     <img src="images/products/5.jpg" alt="images">
                                                 </a>
                                             </div>
@@ -107,7 +108,7 @@
                                     <li>
                                         <div class="product-inner">
                                             <div class="product-thumbnail">
-                                                <a href="shop-detail.html">
+                                                <a href="#">
                                                     <img src="images/products/4.jpg" alt="images">
                                                 </a>
                                             </div>
@@ -123,7 +124,7 @@
                                     <li>
                                         <div class="product-inner">
                                             <div class="product-thumbnail">
-                                                <a href="shop-detail.html">
+                                                <a href="#">
                                                     <img src="images/products/9.jpg" alt="images">
                                                 </a>
                                             </div>
@@ -154,7 +155,7 @@
 			<div class="widget widget_product_categories">
                 <h4 class="widget-title">Categorías</h4>
                     <ul class="product-categories">
-                            <li><a href="articulo.php">Industrial/a></li>
+                            <li><a href="articulo.php">Industrial</a></li>
                             <li><a href="articulo.php">Disolventes</a></li>
                             <li><a href="articulo.php">Desinfectantes</a></li>
                             <li><a href="articulo.php">Detergente ácido</a></li>

@@ -3031,7 +3031,7 @@ blockquote {
 
 .parallax3 { background-image: url("../images/parallax/bg-parallax3.jpg"); }
 
-.parallax4 { background-image: url("../images/parallax/bg-parallax4.jpg"); }
+.parallax4 { background-image: url("../images/parallax/bg-parallax5.jpg"); }
 
 /* Revolution Slider
 -------------------------------------------------------------- */
@@ -3201,7 +3201,7 @@ TOPMENU
 }
 
 .viewt:hover{
-	background: Linear-gradient(to right, #005499 , #2eafe7);
+	background: Linear-gradient(to right, #2eafe7, #005499 );
 }
 
 /*

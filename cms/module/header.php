@@ -23,21 +23,13 @@
           <span class="icon fa fa-bars"></span>
           <span class="title">Servicios</span>
         </a>
+        <a class="dropdown-item" href="preguntas.php">
+          <span class="icon fa fa-question-circle"></span>
+          <span class="title">Preguntas</span>
+        </a>
         <a class="dropdown-item" href="noticias.php">
           <span class="icon fa fa-newspaper-o"></span>
           <span class="title">Noticias</span>
-        </a>
-        <a class="dropdown-item" href="portafolio.php">
-          <span class="icon fa fa-folder-open"></span>
-          <span class="title">Portafolio</span>
-        </a>
-        <a class="dropdown-item" href="productos.php">
-          <span class="icon fa fa-cube"></span>
-          <span class="title">Productos</span>
-        </a>
-        <a class="dropdown-item" href="clientes.php">
-          <span class="icon fa fa-users"></span>
-          <span class="title">Clientes</span>
         </a>
         <a class="dropdown-item" href="contacto.php">
           <span class="icon fa fa-map-o"></span>

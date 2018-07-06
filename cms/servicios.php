@@ -129,7 +129,7 @@
                       <tr>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/servicios/<?php echo $xImagen; ?>" /></td>
                         <td><?php echo $xTitulo; ?></td>
-                        <td><?php echo $xCodcat; ?></td>
+                        <td><?php if($xCodcat=="1"){ echo "Maquila"; }else{ echo "Servicios Generales"; } ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong>
                           <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]"; } ?>

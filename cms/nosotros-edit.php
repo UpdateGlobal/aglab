@@ -12,16 +12,28 @@ if($proceso==""){
   $ejecutarCon = mysqli_query($enlaces,$consultaCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $filaCon = mysqli_fetch_array($ejecutarCon);
   $cod_contenido    = $filaCon['cod_contenido'];
-  $titulo_contenido = $filaCon['titulo_contenido'];
-  $img_contenido    = $filaCon['img_contenido'];
+  if($cod_contenido>6){
+    $titulo_contenido = $filaCon['titulo_contenido'];
+  }
+  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){
+    $img_contenido    = $filaCon['img_contenido'];
+  }
   $contenido        = $filaCon['contenido'];
   $estado           = $filaCon['estado'];
 }
 
 if($proceso == "Actualizar"){
   $cod_contenido    = $_POST['cod_contenido'];
-  $titulo_contenido = mysqli_real_escape_string($enlaces, $_POST['titulo_contenido']);
-  $img_contenido    = $_POST['img_contenido'];
+  if($cod_contenido>6){
+    $titulo_contenido = mysqli_real_escape_string($enlaces, $_POST['titulo_contenido']);
+  }else{
+    $titulo_contenido = "";
+  }
+  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){
+    $img_contenido    = $_POST['img_contenido'];
+  }else{
+    $img_contenido = "";
+  }
   $contenido        = mysqli_real_escape_string($enlaces, $_POST['contenido']);
   $estado           = $_POST['estado'];
 
@@ -37,11 +49,13 @@ if($proceso == "Actualizar"){
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
     function Validar(){
+      <?php if($cod_contenido>6){ ?>
       if(document.fcms.titulo_contenido.value==""){
         alert("Debe escribir un título");
         document.fcms.titulo_contenido.focus();
         return; 
       }
+      <?php } ?>
       
       document.fcms.action = "nosotros-edit.php";
       document.fcms.proceso.value="Actualizar";
@@ -77,10 +91,10 @@ if($proceso == "Actualizar"){
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Editar Contenidos</strong></h4>
+          <h4 class="card-title"><strong>Editar Contenido</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
-
+              <?php if($cod_contenido>6){ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="titulo_contenido">T&iacute;tulo:</label>
@@ -91,7 +105,7 @@ if($proceso == "Actualizar"){
                   <div class="invalid-feedback"></div>
                 </div>
               </div>
-
+              <?php } ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="slogan">Descripci&oacute;n:</label>
@@ -101,7 +115,7 @@ if($proceso == "Actualizar"){
                   <textarea name="contenido" data-provide="summernote" data-min-height="150"  <?php if($xVisitante=="1"){ ?> style="display:none;" <?php }else{ ?> <?php } ?> ><?php echo $contenido; ?></textarea>
                 </div>
               </div>
-
+              <?php if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="logo">Imagen:</label><br>
@@ -117,7 +131,7 @@ if($proceso == "Actualizar"){
                   <?php } ?>
                 </div>
               </div>
-              
+              <?php } ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="description">Estado:</label>

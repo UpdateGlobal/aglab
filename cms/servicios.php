@@ -1,33 +1,33 @@
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
-$num = ""; 
-if (isset($_REQUEST['eliminar'])) {
-  $eliminar = $_POST['eliminar'];
-} else {
-  $eliminar = "";
-}
-if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_servicio FROM servicios ORDER BY orden";
-  $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
-  $x = 0;
-  while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_servicio = $filaElim["cod_servicio"];
-    if ($_REQUEST["chk" . $id_servicio] == "on") {
-      $x++;
-      if ($x == 1) {
-        $sql = "DELETE FROM servicios WHERE cod_servicio=$id_servicio";
-      } else { 
-        $sql = $sql . " OR cod_servicio=$id_servicio";
+  $num = ""; 
+  if (isset($_REQUEST['eliminar'])) {
+    $eliminar = $_POST['eliminar'];
+  } else {
+    $eliminar = "";
+  }
+  if ($eliminar == "true") {
+    $sqlEliminar = "SELECT cod_servicio FROM servicios ORDER BY orden";
+    $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
+    $x = 0;
+    while($filaElim = mysqli_fetch_array($sqlResultado)){
+      $id_servicio = $filaElim["cod_servicio"];
+      if ($_REQUEST["chk" . $id_servicio] == "on") {
+        $x++;
+        if ($x == 1) {
+          $sql = "DELETE FROM servicios WHERE cod_servicio=$id_servicio";
+        } else { 
+          $sql = $sql . " OR cod_servicio=$id_servicio";
+        }
       }
     }
+    mysqli_free_result($sqlResultado);
+    if ($x > 0) { 
+      $rs = mysqli_query($enlaces,$sql);
+    }
+    header ("Location:servicios.php");
   }
-  mysqli_free_result($sqlResultado);
-  if ($x > 0) { 
-    $rs = mysqli_query($enlaces,$sql);
-  }
-  header ("Location:servicios.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,11 +37,12 @@ if ($eliminar == "true") {
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
         td:nth-of-type(1):before { content: "Imagen"; }
         td:nth-of-type(2):before { content: "Título"; }
-        td:nth-of-type(3):before { content: "Orden"; }
-        td:nth-of-type(4):before { content: "Estado"; }
-        td:nth-of-type(5):before { content: ""; }
+        td:nth-of-type(3):before { content: "Tipo"; }
+        td:nth-of-type(4):before { content: "Orden"; }
+        td:nth-of-type(5):before { content: "Estado"; }
         td:nth-of-type(6):before { content: ""; }
         td:nth-of-type(7):before { content: ""; }
+        td:nth-of-type(8):before { content: ""; }
       }
     </style>
     <script>
@@ -53,7 +54,7 @@ if ($eliminar == "true") {
           if(document.fcms.elements[i].checked == true){
             estado = 1
           }
-        } 
+        }
         if (estado == 0) {
           if (seccion == "N"){
             alert("Debes de seleccionar un servicio.")
@@ -87,7 +88,6 @@ if ($eliminar == "true") {
             <small></small>
           </h1>
         </div>
-        <?php $page="servicios"; include("module/menu-servicios.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
@@ -101,11 +101,12 @@ if ($eliminar == "true") {
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="45%" scope="col">Imagen
+                        <th width="35%" scope="col">Imagen
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="20%" scope="col">Título</th>
+                        <th width="20%" scope="col">T&iacute;tulo</th>
+                        <th width="10%" scope="col">Tipo</th>
                         <th width="10%" scope="col">Orden</th>
                         <th width="10%" scope="col">Estado</th>
                         <th width="5%" scope="col"></th>
@@ -119,6 +120,7 @@ if ($eliminar == "true") {
                         $resultadoservicio = mysqli_query($enlaces,$consultarservicio) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaBan = mysqli_fetch_array($resultadoservicio)){
                           $xCodigo    = $filaBan['cod_servicio'];
+                          $xCodcat    = $filaBan['cod_categoria'];
                           $xImagen    = $filaBan['imagen'];
                           $xTitulo    = $filaBan['titulo'];
                           $xOrden     = $filaBan['orden'];
@@ -127,9 +129,10 @@ if ($eliminar == "true") {
                       <tr>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/servicios/<?php echo $xImagen; ?>" /></td>
                         <td><?php echo $xTitulo; ?></td>
+                        <td><?php echo $xCodcat; ?></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong>
-                          <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?>
+                          <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]"; } ?>
                           </strong>
                         </td>
                         <td>

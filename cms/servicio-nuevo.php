@@ -25,7 +25,6 @@ if($proceso == "Registrar"){
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
@@ -81,13 +80,25 @@ if($proceso == "Registrar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <small>(600px x 600px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text">
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('SER');" /><i class="fa fa-save"></i> Examinar</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label required" for="cod_categoria">Categor&iacute;as:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <select class="form-control" id="cod_categoria" name="cod_categoria">
+                    <option value="0">Servicios Generales</option>
+                    <option value="1">Maquila</option>
+                  </select>
                 </div>
               </div>
 

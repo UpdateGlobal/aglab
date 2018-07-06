@@ -53,38 +53,22 @@
           </li>
 
           <li class="menu-item <?php echo ($menu == "servicios" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "servicios" ? "open" : "")?>" href="#">
+            <a class="menu-link <?php echo ($menu == "servicios" ? "open" : "")?>" href="servicios.php">
               <span class="icon fa fa-bars"></span>
               <span class="title">Servicios</span>
-              <span class="arrow"></span>
             </a>
-
-            <ul class="menu-submenu" <?php echo ($menu == "servicios" ? "style='display:block;'" : "")?> >
-              <li class="menu-item">
-                <a class="menu-link" href="servicios.php">
-                  <span class="dot"></span>
-                  <span class="title">Servicios</span>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="menu-link" href="servicios.php">
-                  <span class="dot"></span>
-                  <span class="title">Servicios</span>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <li class="menu-item <?php echo ($menu == "preguntas" ? "active" : "")?>">
             <a class="menu-link" href="preguntas.php">
               <span class="icon fa fa-question-circle"></span>
-              <span class="title">F.A.Q.</span>
+              <span class="title">Preguntas</span>
             </a>
           </li>
 
           <li class="menu-item <?php echo ($menu == "noticias" ? "active" : "")?>">
             <a class="menu-link <?php echo ($menu == "noticias" ? "open" : "")?>" href="#">
-              <span class="icon fa fa-bars"></span>
+              <span class="icon fa fa-newspaper-o"></span>
               <span class="title">Noticias</span>
               <span class="arrow"></span>
             </a>
@@ -101,38 +85,6 @@
                 <a class="menu-link" href="noticias.php">
                   <span class="dot"></span>
                   <span class="title">Noticias</span>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-          <li class="menu-item <?php echo ($menu == "galeria" ? "active" : "")?>">
-            <a class="menu-link <?php echo ($menu == "galeria" ? "open" : "") ?>" href="#" >
-              <span class="icon fa fa-picture-o"></span>
-              <span class="title">Galer&iacute;a</span>
-              <span class="arrow"></span>
-            </a>
-
-            <ul class="menu-submenu" <?php echo ($menu == "galeria" ? "style='display:block;'" : "")?>>
-              <li class="menu-item">
-                <a class="menu-link" href="galeria.php">
-                  <span class="dot"></span>
-                  <span class="title">Album</span>
-                </a>
-              </li>
-
-              <li class="menu-item">
-                <a class="menu-link" href="galeria-fotos.php">
-                  <span class="dot"></span>
-                  <span class="title">Fotos</span>
-                </a>
-              </li>
-
-              <li class="menu-item">
-                <a class="menu-link" href="galeria-videos.php">
-                  <span class="dot"></span>
-                  <span class="title">V&iacute;deos</span>
                 </a>
               </li>
 

@@ -11,21 +11,23 @@ if($proceso == ""){
   $consultaServicios = "SELECT * FROM servicios WHERE cod_servicio='$cod_servicio'";
   $ejecutarServicios = mysqli_query($enlaces,$consultaServicios) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $filaSer = mysqli_fetch_array($ejecutarServicios);
-  $cod_servicio = $filaSer['cod_servicio'];
-  $imagen      = $filaSer['imagen'];
-  $titulo      = $filaSer['titulo'];
-  $descripcion = $filaSer['descripcion'];
-  $orden       = $filaSer['orden'];
-  $estado      = $filaSer['estado'];
+    $cod_servicio = $filaSer['cod_servicio'];
+    $cod_categoria = $filaSer['cod_categoria'];
+    $imagen      = $filaSer['imagen'];
+    $titulo      = $filaSer['titulo'];
+    $descripcion = $filaSer['descripcion'];
+    $orden       = $filaSer['orden'];
+    $estado      = $filaSer['estado'];
 }
 if($proceso=="Actualizar"){
   $cod_servicio     = $_POST['cod_servicio'];
+  $cod_categoria    = $_POST['cod_categoria'];
   $imagen           = $_POST['imagen'];
   $titulo           = mysqli_real_escape_string($enlaces, $_POST['titulo']);
   $descripcion      = mysqli_real_escape_string($enlaces, $_POST['descripcion']);
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $actualizarServicios  = "UPDATE servicios SET cod_servicio='$cod_servicio', imagen='$imagen', titulo='$titulo', descripcion='$descripcion', orden='$orden', estado='$estado' WHERE cod_servicio='$cod_servicio'";
+  $actualizarServicios  = "UPDATE servicios SET cod_servicio='$cod_servicio', cod_categoria='$cod_categoria', imagen='$imagen', titulo='$titulo', descripcion='$descripcion', orden='$orden', estado='$estado' WHERE cod_servicio='$cod_servicio'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarServicios) or die('Consulta fallida: ' . mysqli_error($enlaces));
   header("Location:servicios.php");
 }
@@ -33,7 +35,6 @@ if($proceso=="Actualizar"){
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
@@ -88,24 +89,37 @@ if($proceso=="Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label required" for="titulo">T&iacute;tulo:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo $titulo; ?>" required/>
-                  <div class="invalid-feedback"></div>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(646px x 500px)</small>
+                  <small>(600px x 600px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text" value="<?php echo $imagen; ?>">
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('SER');" /><i class="fa fa-save"></i> Examinar</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label required" for="categoria">Categor&iacute;as:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <select class="form-control" id="categoria" name="cod_categoria">
+                    <option value="<?php echo $cod_categoria; ?>"><?php if($cod_categoria==0){ echo "Servicios Generales"; }else{ echo "Maquila"; }; ?> (Actual)</option>
+                    <option value="0">Servicios Generales</option>
+                    <option value="1">Maquila</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label required" for="titulo">T&iacute;tulo:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo $titulo; ?>" required/>
+                  <div class="invalid-feedback"></div>
                 </div>
               </div>
 

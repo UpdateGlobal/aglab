@@ -43,10 +43,11 @@
                       $xEstado      = $filaCon['estado'];
                   ?>
                   <div class="col-12 col-lg-12">
-                    <p><?php 
-                      $strCut = substr($xContenido,0,800);
-                      $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                      echo strip_tags($xContenido);
+                    <p><?php
+                      $xContenido_r = strip_tags($xContenido);
+                      $strCut = substr($xContenido_r,0,800);
+                      $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo $xContenido_r;
                     ?></p>
                     <hr>
                     <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
@@ -78,11 +79,12 @@
                         $xContenido   = $filaCon['contenido'];
                         $xEstado      = $filaCon['estado'];
                     ?>
-                    <p><?php 
-                        $strCut = substr($xContenido,0,200);
-                        $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                        echo strip_tags($xContenido);
-                      ?></p>
+                    <p><?php
+                      $xContenido_r = strip_tags($xContenido);
+                      $strCut = substr($xContenido_r,0,200);
+                      $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo $xContenido_r;
+                    ?></p>
                     <hr>
                     <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
                     <?php
@@ -106,16 +108,17 @@
                     <?php
                       $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='3'";
                       $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                      while($filaCon = mysqli_fetch_array($resultadoCon)){
+                      $filaCon = mysqli_fetch_array($resultadoCon);
                         $xCodigo      = $filaCon['cod_contenido'];
                         $xContenido   = $filaCon['contenido'];
                         $xEstado      = $filaCon['estado'];
                     ?>
-                    <p><?php 
-                        $strCut = substr($xContenido,0,200);
-                        $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                        echo strip_tags($xContenido);
-                      ?></p>
+                    <p><?php
+                      $xContenido_r = strip_tags($xContenido);
+                      $strCut = substr($xContenido_r,0,200);
+                      $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo $xContenido_r;
+                    ?></p>
                     <hr>
                     <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
                     <?php
@@ -147,10 +150,11 @@
                       $xEstado      = $filaCon['estado'];
                   ?>
                   <div <?php if($xImagen!=""){?> class="col-8 col-lg-8" <?php }else{ ?> class="col-12 col-lg-12" <?php } ?>>
-                    <p><?php 
-                      $strCut = substr($xContenido,0,800);
-                      $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                      echo strip_tags($xContenido);
+                    <p><?php
+                      $xContenido_r = strip_tags($xContenido);
+                      $strCut = substr($xContenido_r,0,800);
+                      $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo $xContenido_r;
                     ?></p>
                     <hr>
                     <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
@@ -195,10 +199,11 @@
                 <?php } ?>
                 <div class="row">
                   <div <?php if($xImagen!=""){?> class="col-12 col-lg-12" <?php } ?>>
-                    <p><?php 
-                      $strCut = substr($xContenido,0,800);
-                      $xContenido = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                      echo strip_tags($xContenido);
+                    <p><?php
+                      $xContenido_r = strip_tags($xContenido);
+                      $strCut = substr($xContenido_r,0,280);
+                      $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                      echo $xContenido_r;
                     ?></p>
                     <hr>
                     <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>

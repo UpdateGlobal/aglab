@@ -7,17 +7,17 @@ if (isset($_REQUEST['eliminar'])) {
   $eliminar = "";
 }
 if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_sub_categoria FROM productos_sub_categorias ORDER BY cod_sub_categoria";
+  $sqlEliminar = "SELECT cod_sectores FROM productos_sectores ORDER BY cod_sectores";
   $sqlResultado = mysqli_query($enlaces, $sqlEliminar);
   $x = 0;
   while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_subcategoria = $filaElim["cod_sub_categoria"];
-    if ($_REQUEST["chk" . $id_subcategoria] == "on") {
+    $id_sectores = $filaElim["cod_sectores"];
+    if ($_REQUEST["chk" . $id_sectores] == "on") {
       $x++;
       if ($x == 1) {
-          $sql = "DELETE FROM productos_sub_categorias WHERE cod_sub_categoria=$id_subcategoria";
+          $sql = "DELETE FROM productos_sectores WHERE cod_sectores=$id_sectores";
         } else {
-          $sql = $sql . " OR cod_sub_categoria=$id_subcategoria";
+          $sql = $sql . " OR cod_sectores=$id_sectores";
         }
     }
   }
@@ -25,22 +25,21 @@ if ($eliminar == "true") {
   if ($x > 0) {
     $rs = mysqli_query($enlaces, $sql);
   }
-  header ("Location: productos-subcategorias.php");
+  header ("Location: productos-sectores.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
-        td:nth-of-type(1):before { content: "Categorías"; }
-        td:nth-of-type(2):before { content: "SubCategorías"; }
-        td:nth-of-type(3):before { content: "Imagen"; }
-        td:nth-of-type(4):before { content: "Estado"; }
+        td:nth-of-type(1):before { content: "Sectores"; }
+        td:nth-of-type(2):before { content: "Orden"; }
+        td:nth-of-type(3):before { content: "Estado"; }
+        td:nth-of-type(4):before { content: ""; }
         td:nth-of-type(5):before { content: ""; }
         td:nth-of-type(6):before { content: ""; }
-        td:nth-of-type(7):before { content: ""; }
       }
     </style>
     <script>
@@ -89,26 +88,25 @@ if ($eliminar == "true") {
             <small></small>
           </h1>
         </div>
-        <?php $page="productossubcategorias"; include("module/menu-productos.php"); ?>
+        <?php $page="productossectores"; include("module/menu-productos.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="row">
           <div class="col-md-12">
             <div class="card card-bordered">
-              <h4 class="card-title"><strong>Lista de Categor&iacute;as</strong></h4>
+              <h4 class="card-title"><strong>Lista de Sectores</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>productos-subcategorias-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>productos-sectores-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="20%" scope="col">Categor&iacute;a
+                        <th width="60%" scope="col">Sectores
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="20%" scope="col">SubCategor&iacute;a</th>
-                        <th width="35%" scope="col">Imagen</th>
+                        <th width="20%" scope="col">Orden</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -117,26 +115,21 @@ if ($eliminar == "true") {
                     </thead>
                     <tbody>
                       <?php
-                        $consultarSubCat = "SELECT cp.cod_categoria, cp.categoria, scp.* FROM productos_categorias as cp, productos_sub_categorias as scp WHERE scp.cod_categoria=cp.cod_categoria ORDER BY categoria ASC";
-                        $resultadoSubCat = mysqli_query($enlaces, $consultarSubCat);
-                        while($filaSC = mysqli_fetch_array($resultadoSubCat)){
-                          $xCodigo      = $filaSC['cod_sub_categoria'];
-                          $xCategoria   = utf8_encode($filaSC['categoria']);
-                          $xSCategoria  = utf8_encode($filaSC['subcategoria']);
-                          $xImagen      = $filaSC['imagen'];
-                          $xEstado      = $filaSC['estado'];
+                        $consultarSector = "SELECT * FROM productos_sectores ORDER BY orden ASC";
+                        $resultadoSector = mysqli_query($enlaces, $consultarSector);
+                        while($filaSc = mysqli_fetch_array($resultadoSector)){
+                          $xCodigo   = $filaSc['cod_sectores'];
+                          $xSectores = utf8_encode($filaSc['sector']);
+                          $xOrden    = $filaSc['orden'];
+                          $xEstado   = $filaSc['estado'];
                       ?>
                       <tr>
-                        <td><?php echo $xCategoria; ?></td>
-                        <td><?php echo $xSCategoria; ?></td>
-                        <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/subcategoria/<?php echo $xImagen; ?>" /></td>
-                        <td><?php if($xCodigo!="0"){?><strong>
-                          <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?>
-                          </strong><?php } ?></td>
+                        <td><?php echo $xSectores; ?></td>
+                        <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>
-                          <?php if($xCodigo!="0"){?><a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>productos-subcategorias-delete.php?cod_sub_categoria=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash" aria-hidden="true"></i></a><?php } ?>
+                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>productos-sectores-delete.php?cod_sectores=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>
-                        <td><?php if($xCodigo!="0"){?><a class="boton-editar" href="productos-subcategorias-edit.php?cod_sub_categoria=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a><?php } ?></td>
+                        <td><?php if($xCodigo!="0"){ ?><a class="boton-editar" href="productos-sectores-edit.php?cod_sectores=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a><?php } ?></td>
                         <td>
                           <?php if($xVisitante=="0"){ ?>
                           <div class="hidden">
@@ -150,7 +143,7 @@ if ($eliminar == "true") {
                       </tr>
                       <?php
                         }
-                        mysqli_free_result($resultadoSubCat);
+                        mysqli_free_result($resultadoSector);
                       ?>
                     </tbody>
                   </table>

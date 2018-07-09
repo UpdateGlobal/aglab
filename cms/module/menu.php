@@ -49,6 +49,7 @@
                   <span class="title">Contenidos</span>
                 </a>
               </li>
+              
             </ul>
           </li>
 
@@ -92,6 +93,40 @@
                 <a class="menu-link" href="noticias.php">
                   <span class="dot"></span>
                   <span class="title">Noticias</span>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="menu-category">Tienda</li>
+
+          <li class="menu-item <?php echo ($menu == "productos" ? "active" : "")?>">
+            <a class="menu-link <?php echo ($menu == "productos" ? "open" : "") ?>" href="#">
+              <span class="icon fa fa-cube"></span>
+              <span class="title">Productos</span>
+              <span class="arrow"></span>
+            </a>
+
+            <ul class="menu-submenu" <?php echo ($menu == "productos" ? "style='display:block;'" : "")?>>
+              <li class="menu-item">
+                <a class="menu-link" href="productos-sectores.php">
+                  <span class="dot"></span>
+                  <span class="title">Sectores</span>
+                </a>
+              </li>
+
+              <li class="menu-item">
+                <a class="menu-link" href="productos-categorias.php">
+                  <span class="dot"></span>
+                  <span class="title">Categor&iacute;a</span>
+                </a>
+              </li>
+
+              <li class="menu-item">
+                <a class="menu-link" href="productos.php">
+                  <span class="dot"></span>
+                  <span class="title">Productos</span>
                 </a>
               </li>
 

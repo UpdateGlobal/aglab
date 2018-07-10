@@ -121,8 +121,8 @@
                         $resultadoPro = mysqli_query($enlaces, $consultarPro);
                         while($filaPro = mysqli_fetch_array($resultadoPro)){
                           $xCodigo    = $filaPro['cod_producto'];
-                          $xCategoria = utf8_encode($filaPro['categoria']);
-                          $xSectores  = utf8_encode($filaPro['sectores']);
+                          $xCategoria = $filaPro['categoria'];
+                          $xSectores  = $filaPro['sector'];
                           $xProducto  = $filaPro['nom_producto'];
                           $xImagen    = $filaPro['imagen'];
                           $xEstado    = $filaPro['estado'];

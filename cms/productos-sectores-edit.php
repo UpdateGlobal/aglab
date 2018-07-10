@@ -2,7 +2,7 @@
 <?php include("module/verificar.php"); ?>
 <?php
 $cod_sectores = $_REQUEST['cod_sectores'];
-if (isset($_REQUEST['proceso'])) {
+if (isset($_REQUEST['proceso'])){
   $proceso = $_POST['proceso'];
 } else {
   $proceso = "";
@@ -12,19 +12,29 @@ if($proceso == ""){
   $resultadoSector = mysqli_query($enlaces, $consultaSector);
   $filaSc = mysqli_fetch_array($resultadoSector);
   $cod_sectores    = $filaSc['cod_sectores'];
-  $sector          = htmlspecialchars(utf8_encode($filaSC['sector']));
+  $sector          = $filaSc['sector'];
   $orden           = $filaSc['orden'];
   $estado          = $filaSc['estado'];
 }
 if($proceso == "Actualizar"){
-  $cod_sectores    = $_POST['cod_sectores'];
-  $sector          = mysqli_real_escape_string($enlaces,utf8_decode($_POST['sector']));
+  $cod_sectores  = $_POST['cod_sectores'];
+  $sector        = $_POST['sector'];
+  $slug          = $sector;
+  $slug          = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug          = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug          = preg_replace('~[^-\w]+~', '', $slug);
+  $slug          = trim($slug, '-');
+  $slug          = preg_replace('~-+~', '-', $slug);
+  $slug          = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   $orden           = $_POST['orden'];
   $estado          = $_POST['estado'];
   
-  $actualizarSector = "UPDATE productos_sectores SET cod_sectores='$cod_sectores', sector='$sector', orden='$orden', estado='$estado' WHERE cod_sectores='$cod_sectores'";
+  $actualizarSector = "UPDATE productos_sectores SET cod_sectores='$cod_sectores', slug='$slug', sector='$sector', orden='$orden', estado='$estado' WHERE cod_sectores='$cod_sectores'";
   $resultadoActualizar = mysqli_query($enlaces, $actualizarSector);
-  
+
   header("Location: productos-sectores.php");
 }
 ?>

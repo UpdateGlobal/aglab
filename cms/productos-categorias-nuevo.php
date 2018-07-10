@@ -8,12 +8,21 @@ if (isset($_REQUEST['proceso'])) {
   $proceso = "";
 }
 if($proceso == "Registrar"){
-  $categoria      = mysqli_real_escape_string($enlaces, utf8_decode($_POST['categoria']));
-  $imagen       = $_POST['imagen'];
+  $categoria   = $_POST['categoria'];
+  $slug        = $categoria;
+  $slug        = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug        = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug        = preg_replace('~[^-\w]+~', '', $slug);
+  $slug        = trim($slug, '-');
+  $slug        = preg_replace('~-+~', '-', $slug);
+  $slug        = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $insertarCategoria = "INSERT INTO productos_categorias(categoria, imagen, orden, estado)VALUE('$categoria', '$imagen', '$orden', '$estado')";
+  $insertarCategoria = "INSERT INTO productos_categorias(categoria, slug, orden, estado)VALUE('$categoria', '$slug', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces,$insertarCategoria);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -24,7 +33,7 @@ if($proceso == "Registrar"){
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
@@ -71,32 +80,18 @@ if($proceso == "Registrar"){
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Nueva Categoría</strong></h4>
+          <h4 class="card-title"><strong>Nueva Categor&iacute;a</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label required" for="categoria">Categoría:</label>
+                  <label class="col-form-label required" for="categoria">Categor&iacute;a:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="categoria" type="text" id="categoria" required />
                   <div class="invalid-feedback"></div>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
-                </div>
-                <div class="col-4 col-lg-8">
-                  <input class="form-control" name="imagen" type="text" id="imagen" />
-                  <div class="invalid-feedback"></div>
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IC');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

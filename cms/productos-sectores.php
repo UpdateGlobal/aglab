@@ -119,12 +119,13 @@ if ($eliminar == "true") {
                         $resultadoSector = mysqli_query($enlaces, $consultarSector);
                         while($filaSc = mysqli_fetch_array($resultadoSector)){
                           $xCodigo   = $filaSc['cod_sectores'];
-                          $xSectores = utf8_encode($filaSc['sector']);
+                          $xSectores = $filaSc['sector'];
                           $xOrden    = $filaSc['orden'];
                           $xEstado   = $filaSc['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xSectores; ?></td>
+                        <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>
                           <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>productos-sectores-delete.php?cod_sectores=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>

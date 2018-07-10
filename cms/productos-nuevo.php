@@ -2,41 +2,38 @@
 <?php include("module/verificar.php"); ?>
 <?php
 $mensaje = "";
-$cod_categoria = "";
-$cod_sub_categoria = "";
 if (isset($_REQUEST['proceso'])){
   $proceso = $_POST['proceso'];
 } else {
   $proceso = "";
 }
-if($proceso == "Filtrar"){
-  $cod_categoria      = $_POST['cod_categoria'];
-  if(isset($_POST['cod_sub_categoria'])){$cod_sub_categoria = $_POST['cod_sub_categoria'];}else{$cod_sub_categoria = "";}
-}
 
 if($proceso == "Registrar"){
   $cod_categoria      = $_POST['cod_categoria'];
-  $cod_sub_categoria  = $_POST['cod_sub_categoria'];
-  $nom_producto       = mysqli_real_escape_string($enlaces,$_POST['nom_producto']);
+  $cod_sectores       = $_POST['cod_sectores'];
+  $nom_producto       = $_POST['nom_producto'];
+  $slug               = $nom_producto;
+  $slug               = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug               = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug               = preg_replace('~[^-\w]+~', '', $slug);
+  $slug               = trim($slug, '-');
+  $slug               = preg_replace('~-+~', '-', $slug);
+  $slug               = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
   $descripcion        = mysqli_real_escape_string($enlaces,$_POST['descripcion']);
-  $oferta             = $_POST['oferta'];
-  $precio_oferta      = substr(utf8_decode($_POST['precio_oferta']),0,20);
-  $precio_normal      = substr(utf8_decode($_POST['precio_normal']),0,20);
-  $novedad            = $_POST['novedad'];
+  $resumen            = mysqli_real_escape_string($enlaces,$_POST['resumen']);
   if(isset($_POST['fecha_ing'])){ $fecha_ing = $_POST['fecha_ing']; }else{ $fecha_ing = date("Y-m-d"); }
   $imagen             = $_POST['imagen'];
-  $ficha_tecnica      = $_POST['ficha_tecnica'];
-  $banner_grande      = $_POST['banner_grande'];
-  $banner_chico       = $_POST['banner_chico'];
-  $video              = $_POST['video'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
   $validarProductos = "SELECT * FROM productos WHERE nom_producto='$nom_producto'";
   $ejecutarValidar = mysqli_query($enlaces, $validarProductos);
   $numreg = mysqli_num_rows($ejecutarValidar);
-  
-  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sub_categoria, nom_producto, descripcion, oferta, precio_oferta, precio_normal, novedad, fecha_ing, imagen, ficha_tecnica, banner_grande, banner_chico, video, orden, estado) VALUE ('$cod_categoria', '$cod_sub_categoria', '$nom_producto', '$descripcion', '$oferta', '$precio_oferta', '$precio_normal', '$novedad', '$fecha_ing', '$imagen', '$ficha_tecnica', '$banner_grande', '$banner_chico', '$video', '$orden', '$estado')";
+
+  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', $nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarProductos);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -47,7 +44,7 @@ if($proceso == "Registrar"){
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
@@ -63,11 +60,6 @@ if($proceso == "Registrar"){
         }
         document.fcms.action = "productos-nuevo.php";
         document.fcms.proceso.value = "Registrar";
-        document.fcms.submit();
-      }
-      function Filtrar(){
-        document.fcms.action = "productos-nuevo.php";
-        document.fcms.proceso.value = "Filtrar";
         document.fcms.submit();
       }
       function Imagen(codigo){
@@ -114,14 +106,14 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="cod_categoria">Categor&iacute;as:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <select class="form-control" name="cod_categoria" id="cod_categoria" onChange="Filtrar();">
+                  <select class="form-control" name="cod_categoria" id="cod_categoria">
                     <?php 
                       if($cod_categoria == ""){
                         $consultaCat = "SELECT * FROM productos_categorias WHERE estado='1'";
                         $resultaCat = mysqli_query($enlaces, $consultaCat);
                         while($filaCat = mysqli_fetch_array($resultaCat)){
                           $xcodCat = $filaCat['cod_categoria'];
-                          $xnomCat = utf8_encode($filaCat['categoria']);
+                          $xnomCat = $filaCat['categoria'];
                           echo '<option value='.$xcodCat.'>'.$xnomCat.'</option>';
                         }
                       }else{
@@ -129,14 +121,14 @@ if($proceso == "Registrar"){
                         $resultaCat = mysqli_query($enlaces, $consultaCat);
                         while($filaCat = mysqli_fetch_array($resultaCat)){
                           $xcodCat = $filaCat['cod_categoria'];
-                          $xnomCat = utf8_encode($filaCat['categoria']);
+                          $xnomCat = $filaCat['categoria'];
                           echo '<option value='.$xcodCat.' selected="selected">'.$xnomCat.'</option>';
                         }
                         $consultaCat = "SELECT * FROM productos_categorias WHERE cod_categoria!='$cod_categoria'";
                         $resultaCat = mysqli_query($enlaces, $consultaCat);
                         while($filaCat = mysqli_fetch_array($resultaCat)){
                           $xcodCat = $filaCat['cod_categoria'];
-                          $xnomCat = utf8_encode($filaCat['categoria']);
+                          $xnomCat = $filaCat['categoria'];
                           echo '<option value='.$xcodCat.'>'.$xnomCat.'</option>';
                         }
                       }
@@ -147,38 +139,33 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="cod_sub_categoria">Sub-categor&iacute;a:</label>
+                  <label class="col-form-label" for="cod_sectores">Sector:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <select class="form-control" name="cod_sub_categoria" id="cod_sub_categoria">
+                  <select class="form-control" name="cod_sectores" id="cod_sectores">
                     <?php 
-                      if($cod_categoria==""){
-                        echo '<option value="0">Seleccione una Categor&iacute;a</option>';
+                      if($cod_sectores == ""){
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE estado='1'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
+                        }
                       }else{
-                        if(($cod_sub_categoria=="")or($cod_sub_categoria=="0")){
-                          $consultaSubCat = "SELECT * FROM productos_sub_categorias WHERE estado='1' AND cod_categoria='$cod_categoria'";
-                          $resulSubCat = mysqli_query($enlaces, $consultaSubCat);
-                          while($fsb=mysqli_fetch_array($resulSubCat)){
-                            $xcodSubCat = $fsb['cod_sub_categoria'];
-                            $xnomSubCat = utf8_encode($fsb['subcategoria']);
-                            echo '<option value='.$xcodSubCat.'>'.$xnomSubCat.'</option>';
-                          }
-                        }else{
-                          $consultaSubCat = "SELECT * FROM productos_sub_categorias WHERE estado='1' AND cod_categoria='$cod_categoria' AND cod_sub_categoria='$cod_sub_categoria'";
-                          $resulSubCat = mysqli_query($enlaces, $consultaSubCat);
-                          while($fsb=mysqli_fetch_array($resulSubCat)){
-                            $xcodSubCat = $fsb['cod_sub_categoria'];
-                            $xnomSubCat = utf8_encode($fsb['subcategoria']);
-                            echo '<option value='.$xcodSubCat.'>'.$xnomSubCat.'</option>';
-                          }
-
-                          $consultaSubCat = "SELECT * FROM productos_sub_categorias WHERE estado='1' AND cod_categoria='$cod_categoria' AND cod_sub_categoria!='$cod_sub_categoria'";
-                          $resulSubCat = mysqli_query($enlaces, $consultaSubCat);
-                          while($fsb=mysqli_fetch_array($resulSubCat)){
-                            $xcodSubCat = $fsb['cod_sub_categoria'];
-                            $xnomSubCat = utf8_encode($fsb['subcategoria']);
-                            echo '<option value='.$xcodSubCat.'>'.$xnomSubCat.'</option>';
-                          }
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.' selected="selected">'.$xnomSec.'</option>';
+                        }
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores!='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
                         }
                       }
                     ?>
@@ -207,6 +194,15 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="resumen">Resumen:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <textarea class="form-control" name="resumen" id="resumen" data-provide="summernote" data-min-height="150"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
                   <label class="col-form-label">Fecha de Ingreso:</label>
                 </div>
                 <div class="col-4 col-lg-2">
@@ -217,7 +213,7 @@ if($proceso == "Registrar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <small>(600px x 600px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <input class="form-control" id="imagen" name="imagen" type="text" required />
@@ -225,108 +221,6 @@ if($proceso == "Registrar"){
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IP');" /><i class="fa fa-save"></i> Examinar</button>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label">Oferta:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="oferta" value="0" checked>
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"> No</span>
-                  </label>
-                  <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="oferta" value="1">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"> S&iacute;</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label">Precio Oferta:</label>
-                </div>
-                <div class="col-4 col-lg-2">
-                  <input class="form-control" name="precio_oferta" type="text" id="precio_oferta" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label">Precio Normal:</label>
-                </div>
-                <div class="col-4 col-lg-2">
-                  <input class="form-control" name="precio_normal" type="text" id="precio_normal" />
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label>Novedad:</label>
-                </div>
-                <div class="col-8 col-lg-10">
-                  <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="novedad" value="0" checked>
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"> No</span>
-                  </label>
-                  <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" name="novedad" value="1">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"> S&iacute;</span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="ficha_tecnica">Ficha T&eacute;cnica:</label><br>
-                  <small>(Formato .pdf)</small>
-                </div>
-                <div class="col-4 col-lg-8">
-                    <input class="form-control" name="ficha_tecnica" id="ficha_tecnica" type="text" />
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('FT');" /><i class="fa fa-save"></i> Examinar</button>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="imagen">Banner Grande:</label><br>
-                  <small>(-px x -px)</small>
-                </div>
-                <div class="col-4 col-lg-8">
-                  <input class="form-control" name="banner_grande" id="banner_grande" type="text" />
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('BG');" /><i class="fa fa-save"></i> Examinar</button>
-                </div>
-              </div>
-              
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="banner_chico">Banner Chico:</label><br>
-                  <small>(-px x -px)</small>
-                </div>
-                <div class="col-4 col-lg-8">
-                  <input class="form-control" name="banner_chico" id="banner_chico" type="text" />
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton4" onClick="javascript:Imagen('BC');" /><i class="fa fa-save"></i> Examinar</button>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="video">V&iacute;deo:</label>
-                </div>
-                <div class="col-2 col-lg-10">
-                  <input class="form-control" name="video" type="text" id="video" />
                 </div>
               </div>
 

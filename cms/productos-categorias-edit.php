@@ -2,7 +2,7 @@
 <?php include("module/verificar.php"); ?>
 <?php
 $cod_categoria  = $_REQUEST['cod_categoria'];
-if (isset($_REQUEST['proceso'])) {
+if (isset($_REQUEST['proceso'])){
   $proceso = $_POST['proceso'];
 } else {
   $proceso = "";
@@ -12,40 +12,43 @@ if($proceso == ""){
   $ejecutarCategoria = mysqli_query($enlaces,$consultaCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $filaCat = mysqli_fetch_array($ejecutarCategoria);
   $cod_categoria  = $filaCat['cod_categoria'];
-  $categoria    = htmlspecialchars(utf8_encode($filaCat['categoria']));
-  $imagen     = $filaCat['imagen'];
+  $categoria    = $filaCat['categoria'];
   $orden      = $filaCat['orden'];
   $estado     = $filaCat['estado'];
 }
   
 if($proceso=="Actualizar"){ 
-  $cod_categoria      = $_POST['cod_categoria'];
-  $categoria        = mysqli_real_escape_string($enlaces,utf8_decode($_POST['categoria']));
-  $imagen         = $_POST['imagen'];
-  $orden          = $_POST['orden'];
-  $estado         = $_POST['estado'];
-  $actualizarCategoria  = "UPDATE productos_categorias SET cod_categoria='$cod_categoria', categoria='$categoria', imagen='$imagen', orden='$orden', estado='$estado' WHERE cod_categoria='$cod_categoria'";
+  $cod_categoria = $_POST['cod_categoria'];
+  $categoria     = $_POST['categoria'];
+  $slug        = $categoria;
+  $slug        = preg_replace('~[^\pL\d]+~u', '-', $slug);
+  $slug        = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);
+  $slug        = preg_replace('~[^-\w]+~', '', $slug);
+  $slug        = trim($slug, '-');
+  $slug        = preg_replace('~-+~', '-', $slug);
+  $slug        = strtolower($slug);
+  if (empty($slug)){
+      return 'n-a';
+  }
+  $orden       = $_POST['orden'];
+  $estado      = $_POST['estado'];
+  $actualizarCategoria  = "UPDATE productos_categorias SET cod_categoria='$cod_categoria', slug='$slug', categoria='$categoria', orden='$orden', estado='$estado' WHERE cod_categoria='$cod_categoria'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-  
+
   header("Location:productos-categorias.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <script type="text/javascript" src="assets/js/rutinas.js"></script>
     <script>
       function Validar(){
         if(document.fcms.categoria.value==""){
           alert("Debe escribir un nombre para la categoria");
           document.fcms.categoria.focus();
-          return; 
-        }
-        if(document.fcms.imagen.value==""){
-          alert("Debe subir una imagen");
-          document.fcms.imagen.focus();
-          return; 
+          return;
         }
         document.fcms.action = "productos-categorias-edit.php";
         document.fcms.proceso.value = "Actualizar";
@@ -85,7 +88,7 @@ if($proceso=="Actualizar"){
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">
-          <h4 class="card-title"><strong>Editar Categoría</strong></h4>
+          <h4 class="card-title"><strong>Editar Categor&iacute;a</strong></h4>
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if(isset($mensaje)){ echo $mensaje; } else {}; ?>
@@ -97,20 +100,6 @@ if($proceso=="Actualizar"){
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="categoria" type="text" id="categoria" value="<?php echo $categoria; ?>" required />
                   <div class="invalid-feedback"></div>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-4 col-lg-2">
-                  <label class="col-form-label required" for="imagen">Imagen:</label><br>
-                  <small>(-px x -px)</small>
-                </div>
-                <div class="col-4 col-lg-6">
-                  <input class="form-control" name="imagen" type="text" id="imagen" value="<?php echo $imagen; ?>" required />
-                  <div class="invalid-feedback"></div>
-                </div>
-                <div class="col-4 col-lg-2">
-                  <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IC');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 
@@ -130,7 +119,7 @@ if($proceso=="Actualizar"){
                 <div class="col-8 col-lg-10">
                   <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" <?php if($estado=="1"){echo "checked";} ?> />
                 </div>
-              </div>
+              </div>  
             </div>
 
             <footer class="card-footer">

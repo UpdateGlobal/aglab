@@ -31,16 +31,15 @@ if ($eliminar == "true") {
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <?php header ('Content-type: text/html; charset=utf-8'); include("module/head.php"); ?>
+    <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
         td:nth-of-type(1):before { content: "Categoría"; }
-        td:nth-of-type(2):before { content: "Imagen"; }
-        td:nth-of-type(3):before { content: "Orden"; }
-        td:nth-of-type(4):before { content: "Estado"; }
+        td:nth-of-type(2):before { content: "Orden"; }
+        td:nth-of-type(3):before { content: "Estado"; }
+        td:nth-of-type(4):before { content: ""; }
         td:nth-of-type(5):before { content: ""; }
         td:nth-of-type(6):before { content: ""; }
-        td:nth-of-type(7):before { content: ""; }
       }
     </style>
     <script>
@@ -101,11 +100,10 @@ if ($eliminar == "true") {
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="30%" scope="col">Categor&iacute;a
+                        <th width="60%" scope="col">Categor&iacute;a
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
-                        <th width="30%" scope="col">Imagen</th>
                         <th width="20%" scope="col">Orden</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -119,18 +117,12 @@ if ($eliminar == "true") {
                         $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                         while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                           $xCodigo    = $filaCat['cod_categoria'];
-                          $xCategoria = utf8_encode($filaCat['categoria']);
-                          $xImagen    = $filaCat['imagen'];
+                          $xCategoria = $filaCat['categoria'];
                           $xOrden     = $filaCat['orden'];
                           $xEstado    = $filaCat['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xCategoria; ?></td>
-                        <td>
-                          <?php if(isset($xImagen)){ ?>
-                            <img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/categorias/<?php echo $xImagen; ?>" />
-                          <?php }else{ } ?>
-                        </td>
                         <td><?php echo $xOrden; ?></td>
                         <td><?php if($xCodigo!="0"){?>
                           <strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong>

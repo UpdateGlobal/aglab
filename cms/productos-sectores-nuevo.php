@@ -8,7 +8,7 @@ if (isset($_REQUEST['proceso'])) {
   $proceso = "";
 }
 if($proceso == "Registrar"){
-  $sector      = utf8_decode($_POST['sector']);
+  $sector      = $_POST['sector'];
   $slug        = $sector;
   $slug        = preg_replace('~[^\pL\d]+~u', '-', $slug);
   $slug        = iconv('utf-8', 'us-ascii//TRANSLIT', $slug);

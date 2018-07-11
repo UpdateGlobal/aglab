@@ -14,6 +14,7 @@ if($proceso == ""){
   $cod_banner = $filaBan['cod_banner'];
   $imagen = $filaBan['imagen'];
   $titulo = $filaBan['titulo'];
+  $link = $filaBan['link'];
   $orden  = $filaBan['orden'];
   $estado = $filaBan['estado'];
 }
@@ -21,9 +22,10 @@ if($proceso=="Actualizar"){
   $cod_banner   = $_POST['cod_banner'];
   $imagen       = $_POST['imagen'];
   $titulo       = mysqli_real_escape_string($enlaces, $_POST['titulo']);
+  $link         = $_POST['link'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $actualizarBanner = "UPDATE banners SET cod_banner='$cod_banner', imagen='$imagen', titulo='$titulo', orden='$orden', estado='$estado' WHERE cod_banner='$cod_banner'";
+  $actualizarBanner = "UPDATE banners SET cod_banner='$cod_banner', imagen='$imagen', titulo='$titulo', link='$link', orden='$orden', estado='$estado' WHERE cod_banner='$cod_banner'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarBanner) or die('Consulta fallida: ' . mysqli_error($enlaces));
   header("Location:banners.php");
 }
@@ -104,6 +106,15 @@ if($proceso=="Actualizar"){
                 </div>
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="titulo" type="text" id="titulo" value="<?php echo htmlspecialchars($titulo); ?>" />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="link">Enlace:</label>
+                </div>
+                <div class="col-8 col-lg-10">
+                  <input class="form-control" name="link" type="text" id="link" value="<?php echo htmlspecialchars($link); ?>" />
                 </div>
               </div>
 

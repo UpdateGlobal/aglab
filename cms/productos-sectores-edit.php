@@ -13,6 +13,7 @@ if($proceso == ""){
   $filaSc = mysqli_fetch_array($resultadoSector);
   $cod_sectores    = $filaSc['cod_sectores'];
   $sector          = $filaSc['sector'];
+  $imagen          = $filaSc['imagen'];
   $orden           = $filaSc['orden'];
   $estado          = $filaSc['estado'];
 }
@@ -29,10 +30,11 @@ if($proceso == "Actualizar"){
   if (empty($slug)){
       return 'n-a';
   }
-  $orden           = $_POST['orden'];
-  $estado          = $_POST['estado'];
+  $imagen        = $_POST['imagen'];
+  $orden         = $_POST['orden'];
+  $estado        = $_POST['estado'];
   
-  $actualizarSector = "UPDATE productos_sectores SET cod_sectores='$cod_sectores', slug='$slug', sector='$sector', orden='$orden', estado='$estado' WHERE cod_sectores='$cod_sectores'";
+  $actualizarSector = "UPDATE productos_sectores SET cod_sectores='$cod_sectores', slug='$slug', sector='$sector', imagen='$imagen', orden='$orden', estado='$estado' WHERE cod_sectores='$cod_sectores'";
   $resultadoActualizar = mysqli_query($enlaces, $actualizarSector);
 
   header("Location: productos-sectores.php");
@@ -101,6 +103,20 @@ if($proceso == "Actualizar"){
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="sector" type="text" id="sector" value="<?php echo $sector; ?>" />
                   <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label require" for="imagen">Imagen</label><br>
+                  <small>(165px x 90px)</small>
+                </div>
+                <div class="col-4 col-lg-8">
+                  <input class="form-control" id="imagen" name="imagen" type="text" value="<?php echo $imagen; ?>" required />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('SC');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

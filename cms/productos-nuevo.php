@@ -33,7 +33,7 @@ if($proceso == "Registrar"){
   $ejecutarValidar = mysqli_query($enlaces, $validarProductos);
   $numreg = mysqli_num_rows($ejecutarValidar);
 
-  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', $nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$orden', '$estado')";
+  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarProductos);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>

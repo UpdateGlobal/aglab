@@ -1,7 +1,16 @@
         <div class="flat-row blog-shortcode blog-home pad-top60px pad-bottom0px">
             <div class="container">
                 <div class="row" align="center">
-                    <img src="images/colores.svg" class="img-responsive img_seccion1">
+                    <?php
+                        $consultarMet = 'SELECT * FROM metatags';
+                        $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaMet = mysqli_fetch_array($resultadoMet);
+                            $xLogo    = $filaMet['logo'];
+                    ?>
+                    <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" class="img-responsive img_seccion1">
+                    <?php
+                        mysqli_free_result($resultadoMet);
+                    ?>
                 </div>
                 <div class="row" style="margin-bottom: 80px;">
                     <div class="col-md-6 col-xs-12">

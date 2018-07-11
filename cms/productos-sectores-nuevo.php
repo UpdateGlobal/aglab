@@ -19,10 +19,11 @@ if($proceso == "Registrar"){
   if (empty($slug)){
       return 'n-a';
   }
-  $orden         = $_POST['orden'];
-  $estado        = $_POST['estado'];
+  $imagen      = $_POST['imagen'];
+  $orden       = $_POST['orden'];
+  $estado      = $_POST['estado'];
 
-  $insertarSector = "INSERT INTO productos_sectores(sector, slug, orden, estado)VALUE('$sector', '$slug', '$orden', '$estado')";
+  $insertarSector = "INSERT INTO productos_sectores(sector, slug, imagen, orden, estado)VALUE('$sector', '$slug', '$imagen', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarSector);
   $mensaje = "<div class='alert alert-success' role='alert'>
             <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -92,6 +93,20 @@ if($proceso == "Registrar"){
                 <div class="col-8 col-lg-10">
                   <input class="form-control" name="sector" type="text" id="sector" />
                   <div class="invalid-feedback"></div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label require" for="imagen">Imagen</label><br>
+                  <small>(165px x 90px)</small>
+                </div>
+                <div class="col-4 col-lg-8">
+                  <input class="form-control" id="imagen" name="imagen" type="text" required />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('IV');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

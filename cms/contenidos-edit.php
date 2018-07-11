@@ -119,7 +119,7 @@ if($proceso == "Actualizar"){
               <?php if($cod_contenido==9){ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="slogan">Descripci&oacute;n:</label>
+                  <label class="col-form-label" for="slogan">Enlace:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $contenido; ?></p><?php } ?>

@@ -93,6 +93,41 @@ if ($eliminar == "true") {
             <div class="card card-bordered">
               <h4 class="card-title"><strong>Lista Preguntas</strong></h4>
               <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-bordered">
+                      <h4 class="card-title"><strong>Sectores de Aplicaci&oacute;n</strong></h4>
+                      <div class="card-body">
+                        <div class="row">
+                          <?php
+                            $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='12'";
+                            $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                            $filaCon = mysqli_fetch_array($resultadoCon);
+                              $xCodigo    = $filaCon['cod_contenido'];
+                              $xContenido = $filaCon['contenido'];
+                              $xEstado    = $filaCon['estado'];
+                          ?>
+                          <div class="col-12 col-lg-12">
+                            <p><?php
+                                $xContenido_r = strip_tags($xContenido);
+                                $strCut = substr($xContenido_r,0,800);
+                                $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                echo $xContenido_r;
+                            ?></p>
+                            <hr>
+                            <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
+                          </div>
+                        </div>
+                        <?php
+                          mysqli_free_result($resultadoCon);
+                        ?>
+                      </div>
+                      <div class="publisher bt-1 border-light">
+                        <a href="contenidos-edit.php?cod_contenido=<?php echo $xCodigo; ?>" class="btn btn-bold btn-primary"><i class="fa fa-refresh"></i> Editar Contenido</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>preguntas-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">

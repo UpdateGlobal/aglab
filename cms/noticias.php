@@ -1,7 +1,7 @@
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
-$num = ""; 
+$num = "";
 if (isset($_REQUEST['eliminar'])) {
   $eliminar = $_POST['eliminar'];
 } else {
@@ -17,7 +17,7 @@ if ($eliminar == "true") {
       $x++;
       if ($x == 1) {
           $sql = "DELETE FROM noticias WHERE cod_noticia=$id_noticia";
-        } else { 
+        } else {
           $sql = $sql . " OR cod_noticia=$id_noticia";
         }
     }
@@ -166,3 +166,5 @@ if ($eliminar == "true") {
     <!-- END Main container -->
   </body>
 </html>
+
+

@@ -1,39 +1,39 @@
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
-if (isset($_REQUEST['eliminar'])) {
-  $eliminar = $_POST['eliminar'];
-} else {
-  $eliminar = "";
-}
-if ($eliminar == "true") {
-  $sqlEliminar = "SELECT cod_categoria FROM noticias_categorias ORDER BY orden";
-  $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
-  $x = 0;
-  while($filaElim = mysqli_fetch_array($sqlResultado)){
-    $id_categoria = $filaElim["cod_categoria"];
-    if ($_REQUEST["chk" . $id_categoria] == "on") {
-      $x++;
-      if ($x == 1) {
+  if (isset($_REQUEST['eliminar'])){
+    $eliminar = $_POST['eliminar'];
+  } else {
+    $eliminar = "";
+  }
+  if ($eliminar == "true"){
+    $sqlEliminar = "SELECT cod_categoria FROM noticias_categorias ORDER BY orden";
+    $sqlResultado = mysqli_query($enlaces,$sqlEliminar);
+    $x = 0;
+    while($filaElim = mysqli_fetch_array($sqlResultado)){
+      $id_categoria = $filaElim["cod_categoria"];
+      if ($_REQUEST["chk" . $id_categoria] == "on"){
+        $x++;
+        if($x == 1){
           $sql = "DELETE FROM noticias_categorias WHERE cod_categoria=$id_categoria";
-        } else { 
+        } else {
           $sql = $sql . " OR cod_categoria=$id_categoria";
         }
+      }
     }
+    mysqli_free_result($sqlResultado);
+    if ($x > 0) {
+      $rs = mysqli_query($enlaces,$sql);
+    }
+    header ("Location:noticias-categorias.php");
   }
-  mysqli_free_result($sqlResultado);
-  if ($x > 0) { 
-    $rs = mysqli_query($enlaces,$sql);
-  }
-  header ("Location:noticias-categorias.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <?php include("module/head.php"); ?>
     <style>
-      @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+      @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px){
         td:nth-of-type(1):before { content: "Categoría"; }
         td:nth-of-type(2):before { content: "Orden"; }
         td:nth-of-type(3):before { content: "Estado"; }
@@ -47,7 +47,7 @@ if ($eliminar == "true") {
         document.fcms.proceso.value = "";
         estado = 0;
         for (i = 0; i < document.fcms.length; i++)
-
+        
         if(document.fcms.elements[i].name.substring(0,3) == "chk"){
           if(document.fcms.elements[i].checked == true){
             estado = 1

@@ -99,7 +99,7 @@ if($proceso=="Actualizar"){
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="imagen">Imagen:</label><br>
-                  <small>(840px x 613px)</small>
+                  <small>(800px x 533px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $imagen; ?></p><?php } ?>
@@ -112,7 +112,7 @@ if($proceso=="Actualizar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label required" for="categoria">Categorías:</label>
+                  <label class="col-form-label required" for="categoria">Categor&iacute;as:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <select class="form-control" id="categoria" name="cod_categoria">

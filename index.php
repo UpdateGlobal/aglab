@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <?php include ('script/head.php'); ?>
-</head>                                 
+</head>
 <body class="header-sticky page-loading">
     <div class="loading-overlay"></div>
     <!-- Boxed -->
@@ -19,11 +19,6 @@
             include ('module/sectores.php');
             include ('module/footer.php');
         ?>
-        <!-- Go Top -->
-        <a class="go-top">
-            <i class="fa fa-chevron-up" style="transform: rotate(-45deg);"></i>
-        </a>
     </div>
-
 </body>
 </html>

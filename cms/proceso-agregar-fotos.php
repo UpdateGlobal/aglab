@@ -9,7 +9,7 @@ if($id=='IG'){
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 // Imagen subir Fotos
@@ -51,6 +51,16 @@ if($id=='ISC'){
 	}
 }
 
+// Imagen sub categoria productos
+if($id=='ISEC'){
+	$uploaddir = 'assets/img/productos/sectores/'.$uploadname;
+	if(move_uploaded_file($uploadtempname, $uploaddir)){
+		$mensaje = "El archivo subi&oacute; correctamente";
+	}else{
+		$mensaje = "El archivo no se subi&oacute;";  
+	}
+}
+
 // Subir Imagen productos
 if($id=='IP'){
 	$uploaddir = 'assets/img/productos/'.$uploadname;
@@ -67,7 +77,7 @@ if($id=='FT'){
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 
@@ -77,7 +87,7 @@ if($id=='BG'){
 	if(move_uploaded_file($uploadtempname, $uploaddir)){
 		$mensaje = "El archivo subi&oacute; correctamente";
 	}else{
-		$mensaje = "El archivo no se subi&oacute;";  
+		$mensaje = "El archivo no se subi&oacute;";
 	}
 }
 
@@ -278,6 +288,9 @@ if($id=='SERGAL'){
 			if(valor=="ISC") {
 				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
+			if(valor=="ISEC") {
+				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
 			if(valor=="IP") {
 				opener.window.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
@@ -354,6 +367,9 @@ if($id=='SERGAL'){
 				window.opener.document.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
 			if(valor=="ISC") {
+				window.opener.document.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
+			}
+			if(valor=="ISEC") {
 				window.opener.document.fcms.imagen.value = "<?php echo basename($_FILES['imagen']['name']); ?>";
 			}
 			if(valor=="IP") {

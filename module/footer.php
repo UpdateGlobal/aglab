@@ -55,6 +55,10 @@
           </div>
         </footer>
         <!--footer--> 
+        <!-- Go Top -->
+        <a class="go-top">
+          <i class="fa fa-chevron-up" style="transform: rotate(-45deg);"></i>
+        </a>
         <!-- Javascript -->
         <script type="text/javascript" src="javascript/jquery.min.js"></script>
         <script type="text/javascript" src="javascript/bootstrap.min.js"></script>

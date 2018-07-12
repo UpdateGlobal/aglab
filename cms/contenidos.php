@@ -35,28 +35,28 @@
             <h4 class="card-title"><strong>Sectores de Aplicaci&oacute;n</strong></h4>
             <div class="card-body">
               <div class="row">
-                  <?php
-                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='6'";
-                    $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                    $filaCon = mysqli_fetch_array($resultadoCon);
-                      $xCodigo    = $filaCon['cod_contenido'];
-                      $xContenido = $filaCon['contenido'];
-                      $xEstado    = $filaCon['estado'];
-                  ?>
-                  <div class="col-12 col-lg-12">
-                    <p><?php
+                <?php
+                  $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='6'";
+                  $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                  $filaCon = mysqli_fetch_array($resultadoCon);
+                    $xCodigo    = $filaCon['cod_contenido'];
+                    $xContenido = $filaCon['contenido'];
+                    $xEstado    = $filaCon['estado'];
+                ?>
+                <div class="col-12 col-lg-12">
+                  <p><?php
                       $xContenido_r = strip_tags($xContenido);
                       $strCut = substr($xContenido_r,0,800);
                       $xContenido_r = substr($strCut,0,strrpos($strCut, ' ')).'...';
                       echo $xContenido_r;
-                    ?></p>
-                    <hr>
-                    <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
-                  </div>
+                  ?></p>
+                  <hr>
+                  <p><strong>Estado: <?php if($xEstado=="1"){echo "[Activo]";}else{ echo "[Inactivo]"; } ?> </strong></p>
                 </div>
-                <?php
-                  mysqli_free_result($resultadoCon);
-                ?>
+              </div>
+              <?php
+                mysqli_free_result($resultadoCon);
+              ?>
             </div>
             <div class="publisher bt-1 border-light">
               <a href="contenidos-edit.php?cod_contenido=<?php echo $xCodigo; ?>" class="btn btn-bold btn-primary"><i class="fa fa-refresh"></i> Editar Contenido</a>

@@ -13,45 +13,63 @@
                     ?>
                 </div>
                 <div class="row" style="margin-bottom: 80px;">
+                    <?php
+                        $consultarCon = "SELECT * FROM contenidos WHERE estado='1' AND cod_contenido='1'";
+                        $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaCon = mysqli_fetch_array($resultadoCon);
+                            $xContenido   = $filaCon['contenido'];
+                    ?>
                     <div class="col-md-6 col-xs-12">
                         <div class="col-md-12">
-                            <h2 class="flat-title-section style mag-bottom0px">Quienes  <span class="scheme">Somos.</span></h2>
-                            <p style="text-align: justify;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente. <br><br>Gracias al esfuerzo y profesionalidad de un equipo sólido, AGLAB PERU actual­mente esta posicionada como una empresa competitiva en su sector, que trabaja por dar un servicio de valor añadido. Mediante un alto grado de especialización y una filo­sofía de mejora continua, AGLAB PERU ha conseguido trabajar para las empresas más destacadas de diversas industrias. </p>
-                            <a class="button lg" href="articulo.php">Ver Productos <i class="fa fa-chevron-right"></i></a>
+                            <h2 class="flat-title-section style mag-bottom0px">Quienes <span class="scheme">Somos.</span></h2>
+                            <p style="text-align: justify;"><?php $xDescripcion_sub = strip_tags($xContenido);
+                                $strCut = substr($xDescripcion_sub,0,800);
+                                $xDescripcion_sub = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                echo $xDescripcion_sub;
+                            ?></p>
+                            <a class="button lg" href="nosotros.php">Ver M&aacute;s<i class="fa fa-chevron-right"></i></a>
                         </div><!-- /.col-md-12 -->
                     </div>
+                    <?php
+                        mysqli_free_result($resultadoCon); 
+                    ?>
                     <div class="col-md-6 col-xs-12">
                         <div class="col-md-12">
-                           <h2 class="flat-title-section style mag-bottom0px">Últimas <span class="scheme">Noticias.</span></h2>
-
-                                <!--item-->
-                                <div class="flat-iconbox ">
-                                    <div class="box-header">
-                                        <div class="box-icon"><img src="images/services/5.jpg" alt="images"></div>
-                                        <h5 class="box-title">Aglab Participa en jornada de Responsabilidad Social en Lurín</h5>
-                                    </div>
-                                    <div class="box-content">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam blanditiis libero aliquam...
-                                        <p class="box-readmore">
-                                            <a href="noticia.php">Continuar Leyendo</a>
-                                        </p>
-                                    </div>
+                            <h2 class="flat-title-section style mag-bottom0px">Últimas <span class="scheme">Noticias.</span></h2>
+                            <?php
+                                $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' ORDER BY fecha LIMIT 2";
+                                $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                                while($filaNot = mysqli_fetch_array($resultadoNoticias)){
+                                    $xCodigo    = $filaNot['cod_noticia'];
+                                    $xTitulo    = $filaNot['titulo'];
+                                    $xNoticia   = $filaNot['noticia'];
+                                    $xImagen    = $filaNot['imagen'];
+                                    $xFecha     = $filaNot['fecha'];
+                                    $xEstado    = $filaNot['estado'];
+                            ?>
+                            <!--item-->
+                            <div class="flat-iconbox ">
+                                <div class="box-header">
+                                    <div class="box-icon"><img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" width="220" alt="images"></div>
+                                    <h5 class="box-title"><?php echo $xTitulo; ?></h5>
                                 </div>
-                                <!--item-->
-                                <!--item-->
-                                <div class="flat-iconbox ">
-                                    <div class="box-header">
-                                        <div class="box-icon"><img src="images/services/4.jpg" alt="images"></div>
-                                        <h5 class="box-title">Nueva Línea de Lavado para vehículos pesados</h5>
-                                    </div>
-                                    <div class="box-content">
-                                        WLorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quibusdam blanditiis libero aliquam...
-                                        <p class="box-readmore">
-                                            <a href="noticia.php">Continuar Leyendo</a>
-                                        </p>
-                                    </div>
+                                <div class="box-content">
+                                    <?php 
+                                        $xDescripcion_sub = strip_tags($xNoticia);
+                                        $strCut = substr($xDescripcion_sub,0,100);
+                                        $xDescripcion_sub = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                        echo $xDescripcion_sub;
+                                    ?>
+                                    <p class="box-readmore">
+                                        <a href="noticia.php?cod_noticias=<?php echo $xCodigo; ?>">Continuar Leyendo</a>
+                                    </p>
                                 </div>
-                                <!--item-->
+                            </div>
+                            <!--item-->
+                            <?php
+                                }
+                                mysqli_free_result($resultadoNoticias);
+                            ?>
                         </div>
                     </div>
                 </div><!-- /.row -->

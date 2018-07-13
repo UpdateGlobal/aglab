@@ -106,7 +106,7 @@ if($proceso == "Registrar"){
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('IV');" /><i class="fa fa-save"></i> Examinar</button>
+                  <button class="btn btn-info" type="button" name="boton2" onClick="javascript:Imagen('ISEC');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

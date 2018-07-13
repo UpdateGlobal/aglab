@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <?php include('script/head.php'); ?>
+    
     <!-- La tarjeta Twitter comienza desde aquí, si no necesita eliminar esta sección -->
     <!-- <meta name="twitter:card" content="summary" /> -->
     <meta name="twitter:site" content="@yourtwitterusername" />

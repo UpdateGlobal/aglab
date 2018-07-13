@@ -35,11 +35,12 @@ if ($eliminar == "true") {
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
         td:nth-of-type(1):before { content: "Sectores"; }
-        td:nth-of-type(2):before { content: "Orden"; }
-        td:nth-of-type(3):before { content: "Estado"; }
-        td:nth-of-type(4):before { content: ""; }
+        td:nth-of-type(2):before { content: "Imagen"; }
+        td:nth-of-type(3):before { content: "Orden"; }
+        td:nth-of-type(4):before { content: "Estado"; }
         td:nth-of-type(5):before { content: ""; }
         td:nth-of-type(6):before { content: ""; }
+        td:nth-of-type(7):before { content: ""; }
       }
     </style>
     <script>
@@ -102,10 +103,11 @@ if ($eliminar == "true") {
                   <table class="table">
                     <thead>
                       <tr>
-                        <th width="60%" scope="col">Sectores
+                        <th width="30%" scope="col">Sectores
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
+                        <th width="30%" scope="col">Imagen</th>
                         <th width="20%" scope="col">Orden</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -120,11 +122,13 @@ if ($eliminar == "true") {
                         while($filaSc = mysqli_fetch_array($resultadoSector)){
                           $xCodigo   = $filaSc['cod_sectores'];
                           $xSectores = $filaSc['sector'];
+                          $xImagen   = $filaSc['imagen'];
                           $xOrden    = $filaSc['orden'];
                           $xEstado   = $filaSc['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xSectores; ?></td>
+                        <td><img src="assets/img/productos/sectores/<?php echo $xImagen; ?>" alt="<?php echo $xSectores; ?>"></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
                         <td>

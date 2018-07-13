@@ -19,7 +19,6 @@
                         <div class="tp-caption sfl flat-button-slider bg-button-slider-32bfc0" data-x="40" data-y="370" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut">
                             <a href="<?php echo $link; ?>">Ver M&aacute;s</a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-right"></i>
                         </div>
-
                         <!-- <div class="tp-caption sfr flat-button-slider" data-x="225" data-y="370" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut"><a href="index.html#">Contact us</a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-right"></i></div> -->
                     </li>
                     <?php

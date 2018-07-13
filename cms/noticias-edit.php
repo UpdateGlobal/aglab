@@ -16,6 +16,7 @@ if($proceso == ""){
   $titulo         = htmlspecialchars($filaNot['titulo']);
   $noticia        = htmlspecialchars($filaNot['noticia']);
   $imagen         = $filaNot['imagen'];
+  $fecha          = $filaNot['fecha'];
   $estado         = $filaNot['estado'];
 }
 if($proceso=="Actualizar"){ 
@@ -34,8 +35,9 @@ if($proceso=="Actualizar"){
   }
   $noticia        = mysqli_real_escape_string($enlaces, $_POST['noticia']);
   $imagen         = $_POST['imagen'];
+  $fecha          = $_POST['fecha'];
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
-  $actualizarNoticias = "UPDATE noticias SET cod_noticia='$cod_noticia', cod_categoria='$cod_categoria', titulo='$titulo', slug='$slug', noticia='$noticia', imagen='$imagen', estado='$estado' WHERE cod_noticia='$cod_noticia'";
+  $actualizarNoticias = "UPDATE noticias SET cod_noticia='$cod_noticia', cod_categoria='$cod_categoria', titulo='$titulo', slug='$slug', noticia='$noticia', imagen='$imagen', fecha='$fecha', estado='$estado' WHERE cod_noticia='$cod_noticia'";
   $resultadoActualizar = mysqli_query($enlaces,$actualizarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
   header("Location:noticias.php");
 }
@@ -181,7 +183,6 @@ if($proceso=="Actualizar"){
             <footer class="card-footer">
               <a href="noticias.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
               <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i> Editar Noticia</button>
-              <?php $fecha = date("Y-m-d"); ?>
               <input type="hidden" name="fecha" value="<?php echo $fecha ?>">
               <input type="hidden" name="proceso">
               <input type="hidden" name="cod_noticia" value="<?php echo $cod_noticia; ?>">

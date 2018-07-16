@@ -4,7 +4,7 @@
 <head>
 	<?php include("script/head.php"); ?>
 </head>                                 
-<body class="header-sticky page-loading">   
+<body class="header-sticky page-loading">
     <div class="loading-overlay"></div>
 	<!-- Boxed -->
 	<div class="boxed">
@@ -15,7 +15,7 @@
 		            <div class="col-md-12">
 		                <div class="page-title-heading">
 		                    <h2>Nosotros</h2>
-		                </div><!-- /.page-title-heading -->                        
+		                </div><!-- /.page-title-heading -->
 		            </div><!-- /.col-md-12 -->
 		        </div><!-- /.row -->
 		    </div><!-- /.container -->
@@ -36,167 +36,178 @@
 	        </div><!-- /.container -->
 	    </div>
 	    <div class="container pad-top60px pad-bottom60px">
-		
 			<div class="row" align="center">
-		        <img src="images/colores.svg" class="img-responsive img_seccion1">
+				<?php
+			        $consultarMet = 'SELECT * FROM metatags';
+			        $resultadoMet = mysqli_query($enlaces,$consultarMet) or die('Consulta fallida: ' . mysqli_error($enlaces));
+			        $filaMet = mysqli_fetch_array($resultadoMet);
+			            $xLogo  = $filaMet['logo'];
+			    ?>
+		        <img src="cms/assets/img/nosotros/<?php echo $xLogo; ?>" class="img-responsive img_seccion1">
+		    	<?php
+
+		    	?>
 		    </div>
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
-					<h2 class="flat-title-section_nosotros style mag-bottom0px">Quienes  <span class="scheme">Somos.</span></h2>
-					<p style="text-align: justify;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente. <br><br>Gracias al esfuerzo y profesionalidad de un equipo sólido, AGLAB PERU actual­mente esta posicionada como una empresa competitiva en su sector, que trabaja por dar un servicio de valor añadido. Mediante un alto grado de especialización y una filo­sofía de mejora continua, AGLAB PERU ha conseguido trabajar para las empresas más destacadas de diversas industrias. </p>   
+					<?php
+				    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='1' AND estado='1'";
+				    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+				    	$filaCon = mysqli_fetch_array($resultadoCon);
+				    		$xCodigo      = $filaCon['cod_contenido'];
+				    		$xImagen      = $filaCon['img_contenido'];
+				    		$xContenido   = $filaCon['contenido'];
+				    ?>
+					<h2 class="flat-title-section_nosotros style mag-bottom0px">Quienes <span class="scheme">Somos.</span></h2>
+					<?php echo $xContenido; ?>
+					<?php 
+						mysqli_free_result($resultadoCon);
+					?>
 				</div>
 				<div class="col-md-6 col-xs-12">
 		            <div class="flat-tabs">
 		                <ul class="menu-tabs">
-		                    <li class="active"><a href="about.html#">Nuestra Visión</a></li>
-		                    <li><a href="about.html#">Nuestra Misión</a></li>
+		                    <li class="active"><a href="#">Nuestra Visi&oacute;n</a></li>
+		                    <li><a href="#">Nuestra Misi&oacute;n</a></li>
 		                </ul>
 		                <div class="content-tab">
+		                	<?php
+		                    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='2' AND estado='1'";
+		                    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                    	$filaCon = mysqli_fetch_array($resultadoCon);
+		                        	$xCodigo      = $filaCon['cod_contenido'];
+		                        	$xContenido   = $filaCon['contenido'];
+		                        	$xEstado      = $filaCon['estado'];
+		                    ?>
 		                    <div class="content-inner" style="display: block;">
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci.</p>
-		                        <p>Nunc non mi auctor enim tristique maximus.</p>
-		                        <p>Curabitur aliquet felis ut dignissim efficitur. Quisque ut placerat ipsum, quis pulvinar massa. In congue quis sapien eu rhoncus. Nam elit enim, sollicitudin vel convallis nec, tempus ac justo. Maecenas id ligula libero. Pellentesque eleifend placerat rhoncus. Nunc facilisis mauris urna, et ullamcorper libero lacinia et. Etiam quis tempus erat.</p>
+		                        <?php echo $xContenido; ?>
 		                    </div><!-- /.content-inner -->
+		                    <?php
+		                    	mysqli_free_result($resultadoCon);
+		                    ?>
+		                    <?php
+		                    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='3' AND estado='1'";
+		                    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                    	$filaCon = mysqli_fetch_array($resultadoCon);
+		                        	$xCodigo      = $filaCon['cod_contenido'];
+		                        	$xContenido   = $filaCon['contenido'];
+		                        	$xEstado      = $filaCon['estado'];
+		                    ?>
 		                    <div class="content-inner" style="display: none;">
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque. Vestibulum aliquet, tellus quis commodo dapibus, metus ex auctor nibh, ac fermentum eros lectus eget orci. Nunc non mi auctor enim tristique maximus.</p>
-		                        <p>Curabitur aliquet felis ut dignissim efficitur. Quisque ut placerat ipsum, quis pulvinar massa. In congue quis sapien eu rhoncus. Nam elit enim, sollicitudin vel convallis nec, tempus ac justo. Maecenas id ligula libero. Pellentesque eleifend placerat rhoncus. Nunc facilisis mauris urna, et ullamcorper libero lacinia et. Etiam quis tempus erat.</p>
-		                    </div><!-- /.content-inner -->                                    
+		                    	<?php echo $xContenido; ?>
+		                    </div><!-- /.content-inner -->
+		                    <?php
+		                    	mysqli_free_result($resultadoCon); 
+		                    ?>                                    
 		                </div><!-- /.content-tab -->
 		            </div><!-- /.flat-tabs -->
 				</div>
 			</div>
-
 		</div>
 		<hr>
 		<div class="container-fluid bg_nosotros">
-			<div class="container pad-top60px pad-bottom60px ">
+			<div class="container pad-top60px pad-bottom60px">
 				<div class="row">
+					<?php
+	                    $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='4' AND estado='1'";
+	                    $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+	                    $filaCon = mysqli_fetch_array($resultadoCon);
+	                     	$xCodigo      = $filaCon['cod_contenido'];
+	                     	$xImagen      = $filaCon['img_contenido'];
+	                     	$xContenido   = $filaCon['contenido'];
+	                     	$xEstado      = $filaCon['estado'];
+	                ?>
 					<div class="col-md-6 col-xs-12">
-						<img src="images/about/1.jpg">
+						<img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" />
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<h2 class="flat-title-section_nosotros style mag-bottom0px"><span class="scheme">Nuestra  </span> Historia </h2>
-							<p style="text-align: justify;">AGLAB PERU es una empresa líder en so­luciones químicas integrales de limpieza y desinfección, cuyo objetivo es satisfacer las necesidades de los clientes con productos y servicios de calidad respetando el medio ambiente. Gracias al esfuerzo y profesionalidad de un equipo sólido, AGLAB PERU actual­mente esta posicionada como una empresa competitiva en su sector, que trabaja por dar un servicio de valor añadido. Mediante un alto grado de especialización y una filo­sofía de mejora continua. </p>  
+						<?php echo $xContenido; ?>
 					</div>
+					<?php
+	                 	mysqli_free_result($resultadoCon);
+	                ?>
 				</div>
 			</div>
 		</div>
-
-
-	<div class="flat-row parallax parallax4 pad-top120px pad-bottom120px">
-        <div class="overlay bg-scheme1"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="make-quote">
-                        <h1 class="title">¿Necesitas Asesoría en tu proyecto?<br>Te asesoramos.</h1>
-                        <h5 class="desc">Bríndanos tus datos y un asesor especializado se contactará a la brevedad.</h5>
-                            <div class="group-btn">
-                                <a class="button lg" href="contacto.php">Contactarme <i class="fa fa-chevron-right"></i></a>
-                            </div>
-                    </div><!-- /.make-quote -->
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div>
-
-
-
-	<div class="container pad-top60px pad-bottom60px">
-		<div class="row" align="center">
-			<h2 class="flat-title-section_nosotros  mag-bottom0px">Nuestros  <span class="scheme2">Valores </span>Corporativos</h2>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-xs-12">
-				<div class="flat-history">
-	                <ul class="history">
-	                    <li>
-	                        <h3 class="title"><span class="year">Profesionalismo</span></h3>
-	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque.</p>
-	                    </li>
-	                    <li>
-	                        <h3 class="title"><span class="year">Puntualidad</span></h3>
-	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque.</p>
-	                    </li>
-	                    <li>
-	                        <h3 class="title"><span class="year">Ética Profesional</span></h3>
-	                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec arcu maximus, eget vulputate neque pellentesque.</p>
-	                    </li>
-	                   
-	                    
-	                </ul>
-	            </div>
+		<?php
+            $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='7' AND estado='1'";
+            $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+            $filaCon = mysqli_fetch_array($resultadoCon);
+                $xTitulo      = $filaCon['titulo_contenido'];
+                $xImagen      = $filaCon['img_contenido'];
+                $xContenido   = $filaCon['contenido'];
+        ?>
+		<div class="flat-row parallax parallax4 pad-top120px pad-bottom120px" style="background:url(cms/assets/img/nosotros/<?php echo $xImagen; ?>);">
+	        <div class="overlay bg-scheme1"></div>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="make-quote">
+	                        <h1 class="title"><?php echo $xTitulo; ?></h1>
+	                        <h5 class="desc"><?php echo $xContenido; ?></h5>
+	                        <div class="group-btn">
+	                            <a class="button lg" href="contacto.php">Contactarme <i class="fa fa-chevron-right"></i></a>
+	                        </div>
+	                    </div><!-- /.make-quote -->
+	                </div><!-- /.col-md-12 -->
+	            </div><!-- /.row -->
+	        </div><!-- /.container -->
+	    </div>
+	    <?php
+	    	mysqli_free_result($resultadoCon);
+	    ?>
+		<div class="container pad-top60px pad-bottom60px">
+			<div class="row" align="center">
+				<h2 class="flat-title-section_nosotros mag-bottom0px">Nuestros <span class="scheme2">Valores</span> Corporativos</h2>
 			</div>
-			<div class="col-md-6 col-xs-12">
-				<img src="images/services/s15.jpg" class="img-responsive pad-top0px pad-bottom60px">
-			
+			<div class="row">
+				<?php
+	                $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='13'";
+	                $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+	                $filaCon = mysqli_fetch_array($resultadoCon);
+	                	$xCodigo      = $filaCon['cod_contenido'];
+	                	$xImagen      = $filaCon['img_contenido'];
+	                	$xEstado      = $filaCon['estado'];
+	            ?>
+				<div class="<?php if($xEstado==1){?>col-md-6<?php }else{ ?>col-md-12<?php } ?> col-xs-12">
+					<div class="flat-history">
+		                <ul class="history">
+		                	<?php
+				                $consultarValor = "SELECT * FROM valores WHERE estado='1' ORDER BY orden";
+				                $resultadoValor = mysqli_query($enlaces,$consultarValor) or die('Consulta fallida: ' . mysqli_error($enlaces));
+				                while($filaVal = mysqli_fetch_array($resultadoValor)){
+				                 	$xTitulo      = $filaVal['titulo'];
+				                 	$xContenido   = $filaVal['descripcion'];
+				            ?>
+		                    <li>
+		                        <h3 class="title"><span class="year"><?php echo $xTitulo; ?></span></h3>
+		                        <?php echo $xContenido; ?>
+		                    </li>
+		                    <?php
+		                    	}
+		                   		mysqli_free_result($resultadoValor);
+		                    ?>
+		                </ul>
+		            </div>
+				</div>
+				<?php if($xEstado==1){?>
+				<div class="col-md-6 col-xs-12">
+					<img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive pad-top0px pad-bottom60px">	
+				</div>
+				<?php }else{ ?><?php } ?>
 			</div>
 		</div>
-	</div>
-
-	<div class="container-fluid">
-		<div class="row bg_nosotros" align="center" >
-			<br>
-			<h2 class="flat-title-section_nosotros  mag-bottom0px">Nuestros  <span class="scheme2">Clientes</span></h2>
+		<div class="container-fluid">
+			<div class="row bg_nosotros" align="center" >
+				<br>
+				<h2 class="flat-title-section_nosotros  mag-bottom0px">Nuestros <span class="scheme2">Clientes</span></h2>
+			</div>
+			<div class="row">
+				<?php include('module/clientes.php'); ?>
+			</div>
 		</div>
-		<div class="row">
-			<?php include ('module/clientes.php'); ?>
-		</div>
+	<?php include('module/footer.php');  ?>
 	</div>
-
-
-
-
-	<?php   include ('module/footer.php');  ?>
-
-	<!-- Go Top -->
-    <a class="go-top">
-        <i class="fa fa-chevron-up" style="transform: rotate(-45deg);"></i>
-    </a>   
-
-</div>
-
-
-    <!-- Javascript -->
-    <script type="text/javascript" src="javascript/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.easing.js"></script> 
-    <script type="text/javascript" src="javascript/owl.carousel.js"></script>
-    <script type="text/javascript" src="javascript/jquery-waypoints.js"></script>
-    <script type="text/javascript" src="javascript/jquery-countTo.js"></script> 
-    <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="javascript/gmap3.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery-validate.js"></script>
-
-    <script type="text/javascript" src="javascript/parallax.js"></script>
-    <script type="text/javascript" src="javascript/main.js"></script>
-
-    <!-- Revolution Slider -->
-    <script type="text/javascript" src="javascript/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="javascript/slider.js"></script>
-    <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
-                loop:true,
-                margin:10,
-                nav:false,
-                autoplayTimeout:1000,
-                control:false,
-                autoplay:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:3
-                    },
-                    1000:{
-                        items:5
-                    }
-                }
-            })
-    </script>
-
-
 </body>
+</html>

@@ -32,6 +32,11 @@
     border-radius: 0;
 }
 
+.btn-volver:hover {
+	color: #fff;
+	background-color: #000;
+}
+
 @media only screen and (max-width:1199px){
 	.entry-title{
 		height:auto;

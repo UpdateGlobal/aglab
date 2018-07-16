@@ -12,10 +12,10 @@ if($proceso==""){
   $ejecutarCon = mysqli_query($enlaces,$consultaCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
   $filaCon = mysqli_fetch_array($ejecutarCon);
   $cod_contenido    = $filaCon['cod_contenido'];
-  if($cod_contenido>6){
+  if($cod_contenido>6 || $cod_contenido==13){
     $titulo_contenido = $filaCon['titulo_contenido'];
   }
-  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){
+  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8 || $cod_contenido==13){
     $img_contenido    = $filaCon['img_contenido'];
   }
   $contenido        = $filaCon['contenido'];
@@ -24,17 +24,21 @@ if($proceso==""){
 
 if($proceso == "Actualizar"){
   $cod_contenido    = $_POST['cod_contenido'];
-  if($cod_contenido>6){
+  if($cod_contenido>6 || $cod_contenido==13){
     $titulo_contenido = mysqli_real_escape_string($enlaces, $_POST['titulo_contenido']);
   }else{
     $titulo_contenido = "";
   }
-  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){
+  if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8 || $cod_contenido==13){
     $img_contenido    = $_POST['img_contenido'];
   }else{
     $img_contenido = "";
   }
+  if($cod_contenido==13){
+  $contenido = "";
+  }else{
   $contenido        = mysqli_real_escape_string($enlaces, $_POST['contenido']);
+  }
   $estado           = $_POST['estado'];
 
   $ActualizarCon = "UPDATE contenidos SET cod_contenido='$cod_contenido', titulo_contenido='$titulo_contenido', img_contenido='$img_contenido', contenido='$contenido', estado='$estado' WHERE cod_contenido='$cod_contenido'";
@@ -50,13 +54,14 @@ if($proceso == "Actualizar"){
     <script>
     function Validar(){
       <?php if($cod_contenido>6){ ?>
+      <?php if($cod_contenido==13){ }else{ ?>
       if(document.fcms.titulo_contenido.value==""){
         alert("Debe escribir un título");
         document.fcms.titulo_contenido.focus();
         return; 
       }
-      <?php } ?>
-      
+      <?php }
+      } ?>
       document.fcms.action = "nosotros-edit.php";
       document.fcms.proceso.value="Actualizar";
       document.fcms.submit();
@@ -95,6 +100,8 @@ if($proceso == "Actualizar"){
           <form class="fcms" name="fcms" method="post" action="" data-provide="validation" data-disable="false">
             <div class="card-body">
               <?php if($cod_contenido>6){ ?>
+              <?php if($cod_contenido==13){ ?>
+              <?php }else{ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label require" for="titulo_contenido">T&iacute;tulo:</label>
@@ -106,6 +113,9 @@ if($proceso == "Actualizar"){
                 </div>
               </div>
               <?php } ?>
+              <?php } ?>
+              <?php if($cod_contenido>6){ ?>
+              <?php }else{ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="slogan">Descripci&oacute;n:</label>
@@ -115,11 +125,18 @@ if($proceso == "Actualizar"){
                   <textarea name="contenido" data-provide="summernote" data-min-height="150"  <?php if($xVisitante=="1"){ ?> style="display:none;" <?php }else{ ?> <?php } ?> ><?php echo $contenido; ?></textarea>
                 </div>
               </div>
-              <?php if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8){ ?>
+              <?php } ?>
+              <?php if($cod_contenido==4 || $cod_contenido==5 || $cod_contenido==7 || $cod_contenido==8 || $cod_contenido==13){ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="logo">Imagen:</label><br>
-                  <small>(-px x -px)</small>
+                  <small><?php 
+                    if($cod_contenido==4){ echo "(-px x -px)"; }
+                    if($cod_contenido==5){ echo "(-px x -px)"; }
+                    if($cod_contenido==7){ echo "(-px x -px)"; }
+                    if($cod_contenido==8){ echo "(-px x -px)"; }
+                    if($cod_contenido==13){ echo "(758px x 405px)"; } 
+                  ?></small>
                 </div>
                 <div class="col-4 col-lg-8">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $img_contenido; ?></p><?php } ?>

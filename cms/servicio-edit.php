@@ -78,7 +78,6 @@ if($proceso=="Actualizar"){
             <small></small>
           </h1>
         </div>
-        <?php $page="servicios"; include("module/menu-servicios.php"); ?>
       </header><!--/.header -->
       <div class="main-content">
         <div class="card">

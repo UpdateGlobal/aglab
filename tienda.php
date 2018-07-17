@@ -1,254 +1,172 @@
+<?php include("cms/module/conexion.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<?php include ('script/head.php'); ?>
-</head>                                 
-<body class="header-sticky page-loading">   
-    <div class="loading-overlay">
-    </div>
-    
-<!-- Boxed -->
-<div class="boxed">
-
-
-	<?php   include ('module/menus.php');   ?>
-
-	<div class="page-title parallax parallax2">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-md-12">                    
-	                <div class="page-title-heading">
-	                    <h2>Encuentra los que necesitas</h2>
-	                </div><!-- /.page-title-heading -->                        
-	            </div><!-- /.col-md-12 -->  
-	        </div><!-- /.row -->  
-	    </div><!-- /.container -->                      
-	</div>
-
-
-	<div class="page-breadcrumbs">
-        <div class="container">
-            <div class="row">
-                <div class="flat-wrapper">
-                    <div class="breadcrumbs">
-                        <h2 class="trail-browse">Usted esta Aqui:</h2>
-                        <ul class="trail-items">
-                            <li class="trail-item"><a href="http://themesflat.com/html/canava/index-v2.html">Inicio</a></li>
-                            <li>Productos</li>
-                        </ul>
-                    </div><!-- /.breadcrumbs -->
-                </div><!-- /.flat-wrapper -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div>
-
-	<div class="container pad-top60px pad-bottom60px">
-		<div class="row">
-			<div class="col-md-8 col-xs-12">
-				<!-- /.woocommerce -->
-				<div class="general"> 
-	                <div class="woocommerce">
-	                    <ul class="products">
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/1.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/2.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/3.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/4.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/5.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>
-	                        <li>
-	                            <div class="product-inner">
-	                                <div class="product-thumbnail">
-	                                    <a href="articulo.php">
-	                                        <img src="images/products/6.jpg" alt="images">
-	                                    </a>
-	                                </div>
-	                                <div class="product-info">
-	                                    <div class="product-info-wrap">
-	                                        <h3>Nombre del Producto</h3>
-	                                        <span class="price"><span class="amount">s/ 549.95</span></span>
-	                                        <a class="button" href="articulo.php">Ver Detalle</a>
-	                                    </div>
-	                                </div>
-	                            </div><!-- /.product-inner -->
-	                        </li>                                                
-	                    </ul><!-- /.products -->
-	                    <div class="navigation paging-navigation numeric">
-	                        <div class="flat-pagination loop-pagination">
-	                            <span class="page-numbers current">1</span>
-	                            <a class="page-numbers" href="articulo.php">2</a>
-	                            <a class="page-numbers" href="articulo.php">→</a>
-	                        </div><!-- /.flat-pagination -->
-	                    </div><!-- /.navigation .paging-navigation .numeric -->
-	                </div>
-	            </div>
-				<!-- /.woocommerce -->
-			</div>
-			<div class="col-md-4 col-xs-12">
-				
-				<div class="widget widget_product_categories">
-	                <h4 class="widget-title">Categorías</h4>
-	                    <ul class="product-categories">
-	                        <li><a href="articulo.php">Solventes</a></li>
-	                        <li><a href="articulo.php">Disolventes</a></li>
-	                        <li><a href="articulo.php">Desinfectantes</a></li>
-	                        <li><a href="articulo.php">Detergente ácido</a></li>
-	                        <li><a href="articulo.php">Limpia Pisos</a></li>
-	                        <li><a href="articulo.php">Solventes Dieléctricos</a></li>
-	                    </ul>
-	            </div>
-
-				<!--wigget productoos-->
-				<div class="widget widget_products">
-	                <h2 class="flat-title-section style mag-bottom0px">Productos  <span class="scheme">más vendidos.</span></h2>
-	                <ul class="product_list_widget">
-	                    <li>
-	                        <a href="#">
-	                            <img src="images/products/1.jpg" alt="images">
-	                            <h5 class="box-title">Nombre del Producto</h5>
-	                        </a>
-	                        <span class="amount">s/ 85.49</span>
-	                    </li>
-	                    <li>
-	                        <a href="#">
-	                            <img src="images/products/3.jpg" alt="images">
-	                           <h5 class="box-title">Nombre del Producto</h5>
-	                        </a>
-	                        <span class="amount">s/ 85.49</span>
-	                    </li>
-	                </ul>
-	                <br>
-	                <!-- <a class="button lg" href="">make a quote <i class="fa fa-chevron-right"></i></a> -->
-	            </div>
-				<!--wigget productoos-->
+	<?php include ('script/head.php'); ?>
+</head>
+<body class="header-sticky page-loading">
+    <div class="loading-overlay"></div>
+	<!-- Boxed -->
+	<div class="boxed">
+		<?php include('module/menus.php'); ?>
+		<div class="page-title parallax parallax2">
+		    <div class="container">
+		        <div class="row">
+		            <div class="col-md-12">
+		                <div class="page-title-heading">
+		                    <h2>Encuentra los que necesitas</h2>
+		                </div><!-- /.page-title-heading -->
+		            </div><!-- /.col-md-12 -->
+		        </div><!-- /.row -->
+		    </div><!-- /.container -->
+		</div>
+		<div class="page-breadcrumbs">
+	        <div class="container">
+	            <div class="row">
+	                <div class="flat-wrapper">
+	                    <div class="breadcrumbs">
+	                        <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
+	                        <ul class="trail-items">
+	                            <li class="trail-item"><a href="index.php">Inicio</a></li>
+	                            <li>Productos</li>
+	                        </ul>
+	                    </div><!-- /.breadcrumbs -->
+	                </div><!-- /.flat-wrapper -->
+	            </div><!-- /.row -->
+	        </div><!-- /.container -->
+	    </div>
+		<div class="container pad-top60px pad-bottom60px">
+			<div class="row">
+				<div class="col-md-8 col-xs-12">
+					<!-- /.woocommerce -->
+					<div class="general">
+		            	<div class="woocommerce">
+		                	<ul class="products">
+		                		<?php
+                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1'";
+                                    $resultadoProductos = mysqli_query($enlaces, $consultarProductos);
+                                    $total_registros = mysqli_num_rows($resultadoProductos);
+                                    if($total_registros==0){
+                                ?>
+                                    <h2>No hay productos en nuestro cat&aacute;logo, pronto tendremos novedades.</h2>
+                                    <div style="height: 40px;"></div>
+                                <?php
+                                    }else{
+                                        $registros_por_paginas = 9;
+                                        $total_paginas = ceil($total_registros/$registros_por_paginas);
+                                        $pagina = intval($_GET['p']);
+                                        if($pagina<1 or $pagina>$total_paginas){
+                                            $pagina=1;
+                                        }
+                                       	$posicion = ($pagina-1)*$registros_por_paginas;
+                                        $limite = "LIMIT $posicion, $registros_por_paginas";
+                
+                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' ORDER BY orden ASC $limite";
+			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
+			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
+				                        	$xCodigo    = $filaPro['cod_producto'];
+				                        	$xProducto  = $filaPro['nom_producto'];
+				                        	$xImagen    = $filaPro['imagen'];
+			                    ?>
+		                        <li>
+		                            <div class="product-inner">
+		                                <div class="product-thumbnail">
+		                                    <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
+		                                        <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images">
+		                                    </a>
+		                                </div>
+		                                <div class="product-info">
+		                                    <div class="product-info-wrap">
+		                                        <h3><?php echo $xProducto; ?></h3>
+		                                        <a class="button" href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">Ver Detalle</a>
+		                                    </div>
+		                                </div>
+		                            </div><!-- /.product-inner -->
+		                        </li>
+		                        <?php
+			                        }
+			                        mysqli_free_result($resultadoProductos);
+			                    ?>
+		                    </ul><!-- /.products -->
+		                    <?php
+                                $paginas_mostrar = 10;
+                                if ($total_paginas>1){
+                                		echo "<hr>
+		                    				<div class='navigation paging-navigation numeric'>
+		                    					<div class='flat-pagination loop-pagination'>";
+                                                if($pagina>1){
+                                                    echo "<a class='page-numbers' href='?p=".($pagina-1)."'>«</a>";
+                                                }
+                                                for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
+                                                    if($i==$pagina){
+                                                        echo "<span class='page-numbers current'>$i</span>";
+                                                    }else{
+                                                        echo "<a class='page-numbers' href='?p=$i'>$i</a>";
+                                                    }
+                                                }
+                                                if(($pagina+$paginas_mostrar)<$total_paginas){
+                                                    echo "<span class='page-numbers'>...</span>";
+                                                }
+                                                if($pagina<$total_paginas){
+                                                    echo "<a class='page-numbers' href='?p=".($pagina+1)."'>»</a>";
+                                                }
+	                                    echo "</div>
+		                    			</div>";
+                                    }
+                                  }
+                            ?>
+		                </div>
+		            </div>
+					<!-- /.woocommerce -->
+				</div>
+				<div class="col-md-4 col-xs-12">		
+					<div class="widget widget_product_categories">
+		                <h4 class="widget-title">Categor&iacute;as</h4>
+		                <ul class="product-categories">
+		                	<?php
+		                        $consultarCategoria = "SELECT * FROM productos_categorias ORDER BY orden";
+		                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+		                         	$xCodigo    = $filaCat['cod_categoria'];
+		                         	$xCategoria = $filaCat['categoria'];
+		                    ?>
+		                    <li><a href="categorias-tienda.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+		                    <?php
+		                    	}
+		                    	mysqli_free_result($resultadoCategoria);
+		                    ?>
+		                </ul>
+		            </div>
+					<!--wigget productoos-->
+					<div class="widget widget_products">
+		                <h2 class="flat-title-section style mag-bottom0px">Productos <span class="scheme">M&aacute;s recientes</span></h2>
+		                <ul class="product_list_widget">
+		                	<?php
+			                    $consultarPro = "SELECT * FROM productos ORDER BY fecha_ing ASC LIMIT 2";
+			                    $resultadoPro = mysqli_query($enlaces, $consultarPro);
+			                    while($filaPro = mysqli_fetch_array($resultadoPro)){
+			                        $xCodigo    = $filaPro['cod_producto'];
+			                        $xProducto  = $filaPro['nom_producto'];
+			                        $xImagen    = $filaPro['imagen'];
+			                ?>
+		                    <li>
+		                        <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
+		                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
+		                            <h5 class="box-title"><?php echo $xProducto; ?></h5>
+		                        </a>
+		                    </li>
+		                    <?php
+		                    	}
+		                    	mysqli_free_result($resultadoPro); 
+		                    ?>
+		                </ul>
+		                <!-- <a class="button lg" href="">make a quote <i class="fa fa-chevron-right"></i></a> -->
+		            </div>
+					<!--wigget productoos-->
+				</div>
 			</div>
 		</div>
+		<?php include('module/footer.php'); ?>
 	</div>
-
-	<?php   include ('module/footer.php');  ?>
-
-	<!-- Go Top -->
-    <a class="go-top">
-        <i class="fa fa-chevron-up" style="transform: rotate(-45deg);"></i>
-    </a>   
-
-</div>
-
-
-    <!-- Javascript -->
-    <script type="text/javascript" src="javascript/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.easing.js"></script> 
-    <script type="text/javascript" src="javascript/owl.carousel.js"></script>
-    <script type="text/javascript" src="javascript/jquery-waypoints.js"></script>
-    <script type="text/javascript" src="javascript/jquery-countTo.js"></script> 
-    <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="javascript/gmap3.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery-validate.js"></script>
-
-    <script type="text/javascript" src="javascript/parallax.js"></script>
-    <script type="text/javascript" src="javascript/main.js"></script>
-
-    <!-- Revolution Slider -->
-    <script type="text/javascript" src="javascript/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="javascript/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="javascript/slider.js"></script>
-    <script type="text/javascript">
-        $('.owl-carousel').owlCarousel({
-                loop:true,
-                margin:10,
-                nav:false,
-                autoplayTimeout:1000,
-                control:false,
-                autoplay:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:3
-                    },
-                    1000:{
-                        items:5
-                    }
-                }
-            })
-    </script>
-
-
 </body>
+</html>

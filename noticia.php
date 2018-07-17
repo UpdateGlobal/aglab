@@ -140,7 +140,7 @@
                                                 $xOrden     = $filaCat['orden'];
                                                 $xEstado    = $filaCat['estado'];
                                         ?>
-                                            <li><a href="categorias.php"><?php echo $xCategoria; ?></a></li>
+                                            <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
                                         <?php 
                                             }
                                             mysqli_free_result($resultadoCategoria);

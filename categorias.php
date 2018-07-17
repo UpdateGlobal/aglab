@@ -1,4 +1,5 @@
 <?php include("cms/module/conexion.php"); ?>
+<?php $cod_categoria = $_REQUEST['cod_categoria']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,18 +10,18 @@
     <!-- Boxed -->
     <div class="boxed">
         <?php include('module/menus.php'); ?>
-    	<div class="page-title parallax parallax2">
-    	    <div class="container">
-    	        <div class="row">
-    	            <div class="col-md-12">
-    	                <div class="page-title-heading">
-    	                    <h2>Nuestro blog</h2>
-    	                </div><!-- /.page-title-heading -->
-    	            </div><!-- /.col-md-12 -->
-    	        </div><!-- /.row -->
-    	    </div><!-- /.container -->
-    	</div>
-    	<div class="page-breadcrumbs">
+        <div class="page-title parallax parallax2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-title-heading">
+                            <h2>Nuestro blog</h2>
+                        </div><!-- /.page-title-heading -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+        <div class="page-breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="flat-wrapper">
@@ -43,7 +44,25 @@
                             <div class="main-content-wrap">
                                 <div class="content-inner clearfix">
                                     <?php
-                                        $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' ORDER BY fecha";
+                                        $consultarNoticias = "SELECT * FROM noticias WHERE cod_categoria='$cod_categoria' AND estado='1'";
+                                        $resultadoNoticias = mysqli_query($enlaces, $consultarNoticias);
+                                        $total_registros = mysqli_num_rows($resultadoNoticias);
+                                        if($total_registros==0){
+                                    ?>
+                                    <h2>No hay entradas en nuestro blog, pronto tendremos novedades.</h2>
+                                    <div style="height: 40px;"></div>
+                                    <?php 
+                                        }else{
+                                            $registros_por_paginas = 6;
+                                            $total_paginas = ceil($total_registros/$registros_por_paginas);
+                                            $pagina = intval($_GET['p']);
+                                            if($pagina<1 or $pagina>$total_paginas){
+                                                $pagina=1;
+                                            }
+                                        $posicion = ($pagina-1)*$registros_por_paginas;
+                                        $limite = "LIMIT $posicion, $registros_por_paginas";
+                
+                                        $consultarNoticias = "SELECT * FROM noticias WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY fecha,cod_noticia ASC $limite";
                                         $resultadoNoticias = mysqli_query($enlaces,$consultarNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
                                         while($filaNot = mysqli_fetch_array($resultadoNoticias)){
                                             $xCodigo        = $filaNot['cod_noticia'];
@@ -61,9 +80,13 @@
                                             </div><!-- /.entry-cover -->
                                             <div class="entry-header">
                                                 <div class="entry-header-content">
-                                                    <h4 class="entry-time">
-                                                        <span class="entry-day">25</span>
-                                                        <span class="entry-month">Mar</span>
+                                                    <h4 class="entry-time fecha-char">
+                                                        <?php
+                                                            $mydate = strtotime($xFecha);
+                                                            $meses = array("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
+                                                        ?>
+                                                        <span class="entry-day"><?php echo date('d', $mydate); ?></span>
+                                                        <span class="entry-month"><?php echo $meses[date('n', $mydate)-1]; ?></span>
                                                     </h4>
                                                     <h4 class="entry-title">
                                                         <a href="noticia.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a>
@@ -83,6 +106,34 @@
                                     <?php
                                         }
                                         mysqli_free_result($resultadoNoticias);
+                                    ?>
+                                    <?php
+                                        $paginas_mostrar = 10;
+                                        if ($total_paginas>1){
+                                            echo "<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                                                    <nav class='pagin'>
+                                                        <ul class='pagination'>";
+                                                if($pagina>1){
+                                                    echo "<li><a href='?p=".($pagina-1)."' aria-label='Previous'><span aria-hidden='true'>«</span></a></li>";
+                                                }
+                                                for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
+                                                    if($i==$pagina){
+                                                        echo "<li class='active'><a><strong><span>$i</span></strong></a></li>";
+                                                    }else{
+                                                        echo "<li><a href='?p=$i'><span>$i</span></a></li>";
+                                                    }
+                                                }
+                                                if(($pagina+$paginas_mostrar)<$total_paginas){
+                                                    echo "<li><span>...</span></li>";
+                                                }
+                                                if($pagina<$total_paginas){
+                                                    echo "  <li><a href='?p=".($pagina+1)."' aria-label='Next'><span aria-hidden='true'>»</span></a></li>";
+                                                }
+                                                echo "  </ul>
+                                                    </nav>
+                                                </div>";
+                                            }
+                                        }
                                     ?>
                                 </div><!-- /.content-inner -->                                
                             </div><!-- /.main-content-wrap -->

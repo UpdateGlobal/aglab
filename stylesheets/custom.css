@@ -32,10 +32,42 @@
     border-radius: 0;
 }
 
+.pagination span {
+    font-size: 16px;
+}
+
 .btn-volver:hover {
 	color: #fff;
 	background-color: #000;
 }
+
+.fecha-char, span {
+	font-size: 17px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.pagin{
+	display: inline-block;
+}
+
+
+.woocommerce .products li .product-info h3 {
+    margin: 0 0 15px 0;
+    text-align: center;
+    height: 34px;
+}
+
+.woocommerce .products li .product-thumbnail {
+    margin-bottom: 20px;
+}
+
+.woocommerce .paging-navigation {
+    text-align: center;
+}
+
 
 @media only screen and (max-width:1199px){
 	.entry-title{

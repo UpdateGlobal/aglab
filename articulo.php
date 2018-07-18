@@ -41,24 +41,22 @@
     <meta property="og:image" content="cms/assets/img/productos/<?php echo $xImagenM; ?>" /><!-- cuando publiques esta url de la página en Facebook, se mostrará esta imagen -->
     <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <!-- facebook open graph ends from here -->
-
-
 </head>
 <body class="header-sticky page-loading">
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-    	<?php include('module/menus.php'); ?>
+    	<?php $xActivo="productos"; include('module/menus.php'); ?>
         <?php
-            $consultarPro = "SELECT cp.cod_categoria, cp.categoria, sp.cod_sectores, sp.sector, p.* FROM productos_categorias as cp, productos_sectores as sp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sectores=sp.cod_sectores ORDER BY p.orden ASC";
-            $resultadoPro = mysqli_query($enlaces, $consultarPro);
+            $consultaPro = "SELECT * FROM productos WHERE cod_producto='$cod_producto'";
+            $resultadoPro = mysqli_query($enlaces, $consultaPro);
             $filaPro = mysqli_fetch_array($resultadoPro);
                 $xCodigo    = $filaPro['cod_producto'];
-                $xCategoria = $filaPro['categoria'];
-                $xSectores  = $filaPro['sector'];
+                $xCod_categoria = $filaPro['cod_categoria'];
+                $xSectores  = $filaPro['cod_sectores'];
                 $xProducto  = $filaPro['nom_producto'];
-                $xResumen   = $filaPro['resumen'];
                 $xDescripcion = $filaPro['descripcion'];
+                $xResumen   = $filaPro['resumen'];
                 $xImagen    = $filaPro['imagen'];
                 $xEstado    = $filaPro['estado'];
         ?>
@@ -99,22 +97,23 @@
                         <div class="summary">
                             <div style="line-height: 30px;">
                                 <p class="price"><span class="amount"><?php echo $xProducto; ?></span></p>
-                                <span class="posted_in">Categorias: <a href="shop-detail.html#"><?php echo $xCategoria; ?></a></span>
+                                <span class="posted_in">Categorias: <a><?php 
+                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoria'";
+                                    $resultaCat     = mysqli_query($enlaces, $consultaCat);
+                                    $filaCat        = mysqli_fetch_array($resultaCat);
+                                    $xnomCat = $filaCat['categoria'];
+                                    echo $xnomCat; ?></a></span>
                             </div>
                             <div class="description">
-                                <?php $xResumenM = strip_tags($xResumen);
-                                                    $strCut = substr($xDesM,0,200);
-                                                    $xResumenM = substr($strCut,0,strrpos($strCut, ' ')).'';
-                                                    echo $xResumenM;
-    ?>
+                                <p><?php echo $xResumen; ?></p>
                             </div>
                             <div class="row pad-top20px pad-bottom20px" align="center">
-                                <a class="button" href="#">Solicitar</a>
+                                <a class="button" href="contacto.php">Solicitar</a>
                             </div>
                         </div><!-- /.summary -->
-                        <div class="flat-tabs" style="clear: left;">
+                        <div class="flat-tabs" style="clear:left;">
                             <ul class="menu-tabs">
-                                <li class="active"><a href="#">Descripcion</a></li>
+                                <li class="active"><a href="#">Descripci&oacute;n</a></li>
                             </ul>
                             <div class="content-tab">
                                 <div class="content-inner active" style="display: block;">
@@ -135,36 +134,42 @@
                                     $resultadoPro = mysqli_query($enlaces, $consultarPro);
                                     while($filaPro = mysqli_fetch_array($resultadoPro)){
                                         $xCodigo    = $filaPro['cod_producto'];
+                                        $xCod_categoriax = $filaPro['cod_categoria'];
                                         $xProducto  = $filaPro['nom_producto'];
                                         $xImagen    = $filaPro['imagen'];
                                 ?>
                                 <li>
                                     <div class="product-inner">
                                         <div class="product-thumbnail">
-                                            <a href="#">
-                                                <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images">
+                                            <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
+                                                <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images" />
                                             </a>
                                         </div>
                                         <div class="product-info">
                                             <div class="product-info-wrap">
                                                 <h3><?php echo $xProducto; ?></h3>
-                                                <span class="price"><span class="amount"><?php echo $xCategoria; ?></span></span>
+                                                <span class="price" style="font-size: 14px; top: -10px; position: relative;"><span class="amount"><?php 
+                                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
+                                                    $resultaCat     = mysqli_query($enlaces, $consultaCat);
+                                                    $filaCat        = mysqli_fetch_array($resultaCat);
+                                                    $xnomCat = $filaCat['categoria'];
+                                                    echo $xnomCat; ?></span></span>
                                             </div>
                                         </div>
                                     </div><!-- /.product-inner -->
                                 </li>
                                 <?php
-                                }
-                                mysqli_free_result($resultadoPro); 
-                            ?>
+                                    }
+                                    mysqli_free_result($resultadoPro); 
+                                ?>
                             </ul><!-- /.products -->
                         </div><!-- /.related_products -->
                     </div>
                 </div>
-                	<div class="col-md-4 col-xs-12">
-                		<div class="widget widget_product_categories">
-                            <h4 class="widget-title">Categor&iacute;as</h4>
-                            <ul class="product-categories">
+                <div class="col-md-4 col-xs-12">
+                	<div class="widget widget_product_categories">
+                        <h4 class="widget-title">Categor&iacute;as</h4>
+                        <ul class="product-categories">
                             <?php
                                 $consultarCategoria = "SELECT * FROM productos_categorias ORDER BY orden";
                                 $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -177,11 +182,11 @@
                                 }
                                 mysqli_free_result($resultadoCategoria);
                             ?>
-                            </ul>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
         <?php include ('module/footer.php');  ?>
     </div>
 </body>

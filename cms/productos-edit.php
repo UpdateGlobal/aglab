@@ -224,7 +224,7 @@ if($proceso == "Actualizar"){
                   <label class="col-form-label" for="resumen">Resumen:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <textarea class="form-control" name="resumen" id="resumen" data-provide="summernote" data-min-height="150"><?php echo $resumen; ?></textarea>
+                  <input class="form-control" name="resumen" id="resumen" value="<?php echo $resumen; ?>" />
                 </div>
               </div>
 

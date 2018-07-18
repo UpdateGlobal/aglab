@@ -10,13 +10,13 @@ $num=0;
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-        <?php include('module/menus.php'); ?>
+        <?php $xActivo="servicios"; include('module/menus.php'); ?>
     	<div class="page-title parallax parallax2">
     	    <div class="container">
     	        <div class="row">
     	            <div class="col-md-12">                    
     	                <div class="page-title-heading">
-    	                    <h2>Tienda</h2>
+    	                    <h2>Servicios</h2>
     	                </div><!-- /.page-title-heading -->                        
     	            </div><!-- /.col-md-12 -->  
     	        </div><!-- /.row -->  

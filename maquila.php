@@ -10,7 +10,7 @@ $num=0;
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-        <?php include('module/menus.php'); ?>
+        <?php $xActivo="maquila"; include('module/menus.php'); ?>
     	<div class="page-title parallax parallax2">
     	    <div class="container">
     	        <div class="row">
@@ -44,8 +44,7 @@ $num=0;
                 while($filaSer = mysqli_fetch_array($resultadoservicio)){
                     $xImagen      = $filaSer['imagen'];
                     $xTitulo      = $filaSer['titulo'];
-                    $xDescripcion = $filaSer['descripcion'];
-                    
+                    $xDescripcion = $filaSer['descripcion'];        
             ?>
             <div class="row">
                 <?php if($num==0){ ?>

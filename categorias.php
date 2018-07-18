@@ -9,7 +9,7 @@
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-        <?php include('module/menus.php'); ?>
+        <?php $xActivo="blog"; include('module/menus.php'); ?>
         <div class="page-title parallax parallax2">
             <div class="container">
                 <div class="row">

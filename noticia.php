@@ -42,7 +42,7 @@
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-        <?php include('module/menus.php'); ?>
+        <?php $xActivo="blog"; include('module/menus.php'); ?>
         <?php
             $consultaNoticias = "SELECT * FROM noticias WHERE cod_noticia='$cod_noticia'";
             $ejecutarNoticias = mysqli_query($enlaces,$consultaNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -100,14 +100,18 @@
                                                     $fecha        = $filaNot['fecha'];
                                             ?>
                                             <h4 class="entry-time">
-                                                <span class="entry-month">Mar</span>
-                                                <span class="entry-day">25</span>
+                                                <?php
+                                                    $mydate = strtotime($fecha);
+                                                    $meses = array("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
+                                                ?>
+                                                <span class="entry-month"><?php echo date('d', $mydate); ?></span>
+                                                <span class="entry-day"><?php echo $meses[date('n', $mydate)-1]; ?></span>
                                             </h4>
                                             <div class="entry-header">                            
                                                 <div class="entry-header-content">
                                                     <div class="entry-meta">
                                                         <i class="fa fa-newspaper-o"></i>
-                                                        <span class="entry-author"><a href="#"><?php echo $titulo; ?></a></span>
+                                                        <span class="entry-author"><a><?php echo $titulo; ?></a></span>
                                                     </div>
                                                 </div><!-- /.entry-header-content -->
                                             </div><!-- /.entry-header -->

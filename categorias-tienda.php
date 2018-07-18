@@ -1,4 +1,5 @@
 <?php include("cms/module/conexion.php"); ?>
+<?php $cod_categoria = $_REQUEST['cod_categoria']; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,7 +29,14 @@
 	                        <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
 	                        <ul class="trail-items">
 	                            <li class="trail-item"><a href="index.php">Inicio</a></li>
-	                            <li>Productos</li>
+	                            <li class="trail-item"><a href="productos.php">Productos</a></li>
+	                            <?php
+			                    	$consultarCategoria = "SELECT * FROM productos_categorias WHERE cod_categoria='$cod_categoria'";
+			                    	$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+			                    	$filaCat = mysqli_fetch_array($resultadoCategoria);
+		                        		$xCategoria = $filaCat['categoria'];
+		                    	?>
+	                            <li><?php echo $xCategoria; ?></li>
 	                        </ul>
 	                    </div><!-- /.breadcrumbs -->
 	                </div><!-- /.flat-wrapper -->
@@ -43,7 +51,7 @@
 		            	<div class="woocommerce">
 		                	<ul class="products">
 		                		<?php
-                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1'";
+                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria'";
                                     $resultadoProductos = mysqli_query($enlaces, $consultarProductos);
                                     $total_registros = mysqli_num_rows($resultadoProductos);
                                     if($total_registros==0){
@@ -61,7 +69,7 @@
                                        	$posicion = ($pagina-1)*$registros_por_paginas;
                                         $limite = "LIMIT $posicion, $registros_por_paginas";
                 
-                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' ORDER BY orden ASC $limite";
+                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden ASC $limite";
 			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
 			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
 				                        	$xCodigo    = $filaPro['cod_producto'];
@@ -95,20 +103,20 @@
 		                    				<div class='navigation paging-navigation numeric'>
 		                    					<div class='flat-pagination loop-pagination'>";
                                                 if($pagina>1){
-                                                    echo "<a class='page-numbers' href='?p=".($pagina-1)."'>«</a>";
+                                                    echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=".($pagina-1)."'>«</a>";
                                                 }
                                                 for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                                                     if($i==$pagina){
                                                         echo "<span class='page-numbers current'>$i</span>";
                                                     }else{
-                                                        echo "<a class='page-numbers' href='?p=$i'>$i</a>";
+                                                        echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=$i'>$i</a>";
                                                     }
                                                 }
                                                 if(($pagina+$paginas_mostrar)<$total_paginas){
                                                     echo "<span class='page-numbers'>...</span>";
                                                 }
                                                 if($pagina<$total_paginas){
-                                                    echo "<a class='page-numbers' href='?p=".($pagina+1)."'>»</a>";
+                                                    echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=".($pagina+1)."'>»</a>";
                                                 }
 	                                    echo "</div>
 		                    			</div>";
@@ -142,17 +150,25 @@
 		                <h2 class="flat-title-section style mag-bottom0px">Productos <span class="scheme">M&aacute;s recientes</span></h2>
 		                <ul class="product_list_widget">
 		                	<?php
-			                    $consultarPro = "SELECT cp.cod_categoria, cp.categoria, sp.cod_sectores, sp.sector, p.* FROM productos_categorias as cp, productos_sectores as sp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sectores=sp.cod_sectores ORDER BY p.orden ASC LIMIT 2";
+			                    $consultarPro = "SELECT * FROM productos ORDER BY fecha_ing ASC LIMIT 2";
 			                    $resultadoPro = mysqli_query($enlaces, $consultarPro);
 			                    while($filaPro = mysqli_fetch_array($resultadoPro)){
 			                        $xCodigo    = $filaPro['cod_producto'];
+			                        $xCod_categoriax = $filaPro['cod_categoria'];
 			                        $xProducto  = $filaPro['nom_producto'];
 			                        $xImagen    = $filaPro['imagen'];
 			                ?>
 		                    <li>
 		                        <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-		                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
+		                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
 		                            <h5 class="box-title"><?php echo $xProducto; ?></h5>
+		                            <span class="amount"><?php 
+	                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
+	                                    $resultaCat     = mysqli_query($enlaces, $consultaCat);
+	                                    $filaCat        = mysqli_fetch_array($resultaCat);
+	                                    $xnomCat = $filaCat['categoria'];
+                                        echo $xnomCat; ?>
+                                    </span>
 		                        </a>
 		                    </li>
 		                    <?php
@@ -160,7 +176,6 @@
 		                    	mysqli_free_result($resultadoPro); 
 		                    ?>
 		                </ul>
-		                <!-- <a class="button lg" href="">make a quote <i class="fa fa-chevron-right"></i></a> -->
 		            </div>
 					<!--wigget productoos-->
 				</div>

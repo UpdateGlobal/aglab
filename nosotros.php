@@ -3,12 +3,12 @@
 <html lang="es">
 <head>
 	<?php include("script/head.php"); ?>
-</head>                                 
+</head>
 <body class="header-sticky page-loading">
     <div class="loading-overlay"></div>
 	<!-- Boxed -->
 	<div class="boxed">
-		<?php include("module/menus.php"); ?>
+		<?php $xActivo="empresa"; include("module/menus.php"); ?>
 		<div class="page-title parallax parallax2">
 		    <div class="container">
 		        <div class="row">
@@ -43,10 +43,7 @@
 			        $filaMet = mysqli_fetch_array($resultadoMet);
 			            $xLogo  = $filaMet['logo'];
 			    ?>
-		        <img src="cms/assets/img/nosotros/<?php echo $xLogo; ?>" class="img-responsive img_seccion1">
-		    	<?php
-
-		    	?>
+		        <img src="cms/assets/img/nosotros/<?php echo $xLogo; ?>" class="img-responsive img_seccion1" />
 		    </div>
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
@@ -58,7 +55,7 @@
 				    		$xImagen      = $filaCon['img_contenido'];
 				    		$xContenido   = $filaCon['contenido'];
 				    ?>
-					<h2 class="flat-title-section_nosotros style mag-bottom0px">Quienes <span class="scheme">Somos.</span></h2>
+					<h2 class="flat-title-section_nosotros style mag-bottom0px">Quienes <span class="scheme">Somos</span></h2>
 					<?php echo $xContenido; ?>
 					<?php 
 						mysqli_free_result($resultadoCon);
@@ -121,7 +118,7 @@
 						<img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" />
 					</div>
 					<div class="col-md-6 col-xs-12">
-						<h2 class="flat-title-section_nosotros style mag-bottom0px"><span class="scheme">Nuestra  </span> Historia </h2>
+						<h2 class="flat-title-section_nosotros style mag-bottom0px"><span class="scheme">Nuestra</span> Historia</h2>
 						<?php echo $xContenido; ?>
 					</div>
 					<?php
@@ -199,15 +196,15 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<div class="row bg_nosotros" align="center" >
+			<div class="row bg_nosotros" align="center">
 				<br>
-				<h2 class="flat-title-section_nosotros  mag-bottom0px">Nuestros <span class="scheme2">Clientes</span></h2>
+				<h2 class="flat-title-section_nosotros mag-bottom0px">Nuestros <span class="scheme2">Clientes</span></h2>
 			</div>
 			<div class="row">
 				<?php include('module/clientes.php'); ?>
 			</div>
 		</div>
-	<?php include('module/footer.php');  ?>
+		<?php include('module/footer.php');  ?>
 	</div>
 </body>
 </html>

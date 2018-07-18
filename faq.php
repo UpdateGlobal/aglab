@@ -8,7 +8,7 @@
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
-        <?php include('module/menus.php'); ?>
+        <?php $xActivo="faq"; include('module/menus.php'); ?>
         <div class="page-title parallax parallax2">
             <div class="container">
                 <div class="row">
@@ -39,7 +39,13 @@
             <div class="row">
                 <h3 class="flat-title-section style">Preguntas <span class="scheme2">Frecuentes</span></h3>
                 <div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <?php
+                        $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='12' AND estado='1'";
+                        $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaCon = mysqli_fetch_array($resultadoCon);
+                            $xContenido = $filaCon['contenido'];
+                    ?>
+                    <?php echo $xContenido; ?>
                 </div>
             </div>
             <div class="row">
@@ -73,12 +79,12 @@
                                 <ul>
                                     <li class="box_cont"><b>Datos de Contacto</b></li>
                                     <?php
-                                            $consultarCot = 'SELECT * FROM contacto';
-                                            $resultadoCot = mysqli_query($enlaces,$consultarCot) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                                            $filaCot  = mysqli_fetch_array($resultadoCot);
-                                                $xDirection   = $filaCot['direction'];
-                                                $xPhone       = $filaCot['phone'];
-                                                $xEmail       = $filaCot['email'];
+                                        $consultarCot = 'SELECT * FROM contacto';
+                                        $resultadoCot = mysqli_query($enlaces,$consultarCot) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                                        $filaCot  = mysqli_fetch_array($resultadoCot);
+                                            $xDirection   = $filaCot['direction'];
+                                            $xPhone       = $filaCot['phone'];
+                                            $xEmail       = $filaCot['email'];
                                     ?>
                                     <?php if($xDirection!=""){ ?><li class="box_more"><?php echo $xDirection; ?></li><?php } ?>
                                     <?php if($xPhone!=""){ ?><li class="box_more">Telefono: <?php echo $xPhone; ?></li><?php } ?>
@@ -94,23 +100,33 @@
                 </div>
             </div>
         </div>
-
-        <div class="flat-row parallax parallax4 pad-top120px pad-bottom120px">
+        <?php
+            $consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='7' AND estado='1'";
+            $resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+            $filaCon = mysqli_fetch_array($resultadoCon);
+                $xTitulo      = $filaCon['titulo_contenido'];
+                $xImagen      = $filaCon['img_contenido'];
+                $xContenido   = $filaCon['contenido'];
+        ?>
+        <div class="flat-row parallax parallax4 pad-top120px pad-bottom120px" style="background:url(cms/assets/img/nosotros/<?php echo $xImagen; ?>);">
             <div class="overlay bg-scheme1"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="make-quote">
-                            <h1 class="title">From around the corner to<br>around the globe.</h1>
-                            <h5 class="desc">We will take care of your cargo or your passenger and deliver them safe and on time.</h5>
+                            <h1 class="title"><?php echo $xTitulo; ?></h1>
+                            <h5 class="desc"><?php echo $xContenido; ?></h5>
                             <div class="group-btn">
-                                <a class="button lg" href="index.html#">make a quote <i class="fa fa-chevron-right"></i></a>
+                                <a class="button lg" href="contacto.php">Contactarme <i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div><!-- /.make-quote -->
                     </div><!-- /.col-md-12 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div>
+        <?php
+            mysqli_free_result($resultadoCon);
+        ?>
         <?php include ('module/footer.php');  ?>
     </div>
 </body>

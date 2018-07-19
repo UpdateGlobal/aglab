@@ -1,5 +1,11 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_noticia = $_REQUEST['cod_noticia']; ?>
+<?php $slug = $_REQUEST['slug']; ?>
+<?php
+    $consultaNoticias = "SELECT * FROM noticias WHERE slug='$slug'";
+    $ejecutarNoticias = mysqli_query($enlaces,$consultaNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
+    $filaNot = mysqli_fetch_array($ejecutarNoticias);
+        $cod_noticia = $filaNot['cod_noticia'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,7 +27,7 @@
     <meta name="twitter:url" content="https://<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
     <meta name="twitter:title" content="<?php echo $titulo; ?>" /> <!-- maximum 140 char -->
     <meta name="twitter:description" content="<?php echo $noticia; ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="cms/assets/img/noticia/<?php echo $imagen; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
+    <meta name="twitter:image" content="/cms/assets/img/noticia/<?php echo $imagen; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
     <!-- twitter card ends from here -->
 
     <!-- facebook abrir gráfico comienza desde aquí, si no es necesario, entonces eliminar gráfico abierto relacio -->
@@ -31,14 +37,14 @@
     <meta property="og:locale" content="en_PE" />
     <meta property="og:site_name" content="<?php echo $xTitulo; ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="cms/assets/img/noticia/<?php echo $imagen; ?>" /> <!-- cuando publiques esta url de la página en Facebook, se mostrará esta imagen -->
+    <meta property="og:image" content="/cms/assets/img/noticia/<?php echo $imagen; ?>" /> <!-- cuando publiques esta url de la página en Facebook, se mostrará esta imagen -->
     <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <!-- facebook open graph ends from here -->
     <?php
         mysqli_free_result($ejecutarNoticias);
     ?>
-</head>                                 
-<body class="header-sticky page-loading">   
+</head>
+<body class="header-sticky page-loading">
     <div class="loading-overlay"></div>
     <!-- Boxed -->
     <div class="boxed">
@@ -70,8 +76,8 @@
                         <div class="breadcrumbs">
                             <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
                             <ul class="trail-items">
-                                <li class="trail-item"><a href="index.php">Inicio</a></li>
-                                <li class="trail-item"><a href="blog.php">Blog</a></li>
+                                <li class="trail-item"><a href="/index.php">Inicio</a></li>
+                                <li class="trail-item"><a href="/blog.php">Blog</a></li>
                                 <li><?php echo $titulo; ?></li>
                             </ul>
                         </div><!-- /.breadcrumbs -->
@@ -88,7 +94,7 @@
                                 <div class="content-inner">
                                     <article class="blog-post">
                                         <div class="entry-wrapper">
-                                            <div class="entry-cover"><img src="cms/assets/img/noticias/<?php echo $imagen ?>" alt="images"></div><!-- /.entry-cover -->
+                                            <div class="entry-cover"><img src="/cms/assets/img/noticias/<?php echo $imagen ?>" alt="<?php echo $titulo; ?>"></div><!-- /.entry-cover -->
                                             <?php
                                                 $consultaNoticias = "SELECT * FROM noticias WHERE cod_noticia='$cod_noticia'";
                                                 $ejecutarNoticias = mysqli_query($enlaces,$consultaNoticias) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -122,7 +128,7 @@
                                                 mysqli_free_result($ejecutarNoticias);
                                             ?>
                                             <hr />
-                                            <a class="btn-volver" href="blog.php"><i class="fa fa-chevron-left" style="margin-left:0px;"></i> Volver al Blog</a>
+                                            <a class="btn-volver" href="/blog.php"><i class="fa fa-chevron-left" style="margin-left:0px;"></i> Volver al Blog</a>
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->
                                 </div><!-- /.content-inner -->  
@@ -140,11 +146,12 @@
                                             $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                                             while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                                                 $xCodigo    = $filaCat['cod_categoria'];
+                                                $xSlug      = $filaCat['slug'];
                                                 $xCategoria = $filaCat['categoria'];
                                                 $xOrden     = $filaCat['orden'];
                                                 $xEstado    = $filaCat['estado'];
                                         ?>
-                                            <li><a href="categorias.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                                            <li><a href="/blogs/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
                                         <?php 
                                             }
                                             mysqli_free_result($resultadoCategoria);
@@ -171,7 +178,7 @@
                                                         mysqli_free_result($resultadoCot);
                                                     ?>
                                                 </ul>
-                                                <a class="button white" href="contacto.php">Contáctanos<i class="fa fa-chevron-right"></i></a>
+                                                <a class="button white" href="/contacto.php">Contáctanos<i class="fa fa-chevron-right"></i></a>
                                             </div>
                                         </div><!-- /.textwidget -->
                                     </div><!-- /.widget_text -->

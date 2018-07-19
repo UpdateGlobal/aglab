@@ -24,7 +24,7 @@
                     ?>
                     <div class="item-three-column">
                         <div class="item-img">
-                            <img src="cms/assets/img/productos/sectores/<?php echo $xImagen; ?>" />
+                            <img src="/cms/assets/img/productos/sectores/<?php echo $xImagen; ?>" />
                         </div>
                         <p class="tooltip"><?php echo $xSectores; ?></p>
                     </div>
@@ -58,7 +58,7 @@
                                 mysqli_free_result($resultadoCot);
                             ?>
                         </ul>
-                        <a class="button white box_buttun" href="contacto.php">Contactanos<i class="fa fa-chevron-right"></i></a>
+                        <a class="button white box_buttun" href="/contacto.php">Contactanos<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div><!-- /.textwidget -->
             </div>
@@ -75,7 +75,7 @@
                         <ul>
                             <li class="box_cont" style="text-align: left;"><b><?php echo $xTitulo; ?></b></li>
                         </ul>
-                        <a class="button white box_buttun" href="<?php echo $xLink; ?>">Saber m&aacute;s<i class="fa fa-chevron-right"></i></a>
+                        <a class="button white box_buttun" href="/<?php echo $xLink; ?>">Saber m&aacute;s<i class="fa fa-chevron-right"></i></a>
                         <?php
                             mysqli_free_result($resultadoCon);
                         ?>

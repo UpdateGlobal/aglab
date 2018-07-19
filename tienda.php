@@ -27,7 +27,7 @@
 	                    <div class="breadcrumbs">
 	                        <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
 	                        <ul class="trail-items">
-	                            <li class="trail-item"><a href="index.php">Inicio</a></li>
+	                            <li class="trail-item"><a href="/index.php">Inicio</a></li>
 	                            <li>Productos</li>
 	                        </ul>
 	                    </div><!-- /.breadcrumbs -->
@@ -65,20 +65,21 @@
 			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
 			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
 				                        	$xCodigo    = $filaPro['cod_producto'];
+				                        	$xSlug  	= $filaPro['slug'];
 				                        	$xProducto  = $filaPro['nom_producto'];
 				                        	$xImagen    = $filaPro['imagen'];
 			                    ?>
 		                        <li>
 		                            <div class="product-inner">
 		                                <div class="product-thumbnail">
-		                                    <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-		                                        <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images">
+		                                    <a href="/producto/<?php echo $xSlug; ?>">
+		                                        <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images">
 		                                    </a>
 		                                </div>
 		                                <div class="product-info">
 		                                    <div class="product-info-wrap">
 		                                        <h3><?php echo $xProducto; ?></h3>
-		                                        <a class="button" href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">Ver Detalle</a>
+		                                        <a class="button" href="/producto/<?php echo $xSlug; ?>">Ver Detalle</a>
 		                                    </div>
 		                                </div>
 		                            </div><!-- /.product-inner -->
@@ -119,7 +120,7 @@
 		            </div>
 					<!-- /.woocommerce -->
 				</div>
-				<div class="col-md-4 col-xs-12">		
+				<div class="col-md-4 col-xs-12">
 					<div class="widget widget_product_categories">
 		                <h4 class="widget-title">Categor&iacute;as</h4>
 		                <ul class="product-categories">
@@ -129,8 +130,9 @@
 		                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
 		                         	$xCodigo    = $filaCat['cod_categoria'];
 		                         	$xCategoria = $filaCat['categoria'];
+		                         	$xSlug = $filaCat['slug'];
 		                    ?>
-		                    <li><a href="categorias-tienda.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+		                    <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
 		                    <?php
 		                    	}
 		                    	mysqli_free_result($resultadoCategoria);
@@ -142,17 +144,26 @@
 		                <h2 class="flat-title-section style mag-bottom0px">Productos <span class="scheme">M&aacute;s recientes</span></h2>
 		                <ul class="product_list_widget">
 		                	<?php
-			                    $consultarPro = "SELECT cp.cod_categoria, cp.categoria, sp.cod_sectores, sp.sector, p.* FROM productos_categorias as cp, productos_sectores as sp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sectores=sp.cod_sectores ORDER BY p.orden ASC LIMIT 2";
+			                    $consultarPro = "SELECT * FROM productos ORDER BY fecha_ing ASC LIMIT 2";
 			                    $resultadoPro = mysqli_query($enlaces, $consultarPro);
 			                    while($filaPro = mysqli_fetch_array($resultadoPro)){
 			                        $xCodigo    = $filaPro['cod_producto'];
+			                        $xCod_categoriax = $filaPro['cod_categoria'];
+			                        $xSlug		= $filaPro['slug'];
 			                        $xProducto  = $filaPro['nom_producto'];
 			                        $xImagen    = $filaPro['imagen'];
 			                ?>
 		                    <li>
-		                        <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-		                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
+		                        <a href="/blog/<?php echo $xSlug; ?>">
+		                            <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
 		                            <h5 class="box-title"><?php echo $xProducto; ?></h5>
+		                            <span class="amount"><?php 
+	                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
+	                                    $resultaCat     = mysqli_query($enlaces, $consultaCat);
+	                                    $filaCat        = mysqli_fetch_array($resultaCat);
+	                                    $xnomCat  		= $filaCat['categoria'];
+                                        echo $xnomCat; ?>
+                                    </span>
 		                        </a>
 		                    </li>
 		                    <?php

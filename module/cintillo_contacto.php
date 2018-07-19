@@ -12,7 +12,7 @@
                             ?>
                             <h5 class="promobox-title"><?php echo $xTitulo_contenido; ?></h5>
                             <br>
-                            <a class="button black sm" href="contacto.php">Contacto<i class="fa fa-chevron-right"></i></a>
+                            <a class="button black sm" href="/contacto.php">Contacto<i class="fa fa-chevron-right"></i></a>
                             <?php
                                 mysqli_free_result($resultadoCon);
                             ?>

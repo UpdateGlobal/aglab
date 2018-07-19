@@ -29,7 +29,7 @@ $num=0;
                         <div class="breadcrumbs">
                             <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
                             <ul class="trail-items">
-                                <li class="trail-item"><a href="index.php">Inicio</a></li>
+                                <li class="trail-item"><a href="/index.php">Inicio</a></li>
                                 <li>Maquila</li>
                             </ul>
                         </div><!-- /.breadcrumbs -->
@@ -51,19 +51,19 @@ $num=0;
                 <div class="col-md-6 col-xs-12" align="right">
                     <h2 class="flat-title-section mag-bottom0px"><?php echo $xTitulo; ?></h2>
                     <?php echo $xDescripcion; ?>
-                    <a class="button lg" href="contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
+                    <a class="button lg" href="/contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <div class="col-md-6 col-xs-12">
-                    <img src="cms/assets/img/servicios/<?php echo $xImagen; ?>" class="img-responsive">
+                    <img src="/cms/assets/img/servicios/<?php echo $xImagen; ?>" class="img-responsive">
                 </div>
                 <?php $num++; }else{ ?>
                 <div class="col-md-6 col-xs-12">
-                    <img src="cms/assets/img/servicios/<?php echo $xImagen; ?>" class="img-responsive">
+                    <img src="/cms/assets/img/servicios/<?php echo $xImagen; ?>" class="img-responsive">
                 </div>
                 <div class="col-md-6 col-xs-12" align="left">
                     <h2 class="flat-title-section mag-bottom0px"><?php echo $xTitulo; ?></h2>
                     <?php echo $xDescripcion; ?>
-                    <a class="button lg" href="contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
+                    <a class="button lg" href="/contacto.php">Servicio <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <?php $num=0; ?>
                 <?php } ?>
@@ -84,21 +84,28 @@ $num=0;
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="flat-divider d10px"></div>
-                                    <form id="contactform" method="post" action="./contact/contact-process.php" novalidate="novalidate">
+                                    <div id="contactform">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p><input id="name" name="name" type="text" value="" placeholder="Nombres y Apellidos" required="required"></p>
-                                                <p><input id="email" name="email" type="email" value="" placeholder="Email" required="required"></p>
-                                                <p><input id="name" name="name" type="text" value="" placeholder="Nombre de tu Empresa" required="required"></p>
-                                                <p><input id="phone" name="phone" type="text" value="" placeholder="Celular" required="required"></p>                                
-                                            </div><!-- /.col-md-6 -->
+                                                <p><input id="nombre" name="nombre" type="text" value="" placeholder="Nombres y Apellidos" required /></p>
+                                                <p><input id="email" name="email" type="email" value="" placeholder="Email" required /></p>
+                                                <p><input id="empresa" name="empresa" type="text" value="" placeholder="Nombre de tu Empresa" required/></p>
+                                                <p><input id="telefono" name="telefono" type="text" value="" placeholder="Celular" required/></p>
+                                            </div>
                                             <div class="col-md-6">
-                                                <p><textarea name="message" placeholder="Indícanos tu consulta" required="required"></textarea></p>
-                                                <span class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Contactarme">
+                                                <p><textarea id="mensaje" name="mensaje" placeholder="Indícanos tu consulta"></textarea></p>
+                                                <span class="form-submit">
+                                                    <div style="clear:both;"></div>
+                                                    <div id="mail-status"></div>
+                                                    <?php 
+                                                        $fecha = date("Y-m-d");
+                                                    ?>
+                                                    <input type="hidden" id="fecha_ingreso" name="fecha_ingreso" value="<?php echo $fecha ?>">
+                                                    <button type="button" class="btn btn-primary" onClick="sendContact();">Contactarme</button>
                                                 </span>
-                                            </div><!-- /.col-md-6 -->
+                                            </div>
                                         </div><!-- /.row -->
-                                    </form>
+                                    </div>
                                 </div><!-- /.col-md-4 -->
                                 <div class="col-md-4">
                                     <div class="flat-contact-us">
@@ -122,6 +129,51 @@ $num=0;
             </div>
         </div> 
         <?php include ('module/footer.php');  ?>
+        <script>
+            function sendContact(){
+                var valid;
+                valid = validateContact();
+                if(valid) {
+                    jQuery.ajax({
+                        url: "/contact_form.php",
+                        data:'nombre='+$("#nombre").val()+'&email='+$("#email").val()+'&empresa='+$("#empresa").val()+'&telefono='+$("#telefono").val()+'&mensaje='+$("#mensaje").val()+'&fecha_ingreso='+$("#fecha_ingreso").val(),
+                        type: "POST",
+                        success:function(data){
+                            $("#mail-status").html(data);
+                        },
+                        error:function (){}
+                    });
+                }
+            }
+            function validateContact() {
+                var valid = true;
+                if(!$("#nombre").val()) {
+                    $("#nombre").css('background-color','#f28282');
+                    valid = false;
+                }
+                if(!$("#email").val()) {
+                    $("#email").css('background-color','#f28282');
+                    valid = false;
+                }
+                if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                    $("#email").css('background-color','#f28282');
+                    valid = false;
+                }
+                if(!$("#empresa").val()) {
+                    $("#empresa").css('background-color','#f28282');
+                    valid = false;
+                }
+                if(!$("#telefono").val()) {
+                    $("#telefono").css('background-color','#f28282');
+                    valid = false;
+                }
+                if(!$("#mensaje").val()) {
+                    $("#mensaje").css('background-color','#f28282');
+                    valid = false;
+                }
+                return valid;
+            }
+        </script>
     </div>
 </body>
 </html>

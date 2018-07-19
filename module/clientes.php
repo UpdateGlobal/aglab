@@ -12,7 +12,7 @@
     ?>
     <div class="item">
         <div class="clients-image style">
-            <div class="item-img"><img src="cms/assets/img/carrusel/<?php echo $xImagen; ?>" /></div>
+            <div class="item-img"><img src="/cms/assets/img/carrusel/<?php echo $xImagen; ?>" /></div>
         </div>
     </div>
     <?php

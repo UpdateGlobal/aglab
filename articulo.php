@@ -1,5 +1,10 @@
 <?php include ('cms/module/conexion.php'); ?>
-<?php $cod_producto = $_REQUEST['cod_producto']; ?>
+<?php $slug = $_REQUEST['slug'];
+$consultarProductos = "SELECT * FROM productos WHERE slug='$slug'";
+$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
+$filaPro = mysqli_fetch_array($resultadoProductos);
+    $cod_producto = $filaPro['cod_producto'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +29,7 @@
                                                     $xDesM = substr($strCut,0,strrpos($strCut, ' ')).'...';
                                                     echo $xDesM;
     ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:image" content="cms/assets/img/productos/<?php echo $xImagenM; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
+    <meta name="twitter:image" content="/cms/assets/img/productos/<?php echo $xImagenM; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
     <!-- twitter card ends from here -->
 
     <!-- facebook abrir gráfico comienza desde aquí, si no es necesario, entonces eliminar gráfico abierto relacio -->
@@ -38,7 +43,7 @@
     <meta property="og:locale" content="en_PE" />
     <meta property="og:site_name" content="<?php echo $xProductoM; ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="cms/assets/img/productos/<?php echo $xImagenM; ?>" /><!-- cuando publiques esta url de la página en Facebook, se mostrará esta imagen -->
+    <meta property="og:image" content="/cms/assets/img/productos/<?php echo $xImagenM; ?>" /><!-- cuando publiques esta url de la página en Facebook, se mostrará esta imagen -->
     <!--meta property="fb:admins" content="" /-->  <!-- use this if you have  -->
     <!-- facebook open graph ends from here -->
 </head>
@@ -78,8 +83,8 @@
                         <div class="breadcrumbs">
                             <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
                             <ul class="trail-items">
-                                <li class="trail-item"><a href="index.php">Inicio</a></li>
-                                <li class="trail-item"><a href="tienda.php">Productos</a></li>
+                                <li class="trail-item"><a href="/index.php">Inicio</a></li>
+                                <li class="trail-item"><a href="/tienda.php">Productos</a></li>
                                 <li><?php echo $xProducto; ?></li>
                             </ul>
                         </div><!-- /.breadcrumbs -->
@@ -92,7 +97,7 @@
         		<div class="col-md-8 col-xs-12">
         			<div class="products-detail">
                         <div class="products-images">
-                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
+                            <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
                         </div>
                         <div class="summary">
                             <div style="line-height: 30px;">
@@ -108,7 +113,7 @@
                                 <p><?php echo $xResumen; ?></p>
                             </div>
                             <div class="row pad-top20px pad-bottom20px" align="center">
-                                <a class="button" href="contacto.php">Solicitar</a>
+                                <a class="button" href="/contacto.php">Solicitar</a>
                             </div>
                         </div><!-- /.summary -->
                         <div class="flat-tabs" style="clear:left;">
@@ -136,13 +141,14 @@
                                         $xCodigo    = $filaPro['cod_producto'];
                                         $xCod_categoriax = $filaPro['cod_categoria'];
                                         $xProducto  = $filaPro['nom_producto'];
+                                        $xSlug      = $filaPro['slug'];
                                         $xImagen    = $filaPro['imagen'];
                                 ?>
                                 <li>
                                     <div class="product-inner">
                                         <div class="product-thumbnail">
-                                            <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-                                                <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images" />
+                                            <a href="/blog/<?php echo $xSlug; ?>">
+                                                <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images" />
                                             </a>
                                         </div>
                                         <div class="product-info">
@@ -175,9 +181,10 @@
                                 $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                                 while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                                     $xCodigo    = $filaCat['cod_categoria'];
+                                    $xSlug = $filaCat['slug'];
                                     $xCategoria = $filaCat['categoria'];
                             ?>
-                            <li><a href="categorias-tienda.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                            <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
                             <?php
                                 }
                                 mysqli_free_result($resultadoCategoria);

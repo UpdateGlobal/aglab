@@ -27,7 +27,7 @@
                         <div class="breadcrumbs">
                             <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
                             <ul class="trail-items">
-                                <li class="trail-item"><a href="index.php">Inicio</a></li>
+                                <li class="trail-item"><a href="/index.php">Inicio</a></li>
                                 <li>Blog</li>
                             </ul>
                         </div><!-- /.breadcrumbs -->
@@ -66,6 +66,7 @@
                                         while($filaNot = mysqli_fetch_array($resultadoNoticias)){
                                             $xCodigo        = $filaNot['cod_noticia'];
                                             $xTitulo        = $filaNot['titulo'];
+                                            $xSlug          = $filaNot['slug'];
                                             $xImagen        = $filaNot['imagen'];
                                             $xDescripcion   = $filaNot['noticia'];
                                             $xFecha         = $filaNot['fecha'];
@@ -73,8 +74,8 @@
                                     <article class="flat-item col-xs-12 col-sm-12 col-md-6 col-lg-4 blog-post">
                                         <div class="entry-wrapper" style="border: 1px solid #2eafe7;padding: 10px;">
                                             <div class="entry-cover">
-                                                <a href="noticia.php?cod_noticia=<?php echo $xCodigo; ?>">
-                                                    <img src="cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
+                                                <a href="/blog/<?php echo $xSlug; ?>">
+                                                    <img src="/cms/assets/img/noticias/<?php echo $xImagen; ?>" alt="<?php echo $xTitulo; ?>">
                                                 </a>
                                             </div><!-- /.entry-cover -->
                                             <div class="entry-header">
@@ -88,7 +89,7 @@
                                                         <span class="entry-month"><?php echo $meses[date('n', $mydate)-1]; ?></span>
                                                     </h4>
                                                     <h4 class="entry-title">
-                                                        <a href="noticia.php?cod_noticia=<?php echo $xCodigo; ?>"><?php echo $xTitulo; ?></a>
+                                                        <a href="/blog/<?php echo $xSlug; ?>"><?php echo $xTitulo; ?></a>
                                                     </h4>
                                                 </div><!-- /.entry-header-content -->
                                             </div><!-- /.entry-header -->
@@ -98,7 +99,7 @@
                                                     $strCut = substr($xDescripcion_sub,0,200);
                                                     $xDescripcion_sub = substr($strCut,0,strrpos($strCut, ' ')).'...';
                                                     echo $xDescripcion_sub;
-                                                ?> <a href="noticia.php?cod_noticia=<?php echo $xCodigo; ?>" class="more-link">Leer m&aacute;s</a></p>
+                                                ?> <a href="/blog/<?php echo $xSlug; ?>" class="more-link">Leer m&aacute;s</a></p>
                                             </div><!-- /.entry-content -->
                                         </div><!-- /.entry-wrapper -->
                                     </article><!-- /.blog-post -->

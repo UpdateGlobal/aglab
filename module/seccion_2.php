@@ -16,7 +16,7 @@
 ?>
 <div class="container-fluid bg_seccion2">
 	<div class="row">
-		<div class="col-md-6 col-xs-12 alto_bg" style="padding: 0; background:url(cms/assets/img/nosotros/<?php echo $xImagen; ?>); background-size: cover; "></div>
+		<div class="col-md-6 col-xs-12 alto_bg" style="padding: 0; background:url(/cms/assets/img/nosotros/<?php echo $xImagen; ?>); background-size: cover; "></div>
 		<div class="col-md-6 col-xs-12" style="background-color: #2dafe6;padding: 0px;">
 			<div class="img_seccion2">
 				<h3 class="title_seccion2 aglabtitle">¿Porqué elegirnos?</h3>

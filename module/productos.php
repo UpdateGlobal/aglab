@@ -12,16 +12,17 @@
                             $xCod_categoriax = $filaPro['cod_categoria'];
                             $xProducto  = $filaPro['nom_producto'];
                             $xImagen    = $filaPro['imagen'];
+                            $xSlug      = $filaPro['slug'];
                     ?>
                     <li>
-                        <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images" />
+                        <a href="/producto/<?php echo $xSlug; ?>">
+                            <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
                             <h5 class="box-title"><?php echo $xProducto; ?></h5>
                         </a>
                         <span class="amount"><?php 
-                                        $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
-                                        $resultaCat     = mysqli_query($enlaces, $consultaCat);
-                                        $filaCat        = mysqli_fetch_array($resultaCat);
+                                        $consultaCat = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
+                                        $resultaCat = mysqli_query($enlaces, $consultaCat);
+                                        $filaCat = mysqli_fetch_array($resultaCat);
                                         $xnomCat = $filaCat['categoria'];
                                         echo $xnomCat; ?></span>
                     </li>
@@ -46,7 +47,7 @@
                             <div class="box-content">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.
                                 <br><br>
-                                <a class="button lg" href="maquila.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
+                                <a class="button lg" href="/maquila.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
                             <div class="box-content">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.   
                                 <br><br>
-                                <a class="button lg" href="servicio.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
+                                <a class="button lg" href="/servicio.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>

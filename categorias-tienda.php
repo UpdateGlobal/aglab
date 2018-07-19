@@ -1,5 +1,10 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $cod_categoria = $_REQUEST['cod_categoria']; ?>
+<?php $slug = $_REQUEST['slug'];
+$consultarCategoria = "SELECT * FROM productos_categorias WHERE slug='$slug'";
+$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+$filaCat = mysqli_fetch_array($resultadoCategoria);
+	$cod_categoria = $filaCat['cod_categoria'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,8 +33,8 @@
 	                    <div class="breadcrumbs">
 	                        <h2 class="trail-browse">Usted esta Aqu&iacute;:</h2>
 	                        <ul class="trail-items">
-	                            <li class="trail-item"><a href="index.php">Inicio</a></li>
-	                            <li class="trail-item"><a href="productos.php">Productos</a></li>
+	                            <li class="trail-item"><a href="/index.php">Inicio</a></li>
+	                            <li class="trail-item"><a href="/tienda.php">Productos</a></li>
 	                            <?php
 			                    	$consultarCategoria = "SELECT * FROM productos_categorias WHERE cod_categoria='$cod_categoria'";
 			                    	$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -73,20 +78,21 @@
 			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
 			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
 				                        	$xCodigo    = $filaPro['cod_producto'];
+				                        	$xSlug 		= $filaPro['slug'];
 				                        	$xProducto  = $filaPro['nom_producto'];
 				                        	$xImagen    = $filaPro['imagen'];
 			                    ?>
 		                        <li>
 		                            <div class="product-inner">
 		                                <div class="product-thumbnail">
-		                                    <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-		                                        <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="images">
+		                                    <a href="/blog/<?php echo $xSlug; ?>">
+		                                        <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>">
 		                                    </a>
 		                                </div>
 		                                <div class="product-info">
 		                                    <div class="product-info-wrap">
 		                                        <h3><?php echo $xProducto; ?></h3>
-		                                        <a class="button" href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">Ver Detalle</a>
+		                                        <a class="button" href="/blog/<?php echo $xSlug; ?>">Ver Detalle</a>
 		                                    </div>
 		                                </div>
 		                            </div><!-- /.product-inner -->
@@ -103,20 +109,20 @@
 		                    				<div class='navigation paging-navigation numeric'>
 		                    					<div class='flat-pagination loop-pagination'>";
                                                 if($pagina>1){
-                                                    echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=".($pagina-1)."'>«</a>";
+                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina-1)."'>«</a>";
                                                 }
                                                 for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                                                     if($i==$pagina){
                                                         echo "<span class='page-numbers current'>$i</span>";
                                                     }else{
-                                                        echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=$i'>$i</a>";
+                                                        echo "<a class='page-numbers' href='/categorias/".$slug."&p=$i'>$i</a>";
                                                     }
                                                 }
                                                 if(($pagina+$paginas_mostrar)<$total_paginas){
                                                     echo "<span class='page-numbers'>...</span>";
                                                 }
                                                 if($pagina<$total_paginas){
-                                                    echo "<a class='page-numbers' href='?cod_categoria=".$cod_categoria."&p=".($pagina+1)."'>»</a>";
+                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina+1)."'>»</a>";
                                                 }
 	                                    echo "</div>
 		                    			</div>";
@@ -136,9 +142,10 @@
 		                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
 		                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
 		                         	$xCodigo    = $filaCat['cod_categoria'];
+		                         	$xSlug		= $filaCat['slug'];
 		                         	$xCategoria = $filaCat['categoria'];
 		                    ?>
-		                    <li><a href="categorias-tienda.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+		                    <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
 		                    <?php
 		                    	}
 		                    	mysqli_free_result($resultadoCategoria);
@@ -155,12 +162,13 @@
 			                    while($filaPro = mysqli_fetch_array($resultadoPro)){
 			                        $xCodigo    = $filaPro['cod_producto'];
 			                        $xCod_categoriax = $filaPro['cod_categoria'];
+			                        $xSlug		= $filaPro['slug'];
 			                        $xProducto  = $filaPro['nom_producto'];
 			                        $xImagen    = $filaPro['imagen'];
 			                ?>
 		                    <li>
-		                        <a href="articulo.php?cod_producto=<?php echo $xCodigo; ?>">
-		                            <img src="cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
+		                        <a href="/blog/<?php echo $xSlug; ?>">
+		                            <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
 		                            <h5 class="box-title"><?php echo $xProducto; ?></h5>
 		                            <span class="amount"><?php 
 	                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";

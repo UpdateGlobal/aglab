@@ -1,4 +1,4 @@
-<!--menus-->           
+<!--menus-->
 <div class="site-header">
     <?php include ('module/topmenu.php'); ?>
     <header id="header" class="header clearfix"> 
@@ -13,8 +13,8 @@
                                 $filaMet = mysqli_fetch_array($resultadoMet);
                                     $xLogo    = $filaMet['logo'];
                             ?>
-                            <a href="index.php">
-                                <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
+                            <a href="/index.php">
+                                <img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
                             </a>
                             <?php
                                 mysqli_free_result($resultadoMet);
@@ -24,7 +24,7 @@
                         <div class="nav-wrap">
                             <nav id="mainnav" class="mainnav">
                                 <ul class="menu">
-                                    <li class="<?php if($xActivo=="empresa"){ echo "home"; } ?>"><a href="nosotros.php">Empresa</a></li>
+                                    <li class="<?php if($xActivo=="empresa"){ echo "home"; } ?>"><a href="/nosotros.php">Empresa</a></li>
                                     <li class="<?php if($xActivo=="productos"){ echo "home"; } ?> has-mega-menu">
                                         <a class="has-mega active" href="#">Productos</a>
                                         <div class="submenu mega-menu">
@@ -43,7 +43,7 @@
                                                                     $xSlug     = $filaSc['slug'];
                                                                     $xSectores = $filaSc['sector'];
                                                             ?>
-                                                            <li><a class="viewt" href="sectores-tienda.php?cod_sectores=<?php echo $xCodigo; ?>"><?php echo $xSectores; ?></a></li>
+                                                            <li><a class="viewt" href="/sectores/<?php echo $xSlug; ?>"><?php echo $xSectores; ?></a></li>
                                                             <?php
                                                                 }
                                                                 mysqli_free_result($resultadoSector);
@@ -63,7 +63,7 @@
                                                                     $xCategoria = $filaCat['categoria'];
                                                                     $xSlug      = $filaCat['slug'];
                                                             ?>
-                                                            <li><a class="viewt" href="categorias-tienda.php?cod_categoria=<?php echo $xCodigo; ?>"><?php echo $xCategoria; ?></a></li>
+                                                            <li><a class="viewt" href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
                                                             <?php
                                                                 }
                                                                 mysqli_free_result($resultadoCategoria);
@@ -74,11 +74,11 @@
                                             </div><!-- /.row -->
                                         </div><!-- /.submenu -->
                                     </li>
-                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="maquila.php">Maquila</a></li>
-                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="servicio.php">Servicios</a></li>
-                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="blog.php">Blog</a></li>
-                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="faq.php">FAQ</a></li>
-                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="contacto.php">Contacto</a></li>
+                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="/maquila.php">Maquila</a></li>
+                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="/servicio.php">Servicios</a></li>
+                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="/blog.php">Blog</a></li>
+                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="/faq.php">FAQ</a></li>
+                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="/contacto.php">Contacto</a></li>
                                 </ul><!-- /.menu -->                                        
                             </nav><!-- /.mainnav -->  
                         </div><!-- /.nav-wrap -->

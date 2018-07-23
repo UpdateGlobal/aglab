@@ -9,6 +9,8 @@
             $xSlogan    = $filaMet['slogan'];
             $xDes       = $filaMet['description'];
             $xKey       = $filaMet['keywords'];
+            $xFace1     = $filaMet['face1'];
+            $xFace2     = $filaMet['face2'];
             $xUrl       = $filaMet['url'];
             $xIco       = $filaMet['ico'];
     ?>
@@ -44,6 +46,12 @@
     <link href="/cms/assets/img/meta/<?php echo $xIco; ?>" rel="apple-touch-icon-precomposed" sizes="48x48" />
     <link href="/cms/assets/img/meta/<?php echo $xIco; ?>" rel="apple-touch-icon-precomposed" />
     <link href="/cms/assets/img/meta/<?php echo $xIco; ?>" rel="shortcut icon" />
-    <?php
-        mysqli_free_result($resultadoMet);
-    ?>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122719016-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-122719016-1');
+    </script>

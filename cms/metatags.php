@@ -71,14 +71,14 @@
                   </li>
                   <li class="list-group-item">
                     <strong>Url:</strong><br>
-                    http://<?php echo $xUrl; ?>
+                    <?php echo $xUrl; ?>
                   </li>
                   <li class="list-group-item">
                     <strong>Im&aacute;genes para redes sociales:</strong><br>
                     <div id="listagaleria">
                       <ul>
-                        <li><img class="d-block b-1 border-light hover-shadow-2 p-1" src="http://<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace1; ?>" /></li>
-                        <li><img class="d-block b-1 border-light hover-shadow-2 p-1" src="http://<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace2; ?>" /></li>
+                        <li><img class="d-block b-1 border-light hover-shadow-2 p-1" src="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace1; ?>" /></li>
+                        <li><img class="d-block b-1 border-light hover-shadow-2 p-1" src="<?php echo $xUrl; ?>/cms/assets/img/meta/<?php echo $xFace2; ?>" /></li>
                       </ul>
                     </div>
                   </li>

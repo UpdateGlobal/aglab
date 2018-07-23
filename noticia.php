@@ -24,16 +24,24 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="<?php echo $xTitulo; ?>" />
     <!-- <meta name="twitter:creator" content="@yourtwitterusername" /> -->
-    <meta name="twitter:url" content="https://<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
+    <meta name="twitter:url" content="<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
     <meta name="twitter:title" content="<?php echo $titulo; ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:description" content="<?php echo $noticia; ?>" /> <!-- maximum 140 char -->
+    <meta name="twitter:description" content="<?php  
+        $noticiaM = strip_tags($noticia);
+        $strCut = substr($noticiaM,0,200);
+        $noticiaM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+        echo $noticiaM; ?>" /> <!-- maximum 140 char -->
     <meta name="twitter:image" content="/cms/assets/img/noticia/<?php echo $imagen; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
     <!-- twitter card ends from here -->
 
     <!-- facebook abrir gráfico comienza desde aquí, si no es necesario, entonces eliminar gráfico abierto relacio -->
     <meta property="og:title" content="<?php echo $titulo; ?>" /><!-- maximum 140 char -->
-    <meta property="og:url" content="https://<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
-    <meta property="og:description" content="<?php echo $noticia; ?>"><!-- maximum 140 char -->
+    <meta property="og:url" content="<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
+    <meta property="og:description" content="<?php 
+        $noticiaM = strip_tags($noticia);
+        $strCut = substr($noticiaM,0,200);
+        $noticiaM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+        echo $noticiaM; ?>"><!-- maximum 140 char -->
     <meta property="og:locale" content="en_PE" />
     <meta property="og:site_name" content="<?php echo $xTitulo; ?>" />
     <meta property="og:type" content="website" />

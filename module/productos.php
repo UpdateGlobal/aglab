@@ -38,35 +38,65 @@
             <div class="flat-wrapper">
                 <div class="flat-iconbox-style clearfix">
                     <!-- /.item-three-column -->
+                    <?php
+                        $consultarservicio = "SELECT * FROM servicios WHERE estado='1' AND cod_categoria='1' ORDER BY orden DESC LIMIT 1";
+                        $resultadoservicio = mysqli_query($enlaces,$consultarservicio) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaSer = mysqli_fetch_array($resultadoservicio);
+                            $xTituloS      = $filaSer['titulo'];
+                            $xDescripcionS = $filaSer['descripcion'];
+                    ?>
                     <div class="flat-item">
                         <div class="iconbox style1">
                             <div class="box-header">
                                 <div class="box-icon"><i class="fas fa-american-sign-language-interpreting"></i></div>
-                                <h5 class="box-title">SERVICIO DE MAQUILA</h5>
+                                <h5 class="box-title"><?php echo $xTituloS; ?></h5>
                             </div>
                             <div class="box-content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.
+                                <?php 
+                                    $xDescripcionSM = strip_tags($xDescripcionS);
+                                    $strCut = substr($xDescripcionSM,0,120);
+                                    $xDescripcionSM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                    echo $xDescripcionSM; 
+                                ?>
                                 <br><br>
                                 <a class="button lg" href="/maquila.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
+                    <?php 
+                        mysqli_free_result($resultadoservicio);
+                    ?>
                     <!-- /.item-three-column -->
                     <br><br>
                     <!-- /.item-three-column -->
+                    <?php
+                        $consultarservicio = "SELECT * FROM servicios WHERE estado='1' AND cod_categoria='0' ORDER BY orden DESC LIMIT 1";
+                        $resultadoservicio = mysqli_query($enlaces,$consultarservicio) or die('Consulta fallida: ' . mysqli_error($enlaces));
+                        $filaSer = mysqli_fetch_array($resultadoservicio);
+                            $xTituloS      = $filaSer['titulo'];
+                            $xDescripcionS = $filaSer['descripcion'];
+                    ?>
                     <div class="flat-item">
                         <div class="iconbox style1">
                             <div class="box-header">
                                 <div class="box-icon"><i class="fab fa-pagelines"></i></div>
-                                <h5 class="box-title">DESARROLLO A MEDIDA</h5>
+                                <h5 class="box-title"><?php echo $xTituloS; ?></h5>
                             </div>
                             <div class="box-content">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab numquam suscipit dolorem iusto quo repellendus ratione.   
+                                <?php 
+                                    $xDescripcionSM = strip_tags($xDescripcionS);
+                                    $strCut = substr($xDescripcionSM,0,120);
+                                    $xDescripcionSM = substr($strCut,0,strrpos($strCut, ' ')).'...';
+                                    echo $xDescripcionSM; 
+                                ?>
                                 <br><br>
                                 <a class="button lg" href="/servicio.php">Ver m&aacute;s info <i class="fa fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        mysqli_free_result($resultadoservicio); 
+                    ?>
                     <!-- /.item-three-column -->
                 </div>
             </div>

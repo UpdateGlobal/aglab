@@ -104,6 +104,44 @@
     padding: 8px 12px;
 }
 
+.flat-top {
+    background-color: #275496;
+    color: rgba(255, 255, 255);
+}
+
+.btn-ficha{
+	background: #275496;
+    margin-bottom: 15px;
+}
+
+.title-slide {
+    white-space: normal !important;
+    width: 45% !important;
+}
+
+/* ----- */
+.page-footer {
+    background-color: #888e96;
+}
+
+.social {
+    background-color: #275496;
+}
+/* ----- */
+
+@media only screen and (max-width:1440px){
+	.entry-title{
+		height:auto;
+	}
+	.entry-content{
+		height:auto;
+	}
+	.title-slide {
+    	white-space: normal !important;
+    	width: 60% !important;
+	}
+}
+
 @media only screen and (max-width:1199px){
 	.entry-title{
 		height:auto;
@@ -111,8 +149,11 @@
 	.entry-content{
 		height:auto;
 	}
+	.title-slide {
+    	white-space: normal !important;
+    	width: 60% !important;
+	}
 }
-
 
 @media only screen and (max-width:768px){
 	#mainnav-mobi ul > li > a {
@@ -123,6 +164,13 @@
 		color: #333;
 		display: block;
 	}
+	.tp-caption.title-slide {
+    	font-size: 34px !important;
+	}
+	.title-slide {
+    	width: 100% !important;
+    	text-align: center;
+    }
 	#mainnav-mobi .mega-title .btn-mega {
 	    color: #333;
 	    font-weight: 700;
@@ -136,5 +184,11 @@
 	}
 	.page-title h2 {
 	    font-size: 14px;
+	}
+}
+
+@media only screen and (max-width:425px){
+    .tp-caption.title-slide {
+    	font-size: 20px !important;
 	}
 }

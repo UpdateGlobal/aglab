@@ -18,28 +18,22 @@ $filaPro = mysqli_fetch_array($resultadoProductos);
             $xDes       = $filaPro['resumen'];
     ?>
     <!-- La tarjeta Twitter comienza desde aquí, si no necesita eliminar esta sección -->
-    <!-- <meta name="twitter:card" content="summary" /> -->
-    <meta name="twitter:site" content="@yourtwitterusername" />
-    <meta name="twitter:creator" content="@yourtwitterusername" />
-    <meta name="twitter:url" content="https://<?php echo $xUrl; ?>" />
-
-    <meta name="twitter:title" content="<?php echo $xProductoM; ?>" /> <!-- maximum 140 char -->
+    <meta name="twitter:url" content="<?php echo $xUrl; ?>" />
+    <meta name="twitter:title" content="<?php echo $xProductoM; ?>" />
     <meta name="twitter:description" content="<?php $xDesM = strip_tags($xDes);
                                                     $strCut = substr($xDesM,0,200);
                                                     $xDesM = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                                                    echo $xDesM;
-    ?>" /> <!-- maximum 140 char -->
+                                                    echo $xDesM; ?>" /> <!-- maximum 140 char -->
     <meta name="twitter:image" content="/cms/assets/img/productos/<?php echo $xImagenM; ?>" /> <!--cuando publiques esta url de la página en twitter, se mostrará esta imagen-->
     <!-- twitter card ends from here -->
 
     <!-- facebook abrir gráfico comienza desde aquí, si no es necesario, entonces eliminar gráfico abierto relacio -->
+    <meta property="og:url" content="<?php echo $xUrl; ?>" />
     <meta property="og:title" content="<?php echo $xProductoM; ?>" /><!-- maximum 140 char -->
-    <meta property="og:url" content="https://<?php echo $xUrl; ?>" />
     <meta property="og:description" content="<?php $xDesM = strip_tags($xDes);
                                                     $strCut = substr($xDesM,0,200);
                                                     $xDesM = substr($strCut,0,strrpos($strCut, ' ')).'...';
-                                                    echo $xDesM;
-    ?>" /><!-- maximum 140 char -->
+                                                    echo $xDesM; ?>" /><!-- maximum 140 char -->
     <meta property="og:locale" content="en_PE" />
     <meta property="og:site_name" content="<?php echo $xProductoM; ?>" />
     <meta property="og:type" content="website" />
@@ -62,6 +56,7 @@ $filaPro = mysqli_fetch_array($resultadoProductos);
                 $xProducto  = $filaPro['nom_producto'];
                 $xDescripcion = $filaPro['descripcion'];
                 $xResumen   = $filaPro['resumen'];
+                $xFicha     = $filaPro['ficha'];
                 $xImagen    = $filaPro['imagen'];
                 $xEstado    = $filaPro['estado'];
         ?>
@@ -113,6 +108,9 @@ $filaPro = mysqli_fetch_array($resultadoProductos);
                                 <p><?php echo $xResumen; ?></p>
                             </div>
                             <div class="row pad-top20px pad-bottom20px" align="center">
+                                <?php if($xFicha!=""){ ?>
+                                <a class="button btn-ficha" target="_blank" href="/cms/assets/archivos/<?php echo $xFicha; ?>">Ficha tecnica</a>
+                                <?php } ?>
                                 <a class="button" href="/contacto.php">Solicitar</a>
                             </div>
                         </div><!-- /.summary -->

@@ -26,6 +26,7 @@ if($proceso == "Registrar"){
   $resumen            = mysqli_real_escape_string($enlaces,$_POST['resumen']);
   if(isset($_POST['fecha_ing'])){ $fecha_ing = $_POST['fecha_ing']; }else{ $fecha_ing = date("Y-m-d"); }
   $imagen             = $_POST['imagen'];
+  $ficha              = $_POST['ficha'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
@@ -33,7 +34,7 @@ if($proceso == "Registrar"){
   $ejecutarValidar = mysqli_query($enlaces, $validarProductos);
   $numreg = mysqli_num_rows($ejecutarValidar);
 
-  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$orden', '$estado')";
+  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, ficha, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$ficha', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarProductos);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -221,6 +222,19 @@ if($proceso == "Registrar"){
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IP');" /><i class="fa fa-save"></i> Examinar</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="ficha_tecnica">Ficha T&eacute;cnica:</label>
+                </div>
+                <div class="col-4 col-lg-8">
+                  <input class="form-control" id="ficha_tecnica" name="ficha" type="text" />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <button class="btn btn-bold btn-info" type="button" name="boton3" onClick="javascript:Imagen('FT');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

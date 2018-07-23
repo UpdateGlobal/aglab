@@ -23,6 +23,7 @@ if($proceso == ""){
   $resumen            = htmlspecialchars($filaPro['resumen']);
   $fecha_ing          = $filaPro['fecha_ing'];
   $imagen             = $filaPro['imagen'];
+  $ficha              = $filaPro['ficha'];
   $orden              = $filaPro['orden'];
   $estado             = $filaPro['estado'];
 }
@@ -45,6 +46,7 @@ if($proceso == "Actualizar"){
   $resumen            = $_POST['resumen'];
   if(isset($_POST['fecha_ing'])){$fecha_ing = $_POST['fecha_ing'];}else{$fecha_ing = date("Y-m-d");}
   $imagen             = $_POST['imagen'];
+  $ficha              = $_POST['ficha'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
@@ -53,12 +55,13 @@ if($proceso == "Actualizar"){
     cod_producto='$cod_producto', 
     cod_categoria='$cod_categoria', 
     cod_sectores='$cod_sectores', 
-    slug='$slug',
+    slug='$slug', 
     nom_producto='$nom_producto', 
     descripcion='$descripcion', 
     resumen='$resumen', 
     fecha_ing='$fecha_ing', 
     imagen='$imagen', 
+    ficha='$ficha', 
     orden='$orden', 
     estado='$estado' 
     WHERE cod_producto='$cod_producto'";
@@ -159,7 +162,7 @@ if($proceso == "Actualizar"){
                         }
                       }
                     ?>
-                    <option value="0">Sin categoria</option>
+                    <option value="0">Sin categor&iacute;a</option>
                   </select>
                 </div>
               </div>
@@ -248,6 +251,19 @@ if($proceso == "Actualizar"){
                 </div>
                 <div class="col-4 col-lg-2">
                   <button class="btn btn-bold btn-info" type="button" name="boton2" onClick="javascript:Imagen('IP');" /><i class="fa fa-save"></i> Examinar</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-4 col-lg-2">
+                  <label class="col-form-label" for="ficha_tecnica">Ficha T&eacute;cnica:</label>
+                </div>
+                <div class="col-4 col-lg-8">
+                  <input class="form-control" id="ficha_tecnica" name="ficha" type="text" value="<?php echo $ficha; ?>" />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-4 col-lg-2">
+                  <button class="btn btn-bold btn-info" type="button" name="boton3" onClick="javascript:Imagen('FT');" /><i class="fa fa-save"></i> Examinar</button>
                 </div>
               </div>
 

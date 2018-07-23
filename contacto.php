@@ -3,7 +3,19 @@
 <html lang="es">
 <head>
     <?php include('script/head.php'); ?>
-
+    <!-- twitter -->
+    <meta name="twitter:url" content="<?php echo $xUrl; ?>" />
+    <meta name="twitter:title" content="<?php echo $xTitulo; ?>" />
+    <meta name="twitter:description" content="<?php echo $xDes; ?>" />
+    <meta name="twitter:image" content="/cms/assets/img/meta/<?php echo $xFace1; ?>" />
+    <meta name="twitter:image" content="/cms/assets/img/meta/<?php echo $xFace2; ?>" />
+    <!-- facebook -->
+    <meta property="og:url" content="<?php echo $xUrl; ?>" />
+    <meta property="og:title" content="<?php echo $xTitulo; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="<?php echo $xDes; ?>" />
+    <meta property="og:image" content="/cms/assets/img/meta/<?php echo $xFace1; ?>" />
+    <meta property="og:image" content="/cms/assets/img/meta/<?php echo $xFace2; ?>" />
 </head>                                 
 <body class="header-sticky page-loading">   
     <div class="loading-overlay"></div>

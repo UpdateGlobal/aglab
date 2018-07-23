@@ -38,10 +38,11 @@
         td:nth-of-type(2):before { content: "Categorías"; }
         td:nth-of-type(3):before { content: "Producto"; }
         td:nth-of-type(4):before { content: "Imagen"; }
-        td:nth-of-type(5):before { content: "Estado"; }
-        td:nth-of-type(6):before { content: ""; }
+        td:nth-of-type(5):before { content: "Ficha"; }
+        td:nth-of-type(6):before { content: "Estado"; }
         td:nth-of-type(7):before { content: ""; }
         td:nth-of-type(8):before { content: ""; }
+        td:nth-of-type(9):before { content: ""; }
       }
     </style>
     <script>
@@ -105,10 +106,11 @@
                         <th width="20%" scope="col">Sectores</th>
                         <th width="20%" scope="col">Categor&iacute;as</th>
                         <th width="20%" scope="col">Producto</th>
-                        <th width="20%" scope="col">Imagen
+                        <th width="15%" scope="col">Imagen
                           <input type="hidden" name="proceso">
                           <input type="hidden" name="eliminar" value="false">
                         </th>
+                        <th width="5%" scope="col">Ficha</th>
                         <th width="5%" scope="col">Estado</th>
                         <th width="5%" scope="col">&nbsp;</th>
                         <th width="5%" scope="col">&nbsp;</th>
@@ -125,6 +127,7 @@
                           $xSectores  = $filaPro['sector'];
                           $xProducto  = $filaPro['nom_producto'];
                           $xImagen    = $filaPro['imagen'];
+                          $xFicha     = $filaPro['ficha'];
                           $xEstado    = $filaPro['estado'];
                       ?>
                       <tr>
@@ -132,6 +135,7 @@
                         <td><?php echo $xSectores; ?></td>
                         <td><?php echo $xProducto; ?></td>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/<?php echo $xImagen; ?>" /></td>
+                        <td><strong><?php if($xFicha!=""){echo "<i class='fa fa-file-pdf-o'></i> ";} ?></strong></td>
                         <td><strong>
                           <?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]"; } ?>
                           </strong></td>

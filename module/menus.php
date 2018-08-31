@@ -13,8 +13,8 @@
                                 $filaMet = mysqli_fetch_array($resultadoMet);
                                     $xLogo    = $filaMet['logo'];
                             ?>
-                            <a href="/index.php">
-                                <img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
+                            <a href="index.php">
+                                <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
                             </a>
                             <?php
                                 mysqli_free_result($resultadoMet);
@@ -74,11 +74,11 @@
                                             </div><!-- /.row -->
                                         </div><!-- /.submenu -->
                                     </li>
-                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="/maquila.php">Maquila</a></li>
-                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="/servicio.php">Servicios</a></li>
-                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="/blog.php">Blog</a></li>
-                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="/faq.php">FAQ</a></li>
-                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="/contacto.php">Contacto</a></li>
+                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="maquila.php">Maquila</a></li>
+                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="servicio.php">Servicios</a></li>
+                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="blog.php">Blog</a></li>
+                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="faq.php">FAQ</a></li>
+                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="contacto.php">Contacto</a></li>
                                 </ul><!-- /.menu -->                                        
                             </nav><!-- /.mainnav -->  
                         </div><!-- /.nav-wrap -->

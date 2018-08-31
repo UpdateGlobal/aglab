@@ -10,7 +10,7 @@
                     $xImagen      = $filaCon['img_contenido'];
                     $xContenido   = $filaCon['contenido'];
                 ?>
-                <img src="/cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img2 ">
+                <img src="cms/assets/img/nosotros/<?php echo $xImagen; ?>" class="img-responsive abt_img2 ">
                 <p class="grey-text text-lighten-4 text_foot img_foo foo_bt" style="margin: 0px;"><?php echo $xContenido; ?></p>
                 <?php
                   mysqli_free_result($resultadoCon);
@@ -60,24 +60,24 @@
           <i class="fa fa-chevron-up" style="transform: rotate(-45deg);"></i>
         </a>
         <!-- Javascript -->
-        <script type="text/javascript" src="/javascript/jquery.min.js"></script>
-        <script type="text/javascript" src="/javascript/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/javascript/jquery.easing.js"></script> 
-        <script type="text/javascript" src="/javascript/owl.carousel.js"></script>
-        <script type="text/javascript" src="/javascript/jquery-waypoints.js"></script>
-        <script type="text/javascript" src="/javascript/jquery-countTo.js"></script> 
-        <script type="text/javascript" src="/javascript/jquery.cookie.js"></script>
+        <script type="text/javascript" src="javascript/jquery.min.js"></script>
+        <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+        <script type="text/javascript" src="javascript/jquery.easing.js"></script> 
+        <script type="text/javascript" src="javascript/owl.carousel.js"></script>
+        <script type="text/javascript" src="javascript/jquery-waypoints.js"></script>
+        <script type="text/javascript" src="javascript/jquery-countTo.js"></script> 
+        <script type="text/javascript" src="javascript/jquery.cookie.js"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-        <script type="text/javascript" src="/javascript/gmap3.min.js"></script>
-        <script type="text/javascript" src="/javascript/jquery-validate.js"></script>
+        <script type="text/javascript" src="javascript/gmap3.min.js"></script>
+        <script type="text/javascript" src="javascript/jquery-validate.js"></script>
 
-        <script type="text/javascript" src="/javascript/parallax.js"></script>
-        <script type="text/javascript" src="/javascript/main.js"></script>
+        <script type="text/javascript" src="javascript/parallax.js"></script>
+        <script type="text/javascript" src="javascript/main.js"></script>
 
         <!-- Revolution Slider -->
-        <script type="text/javascript" src="/javascript/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="/javascript/jquery.themepunch.revolution.min.js"></script>
-        <script type="text/javascript" src="/javascript/slider.js"></script>
+        <script type="text/javascript" src="javascript/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="javascript/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="javascript/slider.js"></script>
         <script type="text/javascript">
           $('.owl-carousel').owlCarousel({
             loop:true,

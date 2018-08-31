@@ -14,8 +14,8 @@
     <meta property="og:title" content="<?php echo $xTitulo; ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="<?php echo $xDes; ?>" />
-    <meta property="og:image" content="/cms/assets/img/meta/<?php echo $xFace1; ?>" />
-    <meta property="og:image" content="/cms/assets/img/meta/<?php echo $xFace2; ?>" />
+    <meta property="og:image" content="cms/assets/img/meta/<?php echo $xFace1; ?>" />
+    <meta property="og:image" content="cms/assets/img/meta/<?php echo $xFace2; ?>" />
 </head>
 <body class="header-sticky page-loading">
     <div class="loading-overlay"></div>

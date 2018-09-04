@@ -13,8 +13,8 @@
                                 $filaMet = mysqli_fetch_array($resultadoMet);
                                     $xLogo    = $filaMet['logo'];
                             ?>
-                            <a href="index.php">
-                                <img src="cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
+                            <a href="/index.php">
+                                <img src="/cms/assets/img/meta/<?php echo $xLogo; ?>" alt="images" />
                             </a>
                             <?php
                                 mysqli_free_result($resultadoMet);
@@ -34,7 +34,7 @@
                                                         <div class="mega-title" align="center">
                                                             <h5 class="btn-mega">Sectores</h5>
                                                         </div>
-                                                        <ul class="mega-menu-sub" style="column-count: 2;text-align: center;"> 
+                                                        <ul class="mega-menu-sub" style="column-count: 2;text-align: center;">
                                                             <?php
                                                                 $consultarSector = "SELECT * FROM productos_sectores WHERE estado='1' ORDER BY orden ASC";
                                                                 $resultadoSector = mysqli_query($enlaces, $consultarSector);
@@ -42,8 +42,14 @@
                                                                     $xCodigo   = $filaSc['cod_sectores'];
                                                                     $xSlug     = $filaSc['slug'];
                                                                     $xSectores = $filaSc['sector'];
+
+                                                                    $consultaSector = "SELECT * FROM productos WHERE cod_sectores=$xCodigo AND estado='1'";
+                                                                    $resultadosSector = mysqli_query($enlaces,$consultaSector);
+                                                                    $num = mysqli_num_rows($resultadosSector);
                                                             ?>
+                                                            <?php if($num==0){}else{ ?>
                                                             <li><a class="viewt" href="/sectores/<?php echo $xSlug; ?>"><?php echo $xSectores; ?></a></li>
+                                                            <?php } ?>
                                                             <?php
                                                                 }
                                                                 mysqli_free_result($resultadoSector);
@@ -52,7 +58,7 @@
                                                     </div><!-- /.col-md-6 -->
                                                     <div class="col-md-6" style="border-left: 1px solid #fff;">
                                                         <div class="mega-title" align="center">
-                                                            <h5 class="btn-mega">Categorias</h5>
+                                                            <h5 class="btn-mega">Categor&iacute;as</h5>
                                                         </div>
                                                         <ul class="mega-menu-sub" style="column-count: 2;text-align: center;">
                                                             <?php
@@ -62,8 +68,14 @@
                                                                     $xCodigo    = $filaCat['cod_categoria'];
                                                                     $xCategoria = $filaCat['categoria'];
                                                                     $xSlug      = $filaCat['slug'];
+
+                                                                    $consultaCategoria = "SELECT * FROM productos WHERE cod_categoria=$xCodigo AND estado='1'";
+                                                                    $resultadosCategoria = mysqli_query($enlaces,$consultaCategoria);
+                                                                    $numb = mysqli_num_rows($resultadosCategoria);
                                                             ?>
+                                                            <?php if($numb==0){}else{ ?>
                                                             <li><a class="viewt" href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
+                                                            <?php } ?>
                                                             <?php
                                                                 }
                                                                 mysqli_free_result($resultadoCategoria);
@@ -74,11 +86,11 @@
                                             </div><!-- /.row -->
                                         </div><!-- /.submenu -->
                                     </li>
-                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="maquila.php">Maquila</a></li>
-                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="servicio.php">Servicios</a></li>
-                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="blog.php">Blog</a></li>
-                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="faq.php">FAQ</a></li>
-                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="contacto.php">Contacto</a></li>
+                                    <li class="<?php if($xActivo=="maquila"){ echo "home"; } ?>"><a href="/maquila.php">Maquila</a></li>
+                                    <li class="<?php if($xActivo=="servicios"){ echo "home"; } ?>"><a href="/servicio.php">Servicios</a></li>
+                                    <li class="<?php if($xActivo=="blog"){ echo "home"; } ?>"><a href="/blog.php">Blog</a></li>
+                                    <li class="<?php if($xActivo=="faq"){ echo "home"; } ?>"><a href="/faq.php">FAQ</a></li>
+                                    <li class="<?php if($xActivo=="contacto"){ echo "home"; } ?>"><a href="/contacto.php">Contacto</a></li>
                                 </ul><!-- /.menu -->                                        
                             </nav><!-- /.mainnav -->  
                         </div><!-- /.nav-wrap -->

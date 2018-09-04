@@ -10,6 +10,7 @@ RewriteCond %{REQUEST_URI} !^/sectores/(.*) [OR]
 RewriteCond %{REQUEST_URI} !^/blogs/(.*) [OR]
 RewriteCond %{REQUEST_URI} !^/producto/(.*) [OR]
 RewriteCond %{REQUEST_URI} !^/blog/(.*) [OR]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteRule ^categorias/([^/]*) categorias-tienda.php?slug=$1
 RewriteRule ^categorias/([^/]*) categorias-tienda.php?slug=$1&p=$2
 RewriteRule ^sectores/([^/]*) sectores-tienda.php?slug=$1
@@ -18,3 +19,9 @@ RewriteRule ^producto/([^/]*) articulo.php?slug=$1
 RewriteRule ^blogs/([^/]*) categorias.php?slug=$1
 RewriteRule ^blogs/([^/]*) categorias.php?slug=$1&p=$2
 RewriteRule ^blog/([^/]*) noticia.php?slug=$1
+RewriteCond %{HTTP_HOST} ^aglab\.pe$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.aglab\.pe$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/.+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/aglab\.pe\/index\.php" [R=301,L]

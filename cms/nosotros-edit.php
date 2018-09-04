@@ -118,11 +118,11 @@ if($proceso == "Actualizar"){
               <?php }else{ ?>
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="slogan">Descripci&oacute;n:</label>
+                  <label class="col-form-label" for="contenido">Descripci&oacute;n:</label>
                 </div>
                 <div class="col-8 col-lg-10">
                   <?php if($xVisitante=="1"){ ?><p><?php echo $contenido; ?></p><?php } ?>
-                  <textarea name="contenido" data-provide="summernote" data-min-height="150"  <?php if($xVisitante=="1"){ ?> style="display:none;" <?php }else{ ?> <?php } ?> ><?php echo $contenido; ?></textarea>
+                  <textarea name="contenido" id="contenido" data-provide="summernote" data-toolbar="full" data-height="150" <?php if($xVisitante=="1"){ ?> style="display:none;" <?php }else{ ?> <?php } ?>><?php echo $contenido; ?></textarea>
                 </div>
               </div>
               <?php } ?>
@@ -131,10 +131,10 @@ if($proceso == "Actualizar"){
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label" for="logo">Imagen:</label><br>
                   <small><?php 
-                    if($cod_contenido==4){ echo "(-px x -px)"; }
-                    if($cod_contenido==5){ echo "(-px x -px)"; }
-                    if($cod_contenido==7){ echo "(-px x -px)"; }
-                    if($cod_contenido==8){ echo "(-px x -px)"; }
+                    if($cod_contenido==4){ echo "(758px x 405px)"; }
+                    if($cod_contenido==5){ echo "(500px x 500px)"; }
+                    if($cod_contenido==7){ echo "(1440px x 810px)"; }
+                    if($cod_contenido==8){ echo "(282px x 96px)"; }
                     if($cod_contenido==13){ echo "(758px x 405px)"; } 
                   ?></small>
                 </div>

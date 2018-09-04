@@ -59,7 +59,7 @@
 		        <img src="cms/assets/img/nosotros/<?php echo $xLogo; ?>" class="img-responsive img_seccion1" />
 		    </div>
 			<div class="row">
-				<div class="col-md-12 col-xs-12">
+				<div class="col-md-6 col-xs-12">
 					<?php
 				    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='1' AND estado='1'";
 				    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
@@ -74,7 +74,43 @@
 						mysqli_free_result($resultadoCon);
 					?>
 				</div>
-			
+				<div class="col-md-6 col-xs-12">
+		            <div class="flat-tabs">
+		                <ul class="menu-tabs">
+		                    <li class="active"><a href="#">Nuestra Visi&oacute;n</a></li>
+		                    <li><a href="#">Nuestra Misi&oacute;n</a></li>
+		                </ul>
+		                <div class="content-tab">
+		                	<?php
+		                    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='2' AND estado='1'";
+		                    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                    	$filaCon = mysqli_fetch_array($resultadoCon);
+		                        	$xCodigo      = $filaCon['cod_contenido'];
+		                        	$xContenido   = $filaCon['contenido'];
+		                        	$xEstado      = $filaCon['estado'];
+		                    ?>
+		                    <div class="content-inner" style="display: block;">
+		                        <?php echo $xContenido; ?>
+		                    </div><!-- /.content-inner -->
+		                    <?php
+		                    	mysqli_free_result($resultadoCon);
+		                    ?>
+		                    <?php
+		                    	$consultarCon = "SELECT * FROM contenidos WHERE cod_contenido='3' AND estado='1'";
+		                    	$resultadoCon = mysqli_query($enlaces,$consultarCon) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                    	$filaCon = mysqli_fetch_array($resultadoCon);
+		                        	$xCodigo      = $filaCon['cod_contenido'];
+		                        	$xContenido   = $filaCon['contenido'];
+		                        	$xEstado      = $filaCon['estado'];
+		                    ?>
+		                    <div class="content-inner" style="display: none;">
+		                    	<?php echo $xContenido; ?>
+		                    </div><!-- /.content-inner -->
+		                    <?php
+		                    	mysqli_free_result($resultadoCon); 
+		                    ?>                                    
+		                </div><!-- /.content-tab -->
+		            </div><!-- /.flat-tabs -->
 				</div>
 			</div>
 		</div>

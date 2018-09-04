@@ -157,8 +157,14 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 		                         	$xCodigo    = $filaCat['cod_categoria'];
 		                         	$xSlug		= $filaCat['slug'];
 		                         	$xCategoria = $filaCat['categoria'];
+
+		                         	$consultaCategoria = "SELECT * FROM productos WHERE cod_categoria=$xCodigo AND estado='1'";
+                                    $resultadosCategoria = mysqli_query($enlaces,$consultaCategoria);
+                                    $numc = mysqli_num_rows($resultadosCategoria);
 		                    ?>
+		                    <?php if($numc==0){}else{ ?>
 		                    <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
+		                    <?php } ?>
 		                    <?php
 		                    	}
 		                    	mysqli_free_result($resultadoCategoria);

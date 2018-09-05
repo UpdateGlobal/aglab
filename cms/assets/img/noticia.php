@@ -26,7 +26,7 @@
     <!-- <meta name="twitter:creator" content="@yourtwitterusername" /> -->
     <meta name="twitter:url" content="<?php echo $xUrl; ?>/<?php echo $slug; ?>" />
     <meta name="twitter:title" content="<?php echo $titulo; ?>" /> <!-- maximum 140 char -->
-    <meta name="twitter:description" content="<?php 
+    <meta name="twitter:description" content="<?php  
         $noticiaM = strip_tags($noticia);
         $strCut = substr($noticiaM,0,200);
         $noticiaM = substr($strCut,0,strrpos($strCut, ' ')).'...';
@@ -121,7 +121,7 @@
                                                 <span class="entry-month"><?php echo date('d', $mydate); ?></span>
                                                 <span class="entry-day"><?php echo $meses[date('n', $mydate)-1]; ?></span>
                                             </h4>
-                                            <div class="entry-header">
+                                            <div class="entry-header">                            
                                                 <div class="entry-header-content">
                                                     <div class="entry-meta">
                                                         <i class="fa fa-newspaper-o"></i>
@@ -158,14 +158,8 @@
                                                 $xCategoria = $filaCat['categoria'];
                                                 $xOrden     = $filaCat['orden'];
                                                 $xEstado    = $filaCat['estado'];
-
-                                                $consultaCategoria = "SELECT * FROM noticias WHERE cod_categoria=$xCodigo AND estado='1'";
-                                                $resultadosCategoria = mysqli_query($enlaces,$consultaCategoria);
-                                                $nume = mysqli_num_rows($resultadosCategoria);
                                         ?>
-                                        <?php if($nume==0){}else{ ?>
                                             <li><a href="/blogs/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
-                                        <?php } ?>
                                         <?php 
                                             }
                                             mysqli_free_result($resultadoCategoria);

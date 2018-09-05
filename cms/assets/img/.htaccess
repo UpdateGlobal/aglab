@@ -1,0 +1,20 @@
+AddDefaultCharset utf-8
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !-d 
+RewriteCond %{REQUEST_URI} !-f 
+
+RewriteCond %{REQUEST_URI} !^/categorias/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/sectores/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/blogs/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/producto/(.*) [OR]
+RewriteCond %{REQUEST_URI} !^/blog/(.*) [OR]
+RewriteRule ^categorias/([^/]*) categorias-tienda.php?slug=$1
+RewriteRule ^categorias/([^/]*) categorias-tienda.php?slug=$1&p=$2
+RewriteRule ^sectores/([^/]*) sectores-tienda.php?slug=$1
+RewriteRule ^sectores/([^/]*) sectores-tienda.php?slug=$1&p=$2
+RewriteRule ^producto/([^/]*) articulo.php?slug=$1
+RewriteRule ^blogs/([^/]*) categorias.php?slug=$1
+RewriteRule ^blogs/([^/]*) categorias.php?slug=$1&p=$2
+RewriteRule ^blog/([^/]*) noticia.php?slug=$1

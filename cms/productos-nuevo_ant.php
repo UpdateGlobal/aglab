@@ -27,18 +27,6 @@ if($proceso == "Registrar"){
   if(isset($_POST['fecha_ing'])){ $fecha_ing = $_POST['fecha_ing']; }else{ $fecha_ing = date("Y-m-d"); }
   $imagen             = $_POST['imagen'];
   $ficha              = $_POST['ficha'];
-  $sector_1           = $_POST['sector_1'];
-  $sector_2           = $_POST['sector_2'];
-  $sector_3           = $_POST['sector_3'];
-  $sector_4           = $_POST['sector_4'];
-  $sector_5           = $_POST['sector_5'];
-  $sector_6           = $_POST['sector_6'];
-  $sector_7           = $_POST['sector_7'];
-  $sector_8           = $_POST['sector_8'];
-  $sector_9           = $_POST['sector_9'];
-  $sector_10          = $_POST['sector_10'];
-  $sector_11          = $_POST['sector_11'];
-  $sector_12          = $_POST['sector_12'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
@@ -46,7 +34,7 @@ if($proceso == "Registrar"){
   $ejecutarValidar = mysqli_query($enlaces, $validarProductos);
   $numreg = mysqli_num_rows($ejecutarValidar);
 
-  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, ficha, sector_1, sector_2, sector_3, sector_4, sector_5, sector_6, sector_7, sector_8, sector_9, sector_10, sector_11, sector_12, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$ficha', '$sector_1', '$sector_2', '$sector_3', '$sector_4', '$sector_5', '$sector_6', '$sector_7', '$sector_8', '$sector_9', '$sector_10', '$sector_11', '$sector_12', '$orden', '$estado')";
+  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, ficha, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$ficha', '$orden', '$estado')";
   $resultadoInsertar = mysqli_query($enlaces, $insertarProductos);
   $mensaje = "<div class='alert alert-success' role='alert'>
           <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
@@ -152,71 +140,40 @@ if($proceso == "Registrar"){
 
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
-                  <label class="col-form-label" for="cod_sectores">Sectores:</label>
+                  <label class="col-form-label" for="cod_sectores">Sector:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_1" name="sector_1" value="1" > Agroindustria
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_2" name="sector_2" value="1"> Alimentos y Bebidas
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_3" name="sector_3" value="1"> Automotriz
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_4" name="sector_4" value="1"> Hoteles y Restaurantes
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_5" name="sector_5" value="1"> Lavandería
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_6" name="sector_6" value="1"> Metalmecánica
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_7" name="sector_7" value="1"> Pesquero
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_8" name="sector_8" value="1"> Salud
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_9" name="sector_9" value="1"> Minería
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_10" name="sector_10" value="1"> Textiles
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_11" name="sector_11" value="1"> Retail
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_12" name="sector_12" value="1"> Productos Especiales
-                    </label>
-                  </div>
+                  <select class="form-control" name="cod_sectores" id="cod_sectores">
+                    <?php 
+                      if($cod_sectores == ""){
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE estado='1'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
+                        }
+                      }else{
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.' selected="selected">'.$xnomSec.'</option>';
+                        }
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores!='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
+                        }
+                      }
+                    ?>
+                  </select>
                 </div>
               </div>
+              
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label required" for="nom_producto">Nombre de producto:</label>

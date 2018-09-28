@@ -171,30 +171,7 @@ $filaPro = mysqli_fetch_array($resultadoProductos);
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12">
-                	<div class="widget widget_product_categories">
-                        <h4 class="widget-title">Categor&iacute;as</h4>
-                        <ul class="product-categories">
-                            <?php
-                                $consultarCategoria = "SELECT * FROM productos_categorias ORDER BY orden";
-                                $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-                                while($filaCat = mysqli_fetch_array($resultadoCategoria)){
-                                    $xCodigo    = $filaCat['cod_categoria'];
-                                    $xSlug = $filaCat['slug'];
-                                    $xCategoria = $filaCat['categoria'];
-                                    
-                                    $consultaCategoria = "SELECT * FROM productos WHERE cod_categoria=$xCodigo AND estado='1'";
-                                    $resultadosCategoria = mysqli_query($enlaces,$consultaCategoria);
-                                    $numd = mysqli_num_rows($resultadosCategoria);
-                            ?>
-                            <?php if($numd==0){}else{ ?>
-                            <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
-                            <?php } ?>
-                            <?php
-                                }
-                                mysqli_free_result($resultadoCategoria);
-                            ?>
-                        </ul>
-                    </div>
+                    <?php include('module/menu-categorias.php');  ?>                	
                 </div>
             </div>
         </div>

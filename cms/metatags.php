@@ -59,7 +59,7 @@
                   </li>
                   <li class="list-group-item">
                     <strong>Logotipo de la web:</strong><br>
-                    <img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/meta/<?php echo $xLogo; ?>" />
+                    <img class="d-block b-1 border-light hover-shadow-2 p-1" src="assets/img/meta/<?php echo $xLogo; ?>" width="300" />
                   </li>
                   <li class="list-group-item">
                     <strong>Descripci&oacute;n:</strong><br>
@@ -84,7 +84,7 @@
                   </li>
                   <li class="list-group-item">
                     <strong>Favicon:</strong><br>
-                    <img src="assets/img/meta/<?php echo $xIco; ?>" />
+                    <img src="assets/img/meta/<?php echo $xIco; ?>" width="100" />
                   </li>
                 </ul>
                 <?php

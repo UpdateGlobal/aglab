@@ -1,14 +1,34 @@
 <?php include("module/conexion.php"); ?>
 <?php include("module/verificar.php"); ?>
 <?php
-$mensaje = "";
+$cod_categoria = "";
+$cod_sub_categoria = "";
+$cod_producto = $_REQUEST['cod_producto'];
 if (isset($_REQUEST['proceso'])){
   $proceso = $_POST['proceso'];
 } else {
   $proceso = "";
 }
+$cod_producto = $_REQUEST['cod_producto'];
 
-if($proceso == "Registrar"){
+if($proceso == ""){
+  $consultaPro        = "SELECT * FROM productos WHERE cod_producto='$cod_producto'";
+  $resultadoPro       = mysqli_query($enlaces, $consultaPro);
+  $filaPro            = mysqli_fetch_array($resultadoPro);
+  $cod_producto       = $filaPro['cod_producto'];
+  $cod_categoria      = $filaPro['cod_categoria'];
+  $cod_sectores       = $filaPro['cod_sectores'];
+  $nom_producto       = htmlspecialchars($filaPro['nom_producto']);
+  $descripcion        = htmlspecialchars($filaPro['descripcion']);
+  $resumen            = htmlspecialchars($filaPro['resumen']);
+  $fecha_ing          = $filaPro['fecha_ing'];
+  $imagen             = $filaPro['imagen'];
+  $ficha              = $filaPro['ficha'];
+  $orden              = $filaPro['orden'];
+  $estado             = $filaPro['estado'];
+}
+
+if($proceso == "Actualizar"){
   $cod_categoria      = $_POST['cod_categoria'];
   $cod_sectores       = $_POST['cod_sectores'];
   $nom_producto       = $_POST['nom_producto'];
@@ -22,36 +42,32 @@ if($proceso == "Registrar"){
   if (empty($slug)){
       return 'n-a';
   }
-  $descripcion        = mysqli_real_escape_string($enlaces,$_POST['descripcion']);
-  $resumen            = mysqli_real_escape_string($enlaces,$_POST['resumen']);
-  if(isset($_POST['fecha_ing'])){ $fecha_ing = $_POST['fecha_ing']; }else{ $fecha_ing = date("Y-m-d"); }
+  $descripcion        = $_POST['descripcion'];
+  $resumen            = $_POST['resumen'];
+  if(isset($_POST['fecha_ing'])){$fecha_ing = $_POST['fecha_ing'];}else{$fecha_ing = date("Y-m-d");}
   $imagen             = $_POST['imagen'];
   $ficha              = $_POST['ficha'];
-  $sector_1           = $_POST['sector_1'];
-  $sector_2           = $_POST['sector_2'];
-  $sector_3           = $_POST['sector_3'];
-  $sector_4           = $_POST['sector_4'];
-  $sector_5           = $_POST['sector_5'];
-  $sector_6           = $_POST['sector_6'];
-  $sector_7           = $_POST['sector_7'];
-  $sector_8           = $_POST['sector_8'];
-  $sector_9           = $_POST['sector_9'];
-  $sector_10          = $_POST['sector_10'];
-  $sector_11          = $_POST['sector_11'];
-  $sector_12          = $_POST['sector_12'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
-  $validarProductos = "SELECT * FROM productos WHERE nom_producto='$nom_producto'";
-  $ejecutarValidar = mysqli_query($enlaces, $validarProductos);
-  $numreg = mysqli_num_rows($ejecutarValidar);
-
-  $insertarProductos = "INSERT INTO productos (cod_categoria, cod_sectores, slug, nom_producto, descripcion, resumen, fecha_ing, imagen, ficha, sector_1, sector_2, sector_3, sector_4, sector_5, sector_6, sector_7, sector_8, sector_9, sector_10, sector_11, sector_12, orden, estado) VALUE ('$cod_categoria', '$cod_sectores', '$slug', '$nom_producto', '$descripcion', '$resumen', '$fecha_ing', '$imagen', '$ficha', '$sector_1', '$sector_2', '$sector_3', '$sector_4', '$sector_5', '$sector_6', '$sector_7', '$sector_8', '$sector_9', '$sector_10', '$sector_11', '$sector_12', '$orden', '$estado')";
-  $resultadoInsertar = mysqli_query($enlaces, $insertarProductos);
-  $mensaje = "<div class='alert alert-success' role='alert'>
-          <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-          <strong>Nota:</strong> Producto se registr&oacute; exitosamente. <a href='productos.php'>Ir a Productos</a>
-        </div>";
+  //Validar si el registro existe
+  $actualizarProductos = "UPDATE productos SET
+    cod_producto='$cod_producto', 
+    cod_categoria='$cod_categoria', 
+    cod_sectores='$cod_sectores', 
+    slug='$slug', 
+    nom_producto='$nom_producto', 
+    descripcion='$descripcion', 
+    resumen='$resumen', 
+    fecha_ing='$fecha_ing', 
+    imagen='$imagen', 
+    ficha='$ficha', 
+    orden='$orden', 
+    estado='$estado' 
+    WHERE cod_producto='$cod_producto'";
+  
+  $resultadoActualizar = mysqli_query($enlaces, $actualizarProductos);
+  header("Location:productos.php");
 }
 ?>
 <!DOCTYPE html>
@@ -64,15 +80,15 @@ if($proceso == "Registrar"){
         if(document.fcms.nom_producto.value==""){
           alert("Debe escribir un título");
           document.fcms.nom_producto.focus();
-          return;
+          return; 
         }
         if(document.fcms.imagen.value==""){
           alert("Debe subir una imagen");
           document.fcms.imagen.focus();
-          return;
+          return; 
         }
-        document.fcms.action = "productos-nuevo.php";
-        document.fcms.proceso.value = "Registrar";
+        document.fcms.action = "productos-edit.php";
+        document.fcms.proceso.value="Actualizar";
         document.fcms.submit();
       }
       function Imagen(codigo){
@@ -146,6 +162,7 @@ if($proceso == "Registrar"){
                         }
                       }
                     ?>
+                    <option value="0">Sin categor&iacute;a</option>
                   </select>
                 </div>
               </div>
@@ -155,74 +172,43 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="cod_sectores">Sectores:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_1" name="sector_1" value="1" > Agroindustria
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_2" name="sector_2" value="1"> Alimentos y Bebidas
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_3" name="sector_3" value="1"> Automotriz
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_4" name="sector_4" value="1"> Hoteles y Restaurantes
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_5" name="sector_5" value="1"> Lavandería
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_6" name="sector_6" value="1"> Metalmecánica
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_7" name="sector_7" value="1"> Pesquero
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_8" name="sector_8" value="1"> Salud
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_9" name="sector_9" value="1"> Minería
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_10" name="sector_10" value="1"> Textiles
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_11" name="sector_11" value="1"> Retail
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" id="sector_12" name="sector_12" value="1"> Productos Especiales
-                    </label>
-                  </div>
+                  <select class="form-control" name="cod_sectores" id="cod_sectores">
+                    <?php 
+                      if($cod_sectores == ""){
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE estado='1'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
+                        }
+                      }else{
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.' selected="selected">'.$xnomSec.'</option>';
+                        }
+                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores!='$cod_sectores'";
+                        $resultaSec = mysqli_query($enlaces, $consultaSec);
+                        while($filaSec = mysqli_fetch_array($resultaSec)){
+                          $xcodSec = $filaSec['cod_sectores'];
+                          $xnomSec = $filaSec['sector'];
+                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
+                        }
+                      }
+                    ?>
+                  </select>
                 </div>
               </div>
+              
               <div class="form-group row">
                 <div class="col-4 col-lg-2">
                   <label class="col-form-label required" for="nom_producto">Nombre de producto:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" id="nom_producto" name="nom_producto" type="text" required />
+                  <input class="form-control" id="nom_producto" name="nom_producto" type="text" value="<?php echo $nom_producto; ?>" required />
                   <div class="invalid-feedback"></div>
                 </div>
               </div>
@@ -232,7 +218,7 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="descripcion">Descripci&oacute;n:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <textarea class="form-control" name="descripcion" id="descripcion" data-provide="summernote" data-min-height="150"></textarea>
+                  <textarea class="form-control" name="descripcion" id="descripcion" data-provide="summernote" data-min-height="150"><?php echo $descripcion; ?></textarea>
                 </div>
               </div>
 
@@ -241,7 +227,7 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="resumen">Resumen:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input class="form-control" name="resumen" id="resumen" value="" />
+                  <input class="form-control" name="resumen" id="resumen" value="<?php echo $resumen; ?>" />
                 </div>
               </div>
 
@@ -250,7 +236,7 @@ if($proceso == "Registrar"){
                   <label class="col-form-label">Fecha de Ingreso:</label>
                 </div>
                 <div class="col-4 col-lg-2">
-                  <input class="form-control" id="fecha_ing" name="fecha_ing" type="date" />
+                  <input class="form-control" id="fecha_ing" name="fecha_ing" type="date" value="<?php echo $fecha_ing; ?>" />
                 </div>
               </div>
 
@@ -260,7 +246,7 @@ if($proceso == "Registrar"){
                   <small>(600px x 600px)</small>
                 </div>
                 <div class="col-4 col-lg-8">
-                  <input class="form-control" id="imagen" name="imagen" type="text" required />
+                  <input class="form-control" id="imagen" name="imagen" type="text" value="<?php echo $imagen; ?>" required />
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
@@ -273,7 +259,7 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="ficha_tecnica">Ficha T&eacute;cnica:</label>
                 </div>
                 <div class="col-4 col-lg-8">
-                  <input class="form-control" id="ficha_tecnica" name="ficha" type="text" />
+                  <input class="form-control" id="ficha_tecnica" name="ficha" type="text" value="<?php echo $ficha; ?>" />
                   <div class="invalid-feedback"></div>
                 </div>
                 <div class="col-4 col-lg-2">
@@ -286,7 +272,7 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="orden">Orden:</label>
                 </div>
                 <div class="col-2 col-lg-1">
-                  <input class="form-control" name="orden" type="text" id="orden" onKeyPress="return soloNumeros(event)" />
+                  <input class="form-control" name="orden" type="text" id="orden" value="<?php echo $orden; ?>" onKeyPress="return soloNumeros(event)" />
                 </div>
               </div>
 
@@ -295,15 +281,17 @@ if($proceso == "Registrar"){
                   <label class="col-form-label" for="estado">Estado:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" checked>
+                  <input type="checkbox" name="estado" data-size="small" data-provide="switchery" value="1" <?php if($estado=="1"){echo "checked";} ?>>
                 </div>
               </div>
             </div>
 
             <footer class="card-footer">
               <a href="productos.php" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</a>
-              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-chevron-circle-right"></i> Registrar Productos</button>
+              <button class="btn btn-bold btn-primary" type="button" name="boton" onClick="javascript:Validar();" /><i class="fa fa-refresh"></i>
+ Editar Productos</button>
               <input type="hidden" name="proceso">
+              <input type="hidden" name="cod_producto" value="<?php echo $cod_producto; ?>">
             </footer>
 
           </form>

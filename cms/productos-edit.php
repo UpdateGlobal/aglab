@@ -24,6 +24,18 @@ if($proceso == ""){
   $fecha_ing          = $filaPro['fecha_ing'];
   $imagen             = $filaPro['imagen'];
   $ficha              = $filaPro['ficha'];
+  $sector_1           = $filaPro['sector_1'];
+  $sector_2           = $filaPro['sector_2'];
+  $sector_3           = $filaPro['sector_3'];
+  $sector_4           = $filaPro['sector_4'];
+  $sector_5           = $filaPro['sector_5'];
+  $sector_6           = $filaPro['sector_6'];
+  $sector_7           = $filaPro['sector_7'];
+  $sector_8           = $filaPro['sector_8'];
+  $sector_9           = $filaPro['sector_9'];
+  $sector_10          = $filaPro['sector_10'];
+  $sector_11          = $filaPro['sector_11'];
+  $sector_12          = $filaPro['sector_12'];
   $orden              = $filaPro['orden'];
   $estado             = $filaPro['estado'];
 }
@@ -47,6 +59,18 @@ if($proceso == "Actualizar"){
   if(isset($_POST['fecha_ing'])){$fecha_ing = $_POST['fecha_ing'];}else{$fecha_ing = date("Y-m-d");}
   $imagen             = $_POST['imagen'];
   $ficha              = $_POST['ficha'];
+  $sector_1           = $_POST['sector_1'];
+  $sector_2           = $_POST['sector_2'];
+  $sector_3           = $_POST['sector_3'];
+  $sector_4           = $_POST['sector_4'];
+  $sector_5           = $_POST['sector_5'];
+  $sector_6           = $_POST['sector_6'];
+  $sector_7           = $_POST['sector_7'];
+  $sector_8           = $_POST['sector_8'];
+  $sector_9           = $_POST['sector_9'];
+  $sector_10          = $_POST['sector_10'];
+  $sector_11          = $_POST['sector_11'];
+  $sector_12          = $_POST['sector_12'];
   if(isset($_POST['orden'])){$orden = $_POST['orden'];}else{$orden = 0;}
   if(isset($_POST['estado'])){$estado = $_POST['estado'];}else{$estado = 0;}
   
@@ -62,6 +86,18 @@ if($proceso == "Actualizar"){
     fecha_ing='$fecha_ing', 
     imagen='$imagen', 
     ficha='$ficha', 
+    sector_1='$sector_1', 
+    sector_2='$sector_2', 
+    sector_3='$sector_3', 
+    sector_4='$sector_4', 
+    sector_5='$sector_5', 
+    sector_6='$sector_6', 
+    sector_7='$sector_7', 
+    sector_8='$sector_8', 
+    sector_9='$sector_9', 
+    sector_10='$sector_10',
+    sector_11='$sector_11', 
+    sector_12='$sector_12', 
     orden='$orden', 
     estado='$estado' 
     WHERE cod_producto='$cod_producto'";
@@ -172,34 +208,68 @@ if($proceso == "Actualizar"){
                   <label class="col-form-label" for="cod_sectores">Sectores:</label>
                 </div>
                 <div class="col-8 col-lg-10">
-                  <select class="form-control" name="cod_sectores" id="cod_sectores">
-                    <?php 
-                      if($cod_sectores == ""){
-                        $consultaSec = "SELECT * FROM productos_sectores WHERE estado='1'";
-                        $resultaSec = mysqli_query($enlaces, $consultaSec);
-                        while($filaSec = mysqli_fetch_array($resultaSec)){
-                          $xcodSec = $filaSec['cod_sectores'];
-                          $xnomSec = $filaSec['sector'];
-                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
-                        }
-                      }else{
-                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores='$cod_sectores'";
-                        $resultaSec = mysqli_query($enlaces, $consultaSec);
-                        while($filaSec = mysqli_fetch_array($resultaSec)){
-                          $xcodSec = $filaSec['cod_sectores'];
-                          $xnomSec = $filaSec['sector'];
-                          echo '<option value='.$xcodSec.' selected="selected">'.$xnomSec.'</option>';
-                        }
-                        $consultaSec = "SELECT * FROM productos_sectores WHERE cod_sectores!='$cod_sectores'";
-                        $resultaSec = mysqli_query($enlaces, $consultaSec);
-                        while($filaSec = mysqli_fetch_array($resultaSec)){
-                          $xcodSec = $filaSec['cod_sectores'];
-                          $xnomSec = $filaSec['sector'];
-                          echo '<option value='.$xcodSec.'>'.$xnomSec.'</option>';
-                        }
-                      }
-                    ?>
-                  </select>
+                  <div class="col-8 col-lg-10">
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_1" name="sector_1" value="1" <?php if($sector_1=="1"){echo "checked";} ?>> Agroindustria
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_2" name="sector_2" value="1" <?php if($sector_2=="1"){echo "checked";} ?>> Alimentos y Bebidas
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_3" name="sector_3" value="1" <?php if($sector_3=="1"){echo "checked";} ?>> Automotriz
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_4" name="sector_4" value="1" <?php if($sector_4=="1"){echo "checked";} ?>> Hoteles y Restaurantes
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_5" name="sector_5" value="1" <?php if($sector_5=="1"){echo "checked";} ?>> Lavandería
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_6" name="sector_6" value="1" <?php if($sector_6=="1"){echo "checked";} ?>> Metalmecánica
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_7" name="sector_7" value="1" <?php if($sector_7=="1"){echo "checked";} ?>> Pesquero
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_8" name="sector_8" value="1" <?php if($sector_8=="1"){echo "checked";} ?>> Salud
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_9" name="sector_9" value="1" <?php if($sector_9=="1"){echo "checked";} ?>> Minería
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_10" name="sector_10" value="1" <?php if($sector_10=="1"){echo "checked";} ?>> Textiles
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_11" name="sector_11" value="1" <?php if($sector_11=="1"){echo "checked";} ?>> Retail
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="sector_12" name="sector_12" value="1" <?php if($sector_12=="1"){echo "checked";} ?>> Productos Especiales
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
               

@@ -38,9 +38,9 @@ if ($eliminar == "true") {
         td:nth-of-type(2):before { content: "Imagen"; }
         td:nth-of-type(3):before { content: "Orden"; }
         td:nth-of-type(4):before { content: "Estado"; }
+        /* td:nth-of-type(5):before { content: ""; } */
         td:nth-of-type(5):before { content: ""; }
         td:nth-of-type(6):before { content: ""; }
-        td:nth-of-type(7):before { content: ""; }
       }
     </style>
     <script>
@@ -97,7 +97,7 @@ if ($eliminar == "true") {
             <div class="card card-bordered">
               <h4 class="card-title"><strong>Lista de Sectores</strong></h4>
               <div class="card-body">
-                <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>productos-sectores-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
+                <!-- <a class="btn btn-info" href="< ?php if($xVisitante=="0"){ ?>productos-sectores-nuevo.php< ?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a> -->
                 <hr>
                 <form name="fcms" method="post" action="">
                   <table class="table">
@@ -110,7 +110,7 @@ if ($eliminar == "true") {
                         <th width="30%" scope="col">Imagen</th>
                         <th width="20%" scope="col">Orden</th>
                         <th width="5%" scope="col">Estado</th>
-                        <th width="5%" scope="col">&nbsp;</th>
+                        <!-- <th width="5%" scope="col">&nbsp;</th> -->
                         <th width="5%" scope="col">&nbsp;</th>
                         <th width="5%" scope="col"><a href="javascript:Procedimiento('eliminar','N');"><img src="assets/img/borrar.png" width="18" height="25" alt="Borrar"></a></th>
                       </tr>
@@ -131,9 +131,9 @@ if ($eliminar == "true") {
                         <td><img src="assets/img/productos/sectores/<?php echo $xImagen; ?>" alt="<?php echo $xSectores; ?>"></td>
                         <td><?php echo $xOrden; ?></td>
                         <td><strong><?php if($xEstado=="1"){ echo "[Activo]"; }else{ echo "[Inactivo]";} ?></strong></td>
-                        <td>
-                          <a class="boton-eliminar <?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="<?php if($xVisitante=="0"){ ?>productos-sectores-delete.php?cod_sectores=<?php echo $xCodigo; ?><?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                        </td>
+                        <!-- <td>
+                          <a class="boton-eliminar < ?php if($xVisitante=="1"){ ?>boton-eliminar-bloqueado<?php } ?>" href="< ?php if($xVisitante=="0"){ ?>productos-sectores-delete.php?cod_sectores=< ?php echo $xCodigo; ?>< ?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td> -->
                         <td><?php if($xCodigo!="0"){ ?><a class="boton-editar" href="productos-sectores-edit.php?cod_sectores=<?php echo $xCodigo; ?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a><?php } ?></td>
                         <td>
                           <?php if($xVisitante=="0"){ ?>

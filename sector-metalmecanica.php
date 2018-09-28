@@ -1,10 +1,4 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $slug = $_REQUEST['slug'];
-$consultarCategoria = "SELECT * FROM productos_categorias WHERE slug='$slug'";
-$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-$filaCat = mysqli_fetch_array($resultadoCategoria);
-	$cod_categoria = $filaCat['cod_categoria'];
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -48,13 +42,7 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 	                        <ul class="trail-items">
 	                            <li class="trail-item"><a href="/index.php">Inicio</a></li>
 	                            <li class="trail-item"><a href="/tienda.php">Productos</a></li>
-	                            <?php
-			                    	$consultarCategoria = "SELECT * FROM productos_categorias WHERE cod_categoria='$cod_categoria'";
-			                    	$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-			                    	$filaCat = mysqli_fetch_array($resultadoCategoria);
-		                        		$xCategoria = $filaCat['categoria'];
-		                    	?>
-	                            <li><?php echo $xCategoria; ?></li>
+	                            <li>Sector Metalmec&aacute;nica</li>
 	                        </ul>
 	                    </div><!-- /.breadcrumbs -->
 	                </div><!-- /.flat-wrapper -->
@@ -69,7 +57,7 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 		            	<div class="woocommerce">
 		                	<ul class="products">
 		                		<?php
-                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria'";
+                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND sector_6='1'";
                                     $resultadoProductos = mysqli_query($enlaces, $consultarProductos);
                                     $total_registros = mysqli_num_rows($resultadoProductos);
                                     if($total_registros==0){
@@ -87,12 +75,12 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
                                        	$posicion = ($pagina-1)*$registros_por_paginas;
                                         $limite = "LIMIT $posicion, $registros_por_paginas";
                 
-                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden ASC $limite";
+                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND sector_6='1' ORDER BY orden ASC $limite";
 			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
 			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
 				                        	$xCodigo    = $filaPro['cod_producto'];
-				                        	$xSlug 		= $filaPro['slug'];
 				                        	$xProducto  = $filaPro['nom_producto'];
+				                        	$xSlug 		= $filaPro['slug'];
 				                        	$xImagen    = $filaPro['imagen'];
 			                    ?>
 		                        <li>
@@ -122,20 +110,20 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 		                    				<div class='navigation paging-navigation numeric'>
 		                    					<div class='flat-pagination loop-pagination'>";
                                                 if($pagina>1){
-                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina-1)."'>«</a>";
+                                                    echo "<a class='page-numbers' href='?p=".($pagina-1)."'>«</a>";
                                                 }
                                                 for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                                                     if($i==$pagina){
                                                         echo "<span class='page-numbers current'>$i</span>";
                                                     }else{
-                                                        echo "<a class='page-numbers' href='/categorias/".$slug."&p=$i'>$i</a>";
+                                                        echo "<a class='page-numbers' href='?p=$i'>$i</a>";
                                                     }
                                                 }
                                                 if(($pagina+$paginas_mostrar)<$total_paginas){
                                                     echo "<span class='page-numbers'>...</span>";
                                                 }
                                                 if($pagina<$total_paginas){
-                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina+1)."'>»</a>";
+                                                    echo "<a class='page-numbers' href='?p=".($pagina+1)."'>»</a>";
                                                 }
 	                                    echo "</div>
 		                    			</div>";

@@ -1,9 +1,10 @@
 <?php include("cms/module/conexion.php"); ?>
-<?php $slug = $_REQUEST['slug'];
-$consultarCategoria = "SELECT * FROM productos_categorias WHERE slug='$slug'";
-$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-$filaCat = mysqli_fetch_array($resultadoCategoria);
-	$cod_categoria = $filaCat['cod_categoria'];
+<?php $sector_1= $_REQUEST['sector_1']; ?>
+<?php
+	$consultarSectores = "SELECT * FROM productos WHERE sector_1='$sector_1'";
+	$resultadoSectores = mysqli_query($enlaces,$consultarSectores) or die('Consulta fallida: ' . mysqli_error($enlaces));
+	$filaSec = mysqli_fetch_array($resultadoSectores);
+		$cod_sectores= $filaSec['cod_sectores'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,13 +49,7 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 	                        <ul class="trail-items">
 	                            <li class="trail-item"><a href="/index.php">Inicio</a></li>
 	                            <li class="trail-item"><a href="/tienda.php">Productos</a></li>
-	                            <?php
-			                    	$consultarCategoria = "SELECT * FROM productos_categorias WHERE cod_categoria='$cod_categoria'";
-			                    	$resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
-			                    	$filaCat = mysqli_fetch_array($resultadoCategoria);
-		                        		$xCategoria = $filaCat['categoria'];
-		                    	?>
-	                            <li><?php echo $xCategoria; ?></li>
+	                            <li>Sectores</li>
 	                        </ul>
 	                    </div><!-- /.breadcrumbs -->
 	                </div><!-- /.flat-wrapper -->
@@ -69,7 +64,7 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 		            	<div class="woocommerce">
 		                	<ul class="products">
 		                		<?php
-                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria'";
+                                    $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND sector_1='$sector_1'";
                                     $resultadoProductos = mysqli_query($enlaces, $consultarProductos);
                                     $total_registros = mysqli_num_rows($resultadoProductos);
                                     if($total_registros==0){
@@ -87,12 +82,12 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
                                        	$posicion = ($pagina-1)*$registros_por_paginas;
                                         $limite = "LIMIT $posicion, $registros_por_paginas";
                 
-                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND cod_categoria='$cod_categoria' ORDER BY orden ASC $limite";
+                                        $consultarProductos = "SELECT * FROM productos WHERE estado='1' AND sector_1='$sector_1' ORDER BY orden ASC $limite";
 			                			$resultadoProductos = mysqli_query($enlaces, $consultarProductos);
 			                        	while($filaPro = mysqli_fetch_array($resultadoProductos)){
 				                        	$xCodigo    = $filaPro['cod_producto'];
-				                        	$xSlug 		= $filaPro['slug'];
 				                        	$xProducto  = $filaPro['nom_producto'];
+				                        	$xSlug 		= $filaPro['slug'];
 				                        	$xImagen    = $filaPro['imagen'];
 			                    ?>
 		                        <li>
@@ -118,28 +113,29 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 		                    <?php
                                 $paginas_mostrar = 10;
                                 if ($total_paginas>1){
-                                		echo "<hr style='clear:both;'>
-		                    				<div class='navigation paging-navigation numeric'>
-		                    					<div class='flat-pagination loop-pagination'>";
+                                    echo "<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                                        	<nav class='pagin'>
+                                               	<ul class='pagination'>";
                                                 if($pagina>1){
-                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina-1)."'>«</a>";
+                                                    echo "<li><a href='?p=".($pagina-1)."' aria-label='Previous'><span aria-hidden='true'>«</span></a></li>";
                                                 }
                                                 for($i=$pagina; $i<=$total_paginas && $i<=($pagina+$paginas_mostrar); $i++){
                                                     if($i==$pagina){
-                                                        echo "<span class='page-numbers current'>$i</span>";
+                                                        echo "<li class='active'><a><strong><span>$i</span></strong></a></li>";
                                                     }else{
-                                                        echo "<a class='page-numbers' href='/categorias/".$slug."&p=$i'>$i</a>";
+                                                        echo "<li><a href='?p=$i'><span>$i</span></a></li>";
                                                     }
                                                 }
                                                 if(($pagina+$paginas_mostrar)<$total_paginas){
-                                                    echo "<span class='page-numbers'>...</span>";
+                                                    echo "<li><span>...</span></li>";
                                                 }
                                                 if($pagina<$total_paginas){
-                                                    echo "<a class='page-numbers' href='/categorias/".$slug."&p=".($pagina+1)."'>»</a>";
+                                                    echo "  <li><a href='?p=".($pagina+1)."' aria-label='Next'><span aria-hidden='true'>»</span></a></li>";
                                                 }
-	                                    echo "</div>
-		                    			</div>";
-                                	}
+                                                echo "  </ul>
+                                            </nav>
+                                        </div>";
+                                    }
                                 }
                             ?>
 		                </div>
@@ -147,7 +143,57 @@ $filaCat = mysqli_fetch_array($resultadoCategoria);
 					<!-- /.woocommerce -->
 				</div>
 				<div class="col-md-4 col-xs-12">
-					<?php include("module/menu-categorias.php"); ?>
+					<div class="widget widget_product_categories">
+		                <h4 class="widget-title">Categor&iacute;as</h4>
+		                <ul class="product-categories">
+		                	<?php
+		                        $consultarCategoria = "SELECT * FROM productos_categorias ORDER BY orden";
+		                        $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
+		                        while($filaCat = mysqli_fetch_array($resultadoCategoria)){
+		                         	$xCodigo    = $filaCat['cod_categoria'];
+		                         	$xCategoria = $filaCat['categoria'];
+		                         	$xSlug		= $filaCat['slug'];
+		                    ?>
+		                    <li><a href="/categorias/<?php echo $xSlug; ?>"><?php echo $xCategoria; ?></a></li>
+		                    <?php
+		                    	}
+		                    	mysqli_free_result($resultadoCategoria);
+		                    ?>
+		                </ul>
+		            </div>
+					<!--wigget productoos-->
+					<div class="widget widget_products">
+		                <h2 class="flat-title-section style mag-bottom0px">Productos <span class="scheme">M&aacute;s recientes</span></h2>
+		                <ul class="product_list_widget">
+		                	<?php
+		                		$consultarPro = "SELECT * FROM productos ORDER BY fecha_ing ASC LIMIT 2";
+			                    $resultadoPro = mysqli_query($enlaces, $consultarPro);
+			                    while($filaPro = mysqli_fetch_array($resultadoPro)){
+			                        $xCodigo    = $filaPro['cod_producto'];
+			                        $xCod_categoriax = $filaPro['cod_categoria'];
+			                        $xProducto  = $filaPro['nom_producto'];
+			                        $xImagen    = $filaPro['imagen'];
+			                ?>
+		                    <li>
+		                        <a href="/blog/<?php echo $xCodigo; ?>">
+		                            <img src="/cms/assets/img/productos/<?php echo $xImagen; ?>" alt="<?php echo $xProducto; ?>" />
+		                            <h5 class="box-title"><?php echo $xProducto; ?></h5>
+		                            <span class="amount"><?php 
+	                                    $consultaCat    = "SELECT * FROM productos_categorias WHERE cod_categoria='$xCod_categoriax'";
+	                                    $resultaCat     = mysqli_query($enlaces, $consultaCat);
+	                                    $filaCat        = mysqli_fetch_array($resultaCat);
+	                                    $xnomCat = $filaCat['categoria'];
+                                        echo $xnomCat; ?>
+                                    </span>
+		                        </a>
+		                    </li>
+		                    <?php
+		                    	}
+		                    	mysqli_free_result($resultadoPro); 
+		                    ?>
+		                </ul>
+		            </div>
+					<!--wigget productoos-->
 				</div>
 			</div>
 		</div>

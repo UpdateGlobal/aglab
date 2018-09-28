@@ -601,7 +601,7 @@
     var retinaLogos = function() {
       var retina = window.devicePixelRatio > 1 ? true : false;
         if( retina ) {
-            $( '.header .logo' ).find('img').attr( {src:'./images/colores.svg',width:'246',height:'60'} );   
+            $( '.header .logo' ).find('img').attr( {src:'/images/colores.svg',width:'246',height:'60'} );   
         }
     };   
 

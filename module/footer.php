@@ -48,7 +48,7 @@
             <div class="container" style="font-size: 10px;">
               <div class="row" align="center">
                 <div class="col-md-12">
-                  <p class="foo_bt">Aglab Perú 2018 &copy; | Desarrollo web <a href="#">Update Global Marketing</a> </p>   
+                  <p class="foo_bt">Aglab Perú 2018 &copy; | Desarrollo web <a href="https://update.pe/">Update Global Marketing</a> </p>   
                 </div>
               </div>
             </div>

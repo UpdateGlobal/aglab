@@ -34,8 +34,8 @@
     <?php include("module/head.php"); ?>
     <style>
       @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
-        td:nth-of-type(1):before { content: "Categorías"; }
-        td:nth-of-type(2):before { content: "Sectores"; }
+        td:nth-of-type(1):before { content: "Sectores"; }
+        td:nth-of-type(2):before { content: "Categorías"; }
         td:nth-of-type(3):before { content: "Producto"; }
         td:nth-of-type(4):before { content: "Imagen"; }
         td:nth-of-type(5):before { content: "Ficha"; }
@@ -100,11 +100,11 @@
                 <a class="btn btn-info" href="<?php if($xVisitante=="0"){ ?>productos-nuevo.php<?php }else{ ?>javascript:visitante();<?php } ?>"><i class="fa fa-plus"></i> A&ntilde;adir nuevo</a>
                 <hr>
                 <form name="fcms" method="post" action="">
-                  <table class="table" data-provide="datatables">
+                  <table class="table">
                     <thead>
                       <tr>
-                        <th width="20%" scope="col">Categor&iacute;as</th>
                         <th width="20%" scope="col">Sectores</th>
+                        <th width="20%" scope="col">Categor&iacute;as</th>
                         <th width="20%" scope="col">Producto</th>
                         <th width="15%" scope="col">Imagen
                           <input type="hidden" name="proceso">
@@ -119,44 +119,20 @@
                     </thead>
                     <tbody>
                       <?php
-                        $consultarPro = "SELECT cp.cod_categoria, cp.categoria, p.* FROM productos_categorias as cp, productos as p WHERE p.cod_categoria=cp.cod_categoria ORDER BY p.orden ASC";
+                        $consultarPro = "SELECT cp.cod_categoria, cp.categoria, sp.cod_sectores, sp.sector, p.* FROM productos_categorias as cp, productos_sectores as sp, productos as p WHERE p.cod_categoria=cp.cod_categoria AND p.cod_sectores=sp.cod_sectores ORDER BY p.orden ASC";
                         $resultadoPro = mysqli_query($enlaces, $consultarPro);
                         while($filaPro = mysqli_fetch_array($resultadoPro)){
                           $xCodigo    = $filaPro['cod_producto'];
                           $xCategoria = $filaPro['categoria'];
+                          $xSectores  = $filaPro['sector'];
                           $xProducto  = $filaPro['nom_producto'];
                           $xImagen    = $filaPro['imagen'];
                           $xFicha     = $filaPro['ficha'];
-                          $sector_1   = $filaPro['sector_1'];
-                          $sector_2   = $filaPro['sector_2'];
-                          $sector_3   = $filaPro['sector_3'];
-                          $sector_4   = $filaPro['sector_4'];
-                          $sector_5   = $filaPro['sector_5'];
-                          $sector_6   = $filaPro['sector_6'];
-                          $sector_7   = $filaPro['sector_7'];
-                          $sector_8   = $filaPro['sector_8'];
-                          $sector_9   = $filaPro['sector_9'];
-                          $sector_10  = $filaPro['sector_10'];
-                          $sector_11  = $filaPro['sector_11'];
-                          $sector_12  = $filaPro['sector_12'];
                           $xEstado    = $filaPro['estado'];
                       ?>
                       <tr>
                         <td><?php echo $xCategoria; ?></td>
-                        <td>
-                          <?php if($sector_1=="1"){echo "[Agroindustria]<br>";} ?>
-                          <?php if($sector_2=="1"){echo "[Alimentos y Bebidas]<br>";} ?>
-                          <?php if($sector_3=="1"){echo "[Automotriz]<br>";} ?>
-                          <?php if($sector_4=="1"){echo "[Hoteles y Restaurantes]<br>";} ?>
-                          <?php if($sector_5=="1"){echo "[Lavandería]<br>";} ?>
-                          <?php if($sector_6=="1"){echo "[Metalmecánica]<br>";} ?>
-                          <?php if($sector_7=="1"){echo "[Pesquero]<br>";} ?>
-                          <?php if($sector_8=="1"){echo "[Salud]<br>";} ?>
-                          <?php if($sector_9=="1"){echo "[Minería]<br>";} ?>
-                          <?php if($sector_10=="1"){echo "[Textiles]<br>";} ?>
-                          <?php if($sector_11=="1"){echo "[Retail]<br>";} ?>
-                          <?php if($sector_12=="1"){echo "[Productos Especiales]<br>";} ?>
-                        </td>
+                        <td><?php echo $xSectores; ?></td>
                         <td><?php echo $xProducto; ?></td>
                         <td><img class="d-block b-1 border-light hover-shadow-2 p-1 img-admin" src="assets/img/productos/<?php echo $xImagen; ?>" /></td>
                         <td><strong><?php if($xFicha!=""){echo "<i class='fa fa-file-pdf-o'></i> ";} ?></strong></td>

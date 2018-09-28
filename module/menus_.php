@@ -37,66 +37,30 @@
                                                             <h5 class="btn-mega">Sectores</h5>
                                                         </div>
                                                         <ul class="mega-menu-sub" style="text-align: center;">
+                                                            <?php
+                                                                $consultarSector = "SELECT * FROM productos_sectores WHERE estado='1' ORDER BY orden ASC";
+                                                                $resultadoSector = mysqli_query($enlaces, $consultarSector);
+                                                                while($filaSc = mysqli_fetch_array($resultadoSector)){
+                                                                    $xCodigo   = $filaSc['cod_sectores'];
+                                                                    $xSlug     = $filaSc['slug'];
+                                                                    $xSectores = $filaSc['sector'];
+
+                                                                    $consultaSector = "SELECT * FROM productos WHERE cod_sectores=$xCodigo AND estado='1'";
+                                                                    $resultadosSector = mysqli_query($enlaces,$consultaSector);
+                                                                    $num = mysqli_num_rows($resultadosSector);
+                                                            ?>
+                                                            <?php if($num==0){}else{ ?>
                                                             <li>
                                                                 <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-agroindustria.php">Agroindustria</a>
+                                                                    <a class="viewt" href="/sectores/<?php echo $xSlug; ?>"><?php echo $xSectores; ?></a>
                                                                 </div>
+                                                                
                                                             </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-alimentos.php">Alimentos y Bebidas</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-automotriz.php">Automotriz</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-hoteles.php">Hoteles y Restaurantes</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-lavanderia.php">Lavander&iacute;a</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-metalmecanica.php">Metalmec&aacute;nica</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-pesquero.php">Pesquero</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-salud.php">Salud</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-mineria.php">Miner&iacute;a</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-textiles.php">Textiles</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-retail.php">Retail</a>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="col-md-6">
-                                                                    <a class="viewt" href="sector-especiales.php">Productos Especiales</a>
-                                                                </div>
-                                                            </li>
+                                                            <?php } ?>
+                                                            <?php
+                                                                }
+                                                                mysqli_free_result($resultadoSector);
+                                                            ?>
                                                         </ul>
                                                     </div><!-- /.col-md-6 -->
                                                     <div class="col-md-6" style="border-left: 1px solid #fff;">

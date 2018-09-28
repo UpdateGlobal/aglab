@@ -150,7 +150,7 @@
                                         <h4 class="widget-title">Categor&iacute;as</h4>
                                         <ul class="product-categories">
                                         <?php
-                                            $consultarCategoria = "SELECT * FROM noticias_categorias ORDER BY orden";
+                                            $consultarCategoria = "SELECT * FROM noticias_categorias WHERE estado='1' ORDER BY orden";
                                             $resultadoCategoria = mysqli_query($enlaces,$consultarCategoria) or die('Consulta fallida: ' . mysqli_error($enlaces));
                                             while($filaCat = mysqli_fetch_array($resultadoCategoria)){
                                                 $xCodigo    = $filaCat['cod_categoria'];
